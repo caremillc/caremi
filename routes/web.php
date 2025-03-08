@@ -4,7 +4,11 @@ use Careminate\Routing\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Post\PostController;
 
-Route::get('/', HomeController::class,'index');
+//Route::get('/', HomeController::class,'index');
+Route::get('/',function(){
+    // echo"welcome to web page";
+	return "welcome to web annoymous page";
+});
 Route::get('/about', HomeController::class,'about');
 Route::get('/contact', HomeController::class,'contact');
 
