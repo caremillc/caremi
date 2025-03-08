@@ -4,4 +4,5 @@ define('BASE_PATH', dirname(__DIR__));
 
 require_once BASE_PATH . '/vendor/autoload.php';
 
-echo "Hello World";
+$pplication = new Careminate\Application;
+$pplication->start();
