@@ -5,15 +5,15 @@ class HomeController extends Controller
 {
     public function index()
     {
-        echo 'welcome to home index page';
+        return view('home',['title'=>'home page']);
     }
 
     public function about()
     {
-        echo 'welcome to home about page'; 
+        return view('about',['title'=>'about page']);
     }
     public function contact()
     {
-        echo 'welcome to home contact page'; 
+        return view('contact',['title'=>'contact page']); 
     }
 }
