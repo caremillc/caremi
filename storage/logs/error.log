@@ -14,3 +14,14 @@
 2025-03-10 00:45:23 - Error: Route not found: favicon.ico in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 127
 2025-03-10 01:00:58 - Error: Route not found: favicon.ico in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 127
 2025-03-10 01:01:05 - Error: Route not found: favicon.ico in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 127
+2025-03-10 01:14:39 - Error: Route not found: favicon.ico in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 127
+2025-03-10 01:14:45 - Error: Route not found: admin/posts/posts/store in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 127
+2025-03-10 01:20:08 - Error: Route not found: favicon.ico in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 127
+2025-03-10 01:20:12 - Error: Route not found: admin/posts/posts/store in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 127
+2025-03-10 01:21:03 - Error: Route not found: favicon.ico in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 127
+2025-03-10 01:21:08 - Error: Route not found: favicon.ico in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 127
+2025-03-10 01:21:10 - Error: Route not found: favicon.ico in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 127
+2025-03-10 01:21:16 - Error: Route not found: posts/posts/store in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 127
+2025-03-10 01:22:19 - Error: Route not found: posts/posts/store in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 127
+2025-03-10 01:22:19 - Error: Route not found: favicon.ico in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 127
+2025-03-10 01:44:22 - Error: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in C:\xampp\htdocs\caremi\framework\Careminate\Databases\Drivers\MySQLConnection.php on line 34
