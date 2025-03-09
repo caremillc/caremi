@@ -1,12 +1,25 @@
 <?php 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
+use Careminate\Http\Responses\ApiResponse;
 
-class ApiController extends Controller 
+class ApiController
 {
     public function index()
     {
-        return view('apis.index'); 
+        // Sample API action
+        return ApiResponse::json([
+            'message' => 'Welcome to the API',
+            'status'  => 'success'
+        ]);
+    }
+
+    public function showUser($id)
+    {
+        // Sample API action with dynamic parameter
+        return ApiResponse::json([
+            'message' => 'User data',
+            'user'    => ['id' => $id, 'name' => 'John Doe']
+        ]);
     }
 }

@@ -6,10 +6,10 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Post\PostController;
 
 
-//Route::get('/', HomeController::class, 'index');
-Route::get('/',function(){
-    return  Session::get('locale');
-});
+Route::get('/', HomeController::class, 'index');
+// Route::get('/',function(){
+//     return  Session::get('locale');
+// });
 
 Route::group(['prefix'=>'front'], function(){
     Route::get('/about', HomeController::class,'about');
