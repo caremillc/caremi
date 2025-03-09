@@ -13,4 +13,6 @@ Route::group(['prefix' => 'api', 'middleware' => [App\Http\Middlewares\Middlewar
     Route::get('hello', function () {
         return 'Hello, API!';
     });
-});
+}); 
+
+
