@@ -5,6 +5,7 @@ use Careminate\FrameworkSetting;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Post\PostController;
 use App\Http\Controllers\Locale\LocaleController;
+use App\Http\Controllers\Dashboard\DashboardController;
 
 Route::get('/', HomeController::class, 'index');
 // Route::get('/', function() {
@@ -25,6 +26,9 @@ Route::group(['prefix'=>'admin'], function(){
     Route::get('posts/{id}/edit', PostController::class, 'edit');
     Route::put('posts/{id}/update', PostController::class, 'update');
     Route::delete('posts/{id}/destroy', PostController::class, 'destroy');
+
+    //dashboard 
+    Route::get('/dashboard', DashboardController::class, 'index');
 });
 
 Route::get('/set-locale/{locale}', [LocaleController::class, 'setLocale']);

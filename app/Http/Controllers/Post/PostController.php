@@ -3,35 +3,34 @@ namespace App\Http\Controllers\Post;
 
 use App\Http\Controllers\Controller;
 
-class PostController extends Controller 
+class PostController extends Controller
 {
     public function index()
     {
-        return 'welcome to post index page';
+        return view('posts.index');
     }
-
     public function create()
     {
-        return 'welcome to post create page'; 
+        return view('posts.create');
     }
     public function store()
     {
-        return 'welcome to post store page'; 
+        return redirect('posts');
     }
-    public function edit(int $id)
+    public function show($id)
     {
-        return 'welcome to post edit page id '.$id; 
+        return redirect('posts.show');
     }
-    public function update(int $id)
+    public function edit($id)
     {
-        return 'welcome to post update page id '.$id; 
+        return redirect('posts.edit');
     }
-    public function show(int $id)
+    public function update($id)
     {
-        return 'welcome to post show page '.$id; 
+        return redirect('posts');
     }
-    public function destroy(int $id)
+    public function destroy($id)
     {
-        return 'welcome to post delete page id'.$id; 
+        return redirect('posts');
     }
 }
