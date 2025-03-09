@@ -1,17 +1,19 @@
 <?php 
 
 use Careminate\Routing\Route;
+use Careminate\Sessions\Session;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Post\PostController;
 
 
-Route::get('/', HomeController::class, 'index',['middleware,admin']);
-// Route::get('/',function(){
-//     return "welcome to web anonymous page";
-// }, ['middleware,admin']);
+//Route::get('/', HomeController::class, 'index');
+Route::get('/',function(){
+    return  Session::get('locale');
+});
 
 Route::group(['prefix'=>'front'], function(){
     Route::get('/about', HomeController::class,'about');
+    Route::get('/contact', HomeController::class,'contact');
 });
 
 Route::group(['prefix'=>'admin'], function(){
