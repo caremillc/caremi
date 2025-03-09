@@ -8,9 +8,10 @@ use App\Http\Controllers\Locale\LocaleController;
 
 Route::get('/', HomeController::class, 'index');
 // Route::get('/', function() {
-//     FrameworkSetting::setLocale('ar');
+//     FrameworkSetting::setLocale('en');
 //     return trans('app.info');
 // });
+
 
 Route::group(['prefix'=>'front'], function(){
     Route::get('/about', HomeController::class,'about');
