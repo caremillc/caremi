@@ -1,3 +1,156 @@
 #!/usr/bin/env php
-<?php // caremi
-//$argv
+<?php
+
+// Check if the script is run in the CLI mode
+if (php_sapi_name() === 'cli') {
+    // Access the command-line arguments
+    $command = $_SERVER['argv'][1] ?? null;  // Default to null if no argument is passed
+    
+    // Define the target and path for the symlink
+    $linkTarget = __DIR__ . '/storage/app/public';
+    $linkPath = __DIR__ . '/public/storage';
+
+    // If no command is provided, show available commands
+    if (!$command || $command === 'help') {
+        showHelp();
+        exit;
+    }
+
+    // Handle the command
+    switch ($command) {
+        case 'storage:link':
+            linkStorage($linkTarget, $linkPath);
+            break;
+        case 'storage:unlink':
+            unlinkStorage($linkPath);
+            break;
+        case 'view:clear':
+            clearViews();
+            break;
+        case 'session:clear':
+            clearSessions();
+            break;
+        case 'log:clear':
+                clearLogs();
+                break;
+        case 'app:down':
+            downApp();
+            break;
+        case 'app:up':
+            upApp();
+            break;
+        default:
+            echo "Unknown command: $command" . PHP_EOL;
+            showHelp(); // Show available commands when the command is invalid
+            break;
+    }
+}
+
+// Show available commands
+function showHelp()
+{
+    echo "  Available commands:\n";
+    echo "  storage:link    - Create a symlink for the storage directory.\n";
+    echo "  storage:unlink  - Remove the symlink for the storage directory.\n";
+    echo "  view:clear      - Clear the cached views.\n";
+    echo "  session:clear   - Clear the session files.\n";
+    echo "  log:clear       - Clear the log files.\n";
+    echo "  app:down        - Put the application in maintenance mode.\n";
+    echo "  app:up          - Bring the application back online.\n";
+    echo "  help            - Display this help message.\n";
+}
+
+// Link storage
+function linkStorage($linkTarget, $linkPath)
+{
+    echo "Running storage:link..." . PHP_EOL;
+    echo "Link target: $linkTarget" . PHP_EOL;
+    echo "Link path: $linkPath" . PHP_EOL;
+
+    if (!file_exists($linkPath) && symlink($linkTarget, $linkPath)) {
+        echo 'Storage is Linked' . PHP_EOL;
+    } else {
+        echo 'Storage already Linked' . PHP_EOL;
+    }
+}
+
+// Unlink storage
+function unlinkStorage($linkPath)
+{
+    echo "Running storage:unlink..." . PHP_EOL;
+    echo "Link path: $linkPath" . PHP_EOL;
+
+    if (is_link($linkPath) && @unlink($linkPath)) {
+        echo 'Storage symlink removed successfully.' . PHP_EOL;
+    } else {
+        echo is_link($linkPath) ? 'Failed to remove the symlink. Check permissions.' : 'No symlink found to unlink.' . PHP_EOL;
+    }
+}
+
+// Clear views cache
+function clearViews()
+{
+    $path = 'storage/views';
+    $files = glob("$path/*");
+
+    foreach ($files as $file) {
+        if (is_file($file)) {
+            unlink($file);
+        }
+    }
+    echo 'Views are cleared' . PHP_EOL;
+}
+
+// Clear sessions cache
+function clearSessions()
+{
+    $path = 'storage/sessions';
+    $files = glob("$path/*");
+
+    foreach ($files as $file) {
+        if (is_file($file)) {
+            unlink($file);
+        }
+    }
+    echo 'Sessions are cleared' . PHP_EOL;
+}
+
+// Clear sessions cache
+function clearLogs()
+{
+    $path = 'storage/logs';
+    $files = glob("$path/*");
+
+    foreach ($files as $file) {
+        if (is_file($file)) {
+            unlink($file);
+        }
+    }
+    echo 'Logs are cleared' . PHP_EOL;
+}
+
+// Put the app in maintenance mode
+function downApp()
+{
+    $filePath = 'maintenance.flag';
+
+    if (!file_exists($filePath)) {
+        file_put_contents($filePath, 'Maintenance mode is active.');
+        echo 'Application is now in maintenance mode.' . PHP_EOL;
+    } else {
+        echo 'Application is already in maintenance mode.' . PHP_EOL;
+    }
+}
+
+// Bring the app back online
+function upApp()
+{
+    $filePath = 'maintenance.flag';
+
+    if (file_exists($filePath)) {
+        unlink($filePath);
+        echo 'Application is now live.' . PHP_EOL;
+    } else {
+        echo 'Application is already live.' . PHP_EOL;
+    }
+}
