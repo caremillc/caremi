@@ -4,6 +4,7 @@ use Dotenv\Dotenv;
 use Careminate\Application;
 use League\Container\Container;
 use Careminate\Http\Requests\Request;
+use Careminate\Http\Responses\Response;
 use App\Providers\LocaleServiceProvider;
 use Careminate\ServiceProviders\LocaleService;
 
@@ -24,8 +25,7 @@ $dotenv->load();
  // Start capturing the current timestamp to calculate processing time
  $requestStartTime = microtime(true);
 
-// Initialize the HttpKernel to check PHP version and maintenance mode
-// $kernel = new Careminate\Http\HttpKernel();
+
 
 // Initialize the service container
 $container = new Container();
@@ -43,7 +43,13 @@ $container->add(Application::class, function () use ($container) {
 // request received
 $request = Request::createFromGlobals();
 
+// Initialize the HttpKernel to check PHP version and maintenance mode
+$kernel = new Careminate\Http\HttpKernel();
 
+// send response (string of content)
+$response = $kernel->handle($request);
+
+$response->send();
 
 try {
     // Initialize the application
@@ -69,4 +75,4 @@ echo "Request processed in " . number_format($executionTime, 4) . " seconds.\n";
 
 // Debug: Dump the request
 echo "<pre>";
-dd($request);
+dd($response);
