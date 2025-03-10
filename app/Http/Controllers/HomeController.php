@@ -12,7 +12,7 @@ class HomeController extends Controller
 		// var_dump(request('user_id'));
         // exit;
         var_dump(new User());
-        return view('home',[$title ='Home page']);
+        return view('home',['title'=>'Home page']);
     }
 
 }
