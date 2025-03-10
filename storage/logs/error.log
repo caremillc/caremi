@@ -25,3 +25,20 @@
 2025-03-10 01:22:19 - Error: Route not found: posts/posts/store in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 127
 2025-03-10 01:22:19 - Error: Route not found: favicon.ico in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 127
 2025-03-10 01:44:22 - Error: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in C:\xampp\htdocs\caremi\framework\Careminate\Databases\Drivers\MySQLConnection.php on line 34
+2025-03-10 14:12:22 - Error: Route not found: favicon.ico in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 127
+2025-03-10 14:25:55 - Error: Route not found: favicon.ico in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 127
+2025-03-10 14:32:22 - Error: Route not found: favicon.ico in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 127
+2025-03-10 14:44:38 - Error: Route not found: favicon.ico in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 127
+2025-03-10 14:45:39 - Error: Route not found: favicon.ico in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 127
+2025-03-10 14:45:40 - Error: Route not found: favicon.ico in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 127
+2025-03-10 15:01:17 - Error: Route not found: favicon.ico in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 127
+2025-03-10 15:06:14 - Error: Route not found: favicon.ico in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 127
+2025-03-10 15:13:31 - Error: Route not found: favicon.ico in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 127
+2025-03-10 15:19:03 - Error: Route not found: favicon.ico in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 127
+2025-03-10 15:20:27 - Error: Route not found: favicon.ico in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 127
+2025-03-10 15:35:31 - Error: Route not found: favicon.ico in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 127
+2025-03-10 15:40:14 - Error: Route not found: favicon.ico in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 132
+2025-03-10 15:41:30 - Error: Route not found: favicon.ico in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 132
+2025-03-10 17:46:21 - Error: Route not found: favicon.ico in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 132
+2025-03-10 17:56:32 - Error: Route not found: favicon.ico in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 132
+2025-03-10 18:15:34 - Error: Route not found: favicon.ico in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 132
