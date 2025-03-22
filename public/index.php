@@ -1,6 +1,5 @@
 <?php declare(strict_types=1); // public/index.php
 
-use Careminate\Routing\Router;
 use Careminate\Http\Kernel;
 use Careminate\Http\Requests\Request;
 
@@ -14,14 +13,14 @@ $requestStartTime = microtime(true);
 // Include Composer autoload to load dependencies
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
+// passing the kernel to the Container
+$container = require BASE_PATH . '/config/container.php';
+
 // request received
 $request = Request::createFromGlobals();
 
-//instantiate router
-$router = new Router();
-
 // Initializes the application's kernel 
-$kernel = new Kernel($router);
+$kernel =  $container->get(Kernel::class); 
 
 // send response (string of content)
 $response = $kernel->handle($request);
