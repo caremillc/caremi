@@ -6,6 +6,7 @@ use Careminate\Http\Requests\Request;
 define('CAREMI_START', microtime(true));
 define('BASE_PATH', dirname(__DIR__));
 define('ROOT_PATH', dirname(__FILE__));
+define('ROOT_DIR', dirname(__FILE__));
 
 // Capture the current timestamp to calculate the processing time
 $requestStartTime = microtime(true);

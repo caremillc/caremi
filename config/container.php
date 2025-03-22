@@ -1,7 +1,4 @@
-<?php
-
-declare(strict_types=1);
-
+<?php // config/container.php
 // Load environment variables
 $dotenv = new \Symfony\Component\Dotenv\Dotenv();
 $dotenv->load(dirname(__DIR__) . '/.env');
@@ -14,9 +11,9 @@ $container->delegate(new \League\Container\ReflectionContainer(true));
 #parameters
 // Load application routes from an external configuration file.
 $routes = include BASE_PATH . '/routes/web.php';
-
-#templates 
 $templatesPath = BASE_PATH . '/templates';
+#sqlite path
+$databaseUrl = 'sqlite:///' . BASE_PATH . '/database/database.sqlite';
 
 #env parameters
 $appEnv = env('APP_ENV', 'production'); // Default to 'production' if not set
@@ -46,14 +43,24 @@ $container->addShared('filesystem-loader', \Twig\Loader\FilesystemLoader::class)
 
 // twig alias    
 $container->addShared('twig', \Twig\Environment::class)
-    ->addArgument('filesystem-loader');
-
+          ->addArgument('filesystem-loader');
+		  
 //add AbstractController      
 $container->add(Careminate\Http\Controllers\AbstractController::class);
 
-//invokeMethod the container when AbstractController is called
+//setContainer
 $container->inflector(Careminate\Http\Controllers\AbstractController::class)
-    ->invokeMethod('setContainer', [$container]);
+          ->invokeMethod('setContainer', [$container]);
 
-// dd($container);
+# dbal connection 
+$container->add(Careminate\Databases\Dbal\ConnectionFactory::class)
+->addArguments([
+    new \League\Container\Argument\Literal\StringArgument($databaseUrl)
+]);
+
+$container->addShared(\Doctrine\DBAL\Connection::class, function () use ($container): \Doctrine\DBAL\Connection {
+return $container->get(Careminate\Databases\Dbal\ConnectionFactory::class)->create();
+});
+
+//  dd($container);
 return $container;

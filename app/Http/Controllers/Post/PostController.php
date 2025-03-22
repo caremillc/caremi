@@ -7,16 +7,15 @@ use Careminate\Http\Responses\Response;
 class PostController extends Controller
 {
     public function index(): Response
-    { 
-        $posts = "All Posts";
-
-       return view('posts/index.html.twig', compact('posts'));
+    {
+        // Your logic here
+        return new Response('<h1>Post Index</h1>');
     }
 
     public function create(): Response
     {
         // Your logic here
-        return view('posts/create.html.twig');
+        return new Response('<h1>Create Post</h1>');
     }
 
     public function store(): Response
@@ -28,15 +27,13 @@ class PostController extends Controller
     public function show(int $id): Response
     {
         // Your logic here
-        $postId = "<h1>Show Post with ID: $id</h1>";
-        return view('posts/show.html.twig', compact('postId'));
+        return new Response("<h1>Show Post with ID: $id</h1>");
     }
 
     public function edit(int $id): Response
     {
         // Your logic here
-        $postId = "<h1>Edit Post with ID: $id</h1>";
-        return view('posts/edit.html.twig', compact('postId'));
+        return new Response("<h1>Edit Post with ID: $id</h1>");
     }
 
     public function update(int $id): Response
@@ -51,5 +48,4 @@ class PostController extends Controller
         return new Response("<h1>Delete Post with ID: $id</h1>");
     }
 }
-
  
