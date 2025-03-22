@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 // Load environment variables
 $dotenv = new \Symfony\Component\Dotenv\Dotenv();
@@ -12,6 +14,9 @@ $container->delegate(new \League\Container\ReflectionContainer(true));
 #parameters
 // Load application routes from an external configuration file.
 $routes = include BASE_PATH . '/routes/web.php';
+
+#templates 
+$templatesPath = BASE_PATH . '/templates';
 
 #env parameters
 $appEnv = env('APP_ENV', 'production'); // Default to 'production' if not set
@@ -28,13 +33,27 @@ $container->add(\Careminate\Routing\RouterInterface::class, \Careminate\Routing\
 
 // Extend RouterInterface definition to inject routes
 $container->extend(Careminate\Routing\RouterInterface::class)
-          ->addMethodCall('setRoutes', [new League\Container\Argument\Literal\ArrayArgument($routes)]);
+    ->addMethodCall('setRoutes', [new League\Container\Argument\Literal\ArrayArgument($routes)]);
 
 // $container->add(Careminate\Http\HttpKernel::class)
 //           ->addArgument(Careminate\Routing\RouterInterface::class);
 $container->add(Careminate\Http\Kernel::class)
-          ->addArgument(Careminate\Routing\RouterInterface::class)
-          ->addArgument($container);
+    ->addArgument(Careminate\Routing\RouterInterface::class)
+    ->addArgument($container);
+
+$container->addShared('filesystem-loader', \Twig\Loader\FilesystemLoader::class)
+    ->addArgument(new \League\Container\Argument\Literal\StringArgument($templatesPath));
+
+// twig alias    
+$container->addShared('twig', \Twig\Environment::class)
+    ->addArgument('filesystem-loader');
+
+//add AbstractController      
+$container->add(Careminate\Http\Controllers\AbstractController::class);
+
+//invokeMethod the container when AbstractController is called
+$container->inflector(Careminate\Http\Controllers\AbstractController::class)
+    ->invokeMethod('setContainer', [$container]);
 
 // dd($container);
 return $container;
