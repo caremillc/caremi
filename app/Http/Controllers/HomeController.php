@@ -1,16 +1,21 @@
-<?php 
+<?php
+
 namespace App\Http\Controllers;
 
-class HomeController extends Controller 
+class HomeController extends Controller
 {
-
     public function index()
     {
-        echo "welcome to home page";
+        return 'Welcome to the home index page';
     }
 
     public function about()
     {
-        echo "welcome to about page";
+        return 'Welcome to the home about page';
+    }
+
+    public function articles($id, $slug)
+    {
+        return "This is the article with ID $id and slug $slug";
     }
 }
