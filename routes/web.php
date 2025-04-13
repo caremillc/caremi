@@ -6,9 +6,12 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Post\PostController;
 
 // Correct: closure as controller, null action, middleware in 4th param
-Route::get('/', function () {
-    return "Welcome to the web anonymous page";
-}, null, [Middleware::class . ',admin,user']);
+// Route::get('/', function () {
+//     return "Welcome to the web anonymous page";
+// }, null, [Middleware::class . ',admin,user']);
+
+// Controller routes with middleware
+Route::get('/', HomeController::class, 'index',[Middleware::class . ',admin,user']);
 
 // Controller routes without middleware
 Route::get('/about', HomeController::class, 'about');
