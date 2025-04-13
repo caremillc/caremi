@@ -6,7 +6,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return 'Welcome to the home index page';
+        $title = 'page title';
+        return view('home',compact('title'));
     }
 
     public function about()
