@@ -11,19 +11,23 @@ use App\Http\Controllers\Post\PostController;
 // }, null, [Middleware::class . ',admin,user']);
 
 // Controller routes with middleware
-Route::get('/', HomeController::class, 'index',[Middleware::class . ',admin,user']);
+Route::group(['prefix'=>'front'], function(){
+    Route::get('/', HomeController::class, 'index',[Middleware::class . ',admin,user']);
 
 // Controller routes without middleware
-Route::get('/about', HomeController::class, 'about');
-Route::get('/articles/{id}/{slug}', HomeController::class, 'articles');
+    Route::get('/about', HomeController::class, 'about');
+    Route::get('/articles/{id}/{slug}', HomeController::class, 'articles');
+});
 
-// PostController resource-style routes
-Route::get('/posts', PostController::class, 'index');
-Route::get('posts/create', PostController::class, 'create');
-Route::post('posts/store', PostController::class, 'store');
-Route::get('posts/{id}/show', PostController::class, 'show');
-Route::get('posts/{id}/edit', PostController::class, 'edit');
-Route::put('posts/{id}/update', PostController::class, 'update');
-Route::delete('posts/{id}/destroy', PostController::class, 'destroy');
+Route::group(['prefix'=>'admin'], function(){
+    // PostController resource-style routes
+    Route::get('/posts', PostController::class, 'index');
+    Route::get('posts/create', PostController::class, 'create');
+    Route::post('posts/store', PostController::class, 'store');
+    Route::get('posts/{id}/show', PostController::class, 'show');
+    Route::get('posts/{id}/edit', PostController::class, 'edit');
+    Route::put('posts/{id}/update', PostController::class, 'update');
+    Route::delete('posts/{id}/destroy', PostController::class, 'destroy');
+});
 
 
