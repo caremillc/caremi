@@ -1,21 +1,23 @@
 <?php
 
 use Careminate\Routing\Route;
+use Careminate\FrameworkSetting;
 use App\Http\Middlewares\Middleware;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Post\PostController;
 
-Route::get('/', HomeController::class, 'index');
-// Correct: closure as controller, null action, middleware in 4th param
-// Route::get('/', function () {
-//     return "Welcome to the web anonymous page";
-// }, null, [Middleware::class . ',admin,user']);
+// Route::get('/', HomeController::class, 'index', ['middleware,admin,user']);
+Route::get('/',function(){
+    FrameworkSetting::setLocale('ar');
+    return FrameworkSetting::getLocale();
+});
 
 // Controller routes with middleware
 Route::group(['prefix'=>'front'], function(){
+    //home
     Route::get('/', HomeController::class, 'index',[Middleware::class . ',admin,user']);
 
-// Controller routes without middleware
+    // Controller routes without middleware
     Route::get('/about', HomeController::class, 'about');
     Route::get('/articles/{id}/{slug}', HomeController::class, 'articles');
 });

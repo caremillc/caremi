@@ -1,20 +1,22 @@
 <?php
 
 use Careminate\Routing\Route;
+use Careminate\FrameworkSetting;
 use App\Http\Middlewares\Middleware;
 use App\Http\Middlewares\AdminMiddleware;
-
 
 Route::group(['prefix'=>'/api/','middleware'=>[Middleware::class]], function(){  //this
     //api
     Route::get('/', function(){
-        return 'Welcome to api routes';
-    });
+        FrameworkSetting::setLocale('ar');
+        return FrameworkSetting::getLocale();
+        // return  Session::get('locale');
+   });
 
       //api/users
     Route::get('/users', function(){
         return 'Welcome to users api routes';
-    },null,[AdminMiddleware::class]);
+    },'',[AdminMiddleware::class]);
 
      //api/article
      Route::get('/articles', function(){
