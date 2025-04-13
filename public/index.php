@@ -8,8 +8,7 @@ define('PUBLIC_PATH', __DIR__);
 
 require_once BASE_PATH . '/bootstrap/app.php';
 
- // Display the current timezone and time for debugging purposes
- var_dump(date_default_timezone_get(), date('h:i:s'));
+
 
 try {
     // Bootstrap the app
@@ -19,6 +18,3 @@ $app = (new Careminate\Application())->start();
     http_response_code(500);
     echo "Application error: " . $e->getMessage();
 } 
-
-// Display timezone and time again after application startup
-var_dump(date_default_timezone_get(), date('h:i:s'));

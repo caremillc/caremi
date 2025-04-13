@@ -19,4 +19,8 @@ class HomeController extends Controller
     {
         return "This is the article with ID $id and slug $slug";
     }
+    public function any_api()
+    {
+        return "This is the any_api ";
+    }
 }

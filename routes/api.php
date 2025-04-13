@@ -3,16 +3,17 @@
 use Careminate\Routing\Route;
 use Careminate\FrameworkSetting;
 use App\Http\Middlewares\Middleware;
+use App\Http\Controllers\HomeController;
 use App\Http\Middlewares\AdminMiddleware;
+use App\Http\Controllers\Api\ApiController;
+
 
 Route::group(['prefix'=>'/api/','middleware'=>[Middleware::class]], function(){  //this
     //api
-    Route::get('/', function(){
-        FrameworkSetting::setLocale('ar');
-        return FrameworkSetting::getLocale();
-        // return  Session::get('locale');
-   });
+    Route::get('/', ApiController::class, 'index', [AdminMiddleware::class]);
 
+   Route::get('any', HomeController::class, 'any_api', [AdminMiddleware::class]);
+   
       //api/users
     Route::get('/users', function(){
         return 'Welcome to users api routes';
