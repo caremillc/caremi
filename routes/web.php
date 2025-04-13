@@ -1,17 +1,15 @@
 <?php 
 
 use Careminate\Routing\Route;
-use Careminate\Sessions\Session;
 use App\Http\Middlewares\Middleware;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Post\PostController;
         
         
-// Route::get('/', HomeController::class,'index');
+// Route::get('/', HomeController::class,'index',[Middleware::class]);
 Route::get('/', function(){
-    return Session::get('users');
-    // return 'anonymouse route';
-});
+    return 'anonymouse route';
+},'',[Middleware::class]);
 Route::get('/about', HomeController::class,'about');
 Route::get('/articles/{id}/{slug}', HomeController::class, 'articles');
 
