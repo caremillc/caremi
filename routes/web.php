@@ -2,16 +2,16 @@
 
 use Careminate\Routing\Route;
 use Careminate\FrameworkSetting;
+use Careminate\Sessions\Session;
 use App\Http\Middlewares\Middleware;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Post\PostController;
 
 // Route::get('/', HomeController::class, 'index', ['middleware,admin,user']);
-Route::get('/',function(){
-    FrameworkSetting::setLocale('ar');
-    return FrameworkSetting::getLocale();
-});
-
+Route::get('/', function(){
+    FrameworkSetting::setLocale('en');
+    return trans('app.name');
+ });
 // Controller routes with middleware
 Route::group(['prefix'=>'front'], function(){
     //home
