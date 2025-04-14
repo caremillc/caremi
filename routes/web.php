@@ -1,5 +1,6 @@
 <?php
 
+use Careminate\Locale\Lang;
 use Careminate\Routing\Route;
 use Careminate\FrameworkSetting;
 use Careminate\Sessions\Session;
@@ -7,11 +8,14 @@ use App\Http\Middlewares\Middleware;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Post\PostController;
 
-// Route::get('/', HomeController::class, 'index', ['middleware,admin,user']);
-Route::get('/', function(){
-    FrameworkSetting::setLocale('en');
-    return trans('app.name');
- });
+Route::get('/', HomeController::class, 'index');
+
+// Route::get('/', function(){
+//     FrameworkSetting::setLocale('en');
+//     // FrameworkSetting::setLocale('en');
+//     // return Lang::get('setting.site');
+//     return trans('name');
+//  });
 // Controller routes with middleware
 Route::group(['prefix'=>'front'], function(){
     //home
