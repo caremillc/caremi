@@ -35,6 +35,10 @@ Route::group(['prefix'=>'admin'], function(){
     Route::get('posts/{id}/edit', PostController::class, 'edit');
     Route::put('posts/{id}/update', PostController::class, 'update');
     Route::delete('posts/{id}/destroy', PostController::class, 'destroy');
+
+    //dashboard
+    Route::get('dashboard', PostController::class, 'index');
+
 });
 
 
