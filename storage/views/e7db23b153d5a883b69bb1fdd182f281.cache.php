@@ -12,20 +12,12 @@
 <body class="p-2">
   <div class="container">
 
-    <?php if (isset($_SESSION['errors'])) : ?>
-      <div class="alert alert-danger">
-        <?php foreach ($_SESSION['errors'] as $error) : ?>
-          <p><?= htmlspecialchars($error) ?></p>
-        <?php endforeach;
-        unset($_SESSION['errors']); ?>
-      </div>
-    <?php endif; ?>
-
+    
     <div class="row">
       <div class="12">
 
         <form method="post" action="/posts/store">
-          <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>" />
+          <input type="hidden" name="_token" value="d6b0f1530655302a2411b3d3dfa34e8722f29ad9d8093b0baefd5339fff30ca2" />
 
           <h1>Name</h1>
           <input type="text" name="name" class="form-control">

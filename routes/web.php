@@ -8,8 +8,20 @@ use App\Http\Middlewares\Middleware;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Post\PostController;
 
-Route::get('/', HomeController::class, 'index');
+  // PostController resource-style routes
+  Route::get('/', HomeController::class, 'index');
 
+
+  Route::get('/posts', PostController::class, 'index');
+  Route::get('posts/create', PostController::class, 'create');
+  Route::post('/posts/store', PostController::class, 'store');
+  Route::get('posts/{id}/show', PostController::class, 'show');
+  Route::get('posts/{id}/edit', PostController::class, 'edit');
+  Route::put('posts/{id}/update', PostController::class, 'update');
+  Route::delete('posts/{id}/destroy', PostController::class, 'destroy');
+
+  //dashboard
+  Route::get('dashboard', PostController::class, 'index');
 // Route::get('/', function(){
 //     FrameworkSetting::setLocale('en');
 //     // FrameworkSetting::setLocale('en');
@@ -42,3 +54,6 @@ Route::group(['prefix'=>'admin'], function(){
 });
 
 
+
+
+ 

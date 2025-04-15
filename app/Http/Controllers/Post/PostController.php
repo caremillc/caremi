@@ -1,37 +1,62 @@
-<?php
-
+<?php 
 namespace App\Http\Controllers\Post;
 
+use Careminate\Sessions\Session;
 use App\Http\Controllers\Controller;
+use Careminate\Http\Requests\Request;
+use Careminate\Http\Responses\Response;
 
 class PostController extends Controller
 {
     public function index()
     {
-        return 'display all posts';
+        return view('posts.index');
     }
     public function create()
     {
-        return 'create new post';
+        return view('posts.create');
     }
-    public function store()
-    {
-        return 'store new post';
+  
+    
+    public function store(Request $request)
+{
+    error_log('Form submitted!'); // Check PHP error log
+    var_dump($request->all()); // Output request data
+    die('Debugging point'); // Stop execution
+
+    
+    if (!$request->verifyCsrf()) {
+        Session::flash('errors', ['CSRF token mismatch']);
+        return Response::back();
     }
-    public function show(int $id)
-    {
-        return 'show post with id = ' . $id;
+
+    $validation = $request->validate([
+        'name' => 'required|string|max:255',
+        'description' => 'required|string'
+    ]);
+
+    if ($validation->failed()) {
+        return Response::back()->withErrors($validation);
     }
-    public function edit(int $id)
+
+    // Save logic here
+    return Response::redirect('/admin/posts');
+}
+
+    public function show($id)
     {
-        return 'edit post with id = ' . $id;
+        return redirect('posts');
     }
-    public function update(int $id)
+    public function edit($id)
     {
-        return 'update post with id = ' . $id;
+        return redirect('posts');
     }
-    public function destroy(int $id)
+    public function update($id)
     {
-        return 'delete post with id = ' . $id;
+        return redirect('posts');
+    }
+    public function destroy($id)
+    {
+        return redirect('posts');
     }
 }

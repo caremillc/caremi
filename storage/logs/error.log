@@ -1,9 +1,105 @@
-2025-04-13 15:03:49 - Error: ' this route ' . / . ' not found' in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 188
-2025-04-13 15:22:28 - Error: This route '/' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 188
-2025-04-13 21:24:16 - Error: This route '/' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 188
-2025-04-14 02:35:21 - Error: This route '' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
-2025-04-14 02:41:28 - Error: This route 'api/any_api' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 190
-2025-04-14 02:43:43 - Error: This route 'api/any_api' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 190
-2025-04-14 02:43:44 - Error: This route 'api/any_api' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 190
-2025-04-14 02:44:16 - Error: This route 'api/any_api' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 190
-2025-04-14 02:52:14 - Error: This route 'api/' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 190
+2025-04-15 00:42:46 - Error: This route 'posts' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 00:44:09 - Error: This route 'favicon-32x32.png' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 00:45:44 - Error: This route 'favicon-32x32.png' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 00:45:46 - Error: Invalid CSRF token in C:\xampp\htdocs\caremi\framework\Careminate\Http\Csrf\CSRFToken.php on line 15
+2025-04-15 00:45:46 - Error: This route 'posts/store' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 00:46:18 - Error: This route 'favicon-32x32.png' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 00:46:20 - Error: Invalid CSRF token in C:\xampp\htdocs\caremi\framework\Careminate\Http\Csrf\CSRFToken.php on line 15
+2025-04-15 00:46:20 - Error: This route 'admin/posts/store' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 00:46:41 - Error: Invalid CSRF token in C:\xampp\htdocs\caremi\framework\Careminate\Http\Csrf\CSRFToken.php on line 15
+2025-04-15 00:46:41 - Error: This route 'admin/posts/store' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 00:46:52 - Error: This route 'favicon-32x32.png' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 00:46:53 - Error: Invalid CSRF token in C:\xampp\htdocs\caremi\framework\Careminate\Http\Csrf\CSRFToken.php on line 15
+2025-04-15 00:46:53 - Error: This route 'admin/posts/store' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 00:46:55 - Error: This route 'favicon-32x32.png' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 00:47:02 - Error: Invalid CSRF token in C:\xampp\htdocs\caremi\framework\Careminate\Http\Csrf\CSRFToken.php on line 15
+2025-04-15 00:47:02 - Error: This route 'admin/posts/store' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 00:53:19 - Error: Invalid CSRF token in C:\xampp\htdocs\caremi\framework\Careminate\Http\Csrf\CSRFToken.php on line 15
+2025-04-15 00:53:19 - Error: This route 'admin/posts/store' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 00:53:21 - Error: This route 'favicon-32x32.png' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 00:53:24 - Error: Invalid CSRF token in C:\xampp\htdocs\caremi\framework\Careminate\Http\Csrf\CSRFToken.php on line 15
+2025-04-15 00:53:24 - Error: This route 'admin/posts/store' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 00:53:27 - Error: This route 'favicon-32x32.png' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 00:54:28 - Error: Invalid CSRF token in C:\xampp\htdocs\caremi\framework\Careminate\Http\Csrf\CSRFToken.php on line 15
+2025-04-15 00:54:28 - Error: This route 'admin/posts/store' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 09:04:13 - Error: This route 'favicon-32x32.png' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 09:04:15 - Error: Invalid CSRF token in C:\xampp\htdocs\caremi\framework\Careminate\Http\Csrf\CSRFToken.php on line 15
+2025-04-15 09:04:15 - Error: This route 'admin/posts/store' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 09:13:45 - Error: Invalid CSRF token in C:\xampp\htdocs\caremi\framework\Careminate\Http\Csrf\CSRFToken.php on line 15
+2025-04-15 09:13:45 - Error: This route 'admin/posts/store' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 09:13:53 - Error: Invalid CSRF token in C:\xampp\htdocs\caremi\framework\Careminate\Http\Csrf\CSRFToken.php on line 15
+2025-04-15 09:13:53 - Error: This route 'admin/posts/store' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 09:23:17 - Error: This route 'favicon-32x32.png' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 09:23:24 - Error: Invalid CSRF token in C:\xampp\htdocs\caremi\framework\Careminate\Http\Csrf\CSRFToken.php on line 15
+2025-04-15 09:23:24 - Error: This route 'admin/posts/store' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 09:23:31 - Error: This route 'favicon-32x32.png' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 09:29:52 - Error: This route 'favicon-32x32.png' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 09:29:54 - Error: This route 'favicon-32x32.png' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 09:35:18 - Error: This route 'front' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 09:35:37 - Error: This route 'front' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 09:35:38 - Error: This route 'front' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 09:35:51 - Error: This route 'front/' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 09:36:12 - Error: This route 'front/about' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 09:37:04 - Error: This route 'front/about' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 09:37:46 - Error: This route 'front/about' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 16:01:27 - Error: This route 'favicon-32x32.png' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 16:01:30 - Error: Invalid CSRF token in C:\xampp\htdocs\caremi\framework\Careminate\Http\Csrf\CSRFToken.php on line 15
+2025-04-15 16:01:30 - Error: This route 'admin/posts/store' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 16:32:13 - Error: This route '/' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 16:34:36 - Error: This route '/' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 16:34:38 - Error: This route '/' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 16:34:44 - Error: This route 'front/' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 16:35:21 - Error: This route 'front/' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 16:35:36 - Error: This route 'favicon-32x32.png' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 16:35:38 - Error: Invalid CSRF token in C:\xampp\htdocs\caremi\framework\Careminate\Http\Csrf\CSRFToken.php on line 15
+2025-04-15 16:35:38 - Error: This route 'admin/posts/store' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 16:36:09 - Error: Invalid CSRF token in C:\xampp\htdocs\caremi\framework\Careminate\Http\Csrf\CSRFToken.php on line 15
+2025-04-15 16:36:09 - Error: This route 'admin/posts/store' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 16:36:13 - Error: This route 'favicon-32x32.png' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 16:36:15 - Error: This route 'favicon-32x32.png' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 16:45:20 - Error: This route 'favicon-32x32.png' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 16:46:46 - Error: This route 'favicon-32x32.png' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 16:50:33 - Error: This route 'favicon-32x32.png' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 16:50:38 - Error: This route 'favicon-32x32.png' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 16:50:54 - Error: This route 'favicon-32x32.png' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 16:52:20 - Error: This route 'favicon-32x32.png' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 16:52:39 - Error: This route 'favicon-32x32.png' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 16:53:25 - Error: This route 'favicon-32x32.png' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 16:53:51 - Error: Invalid CSRF token in C:\xampp\htdocs\caremi\framework\Careminate\Http\Csrf\CSRFToken.php on line 15
+2025-04-15 16:53:51 - Error: This route 'admin/posts/store' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 16:56:09 - Error: Invalid CSRF token in C:\xampp\htdocs\caremi\framework\Careminate\Http\Csrf\CSRFToken.php on line 15
+2025-04-15 16:56:09 - Error: This route 'admin/posts/store' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 16:56:20 - Error: This route 'favicon-32x32.png' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 16:56:23 - Error: Invalid CSRF token in C:\xampp\htdocs\caremi\framework\Careminate\Http\Csrf\CSRFToken.php on line 15
+2025-04-15 16:56:23 - Error: This route 'admin/posts/store' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 17:02:56 - Error: This route 'front/about-post' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 17:04:13 - Error: This route 'front/about-post' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 17:04:18 - Error: This route 'front/about-post' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 17:04:39 - Error: This route 'front/about-post' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 17:04:43 - Error: This route 'front/about-post' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 17:05:11 - Error: This route 'front/' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 17:05:57 - Error: This route 'about-post' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 17:10:25 - Error: Invalid CSRF token in C:\xampp\htdocs\caremi\framework\Careminate\Http\Csrf\CSRFToken.php on line 15
+2025-04-15 17:10:25 - Error: This route 'admin/posts/store' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 17:10:37 - Error: This route 'about-post' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 17:15:31 - Error: This route 'favicon-32x32.png' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 17:15:32 - Error: Invalid CSRF token in C:\xampp\htdocs\caremi\framework\Careminate\Http\Csrf\CSRFToken.php on line 15
+2025-04-15 17:15:32 - Error: This route 'admin/posts/store' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 17:21:03 - Error: This route 'admin/posts/' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 17:21:17 - Error: This route 'favicon-32x32.png' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 17:23:50 - Error: This route 'favicon-32x32.png' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 17:23:52 - Error: Invalid CSRF token in C:\xampp\htdocs\caremi\framework\Careminate\Http\Csrf\CSRFToken.php on line 15
+2025-04-15 17:23:52 - Error: This route 'posts/store' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 17:24:19 - Error: Invalid CSRF token in C:\xampp\htdocs\caremi\framework\Careminate\Http\Csrf\CSRFToken.php on line 15
+2025-04-15 17:24:19 - Error: This route 'posts/store' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 17:25:43 - Error: Invalid CSRF token in C:\xampp\htdocs\caremi\framework\Careminate\Http\Csrf\CSRFToken.php on line 15
+2025-04-15 17:25:43 - Error: This route 'posts/store' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 17:25:45 - Error: This route 'favicon-32x32.png' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 17:25:51 - Error: Invalid CSRF token in C:\xampp\htdocs\caremi\framework\Careminate\Http\Csrf\CSRFToken.php on line 15
+2025-04-15 17:25:51 - Error: This route 'posts/store' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 18:28:39 - Error: This route '/' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 18:29:44 - Error: This route '/' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 18:30:09 - Error: This route '' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 18:30:20 - Error: This route '/' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 18:31:38 - Error: This route '/' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189
+2025-04-15 18:31:39 - Error: This route '/' not found in C:\xampp\htdocs\caremi\framework\Careminate\Routing\Router.php on line 189

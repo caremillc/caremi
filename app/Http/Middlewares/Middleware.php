@@ -15,6 +15,7 @@ class Middleware implements MiddlewareInterface
      */
     public function handle($request, $next, ...$role)
     {
+        // dd($request);
         return $next($request);  // Add custom logic for role validation if needed
     }
 }

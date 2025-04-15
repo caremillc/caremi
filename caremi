@@ -1,3 +1,90 @@
 #!/usr/bin/env php
 <?php // caremi
-//$argv
+
+
+
+require_once __DIR__ . '/vendor/autoload.php'; // Load Composer's autoloader if using Composer
+// Alternatively, you can load your own autoloader here if not using Composer
+
+// Check if the script is being run in CLI mode
+if (php_sapi_name() !== 'cli') {
+    echo "This script must be run in CLI mode." . PHP_EOL; // Inform the user that the script should be run in CLI
+    exit(1); // Exit the script with a non-zero status indicating an error
+}
+
+// Get command-line arguments
+$args = $_SERVER['argv']; // Get all arguments passed to the script
+array_shift($args); // Remove the script name from the arguments
+
+// Get the command signature (the first argument) or default to 'help' if no command is provided
+$signature = $args[0] ?? 'help';
+$arguments = array_slice($args, 1); // Get the remaining arguments passed to the command
+
+// Load all available commands
+$commands = loadCommands(); // Get the list of commands and their associated class names
+
+// Check if the provided command signature exists, if not fallback to 'help'
+if (!isset($commands[$signature])) {
+    echo "Unknown command: {$signature}" . PHP_EOL . PHP_EOL; // Notify the user that the command is unknown
+    $signature = 'help'; // Default to 'help' command
+}
+
+// Resolve and execute the command associated with the signature
+$commandClass = $commands[$signature]; // Get the corresponding command class
+$command = new $commandClass(); // Instantiate the command class
+$command->handle($arguments); // Call the 'handle' method of the command with the arguments
+
+// ===== Helper Functions =====
+
+/**
+ * Load all available CLI commands from the 'Commands' directory.
+ *
+ * This function recursively scans the 'App/Console/Commands' directory, includes each PHP
+ * file found, and checks if the file contains a class with a 'signature' method.
+ * The method returns an array where the keys are the command signatures and
+ * the values are the fully qualified class names of the commands.
+ *
+ * @return array<string, class-string<Command>> An associative array of command
+ *                                                signatures and corresponding
+ *                                                command class names.
+ */
+function loadCommands(): array
+{
+    $commands = []; // Initialize an empty array to store the commands
+
+    $baseDir = __DIR__ . '/framework/Careminate/Console/Commands'; // Set the base directory for command files
+    $namespacePrefix = 'Careminate\\Console\\Commands\\'; // Define the namespace prefix for command classes
+
+    // Create an iterator to recursively iterate through the directory
+    $rii = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($baseDir));
+   
+    // Iterate through each file found by the recursive iterator
+    foreach ($rii as $file) {
+        // Skip directories or files that don't have a '.php' extension
+        if ($file->isDir() || $file->getExtension() !== 'php') continue;
+
+        // Include the file to make the class available for use
+        require_once $file->getPathname();
+
+        // Construct the class name based on the file path
+        $relativePath = str_replace([$baseDir . DIRECTORY_SEPARATOR, '.php'], '', $file->getPathname());
+        $relativeClass = str_replace(DIRECTORY_SEPARATOR, '\\', $relativePath);
+        $class = $namespacePrefix . $relativeClass;
+
+        // Check if the class exists
+        if (class_exists($class)) {
+            // Create an instance of the command class
+            $instance = new $class();
+            // Check if the class has a 'signature' method to identify it as a valid command
+            if (method_exists($instance, 'signature')) {
+                // Add the command signature and class name to the commands array
+                $commands[$instance->signature()] = $class;
+            }
+        }
+    }
+
+    return $commands; // Return the array of commands
+}
+
+
+
