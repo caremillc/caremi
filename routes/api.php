@@ -34,3 +34,12 @@ Route::group(['prefix' => 'api', 'middleware' => [Authenticate::class]], functio
 
 // Another API resource example
 Route::apiResource('/api/posts', ApiController::class);
+
+// API resource with excluded methods
+Route::apiResource('posts', ApiController::class)->except(['update']);
+
+// API resource with only specific methods
+Route::apiResource('posts', ApiController::class)->only(['index', 'show']);
+
+// API resource with middleware
+Route::apiResource('posts', ApiController::class)->middleware(['auth.api']);

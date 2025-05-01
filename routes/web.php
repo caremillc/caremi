@@ -18,7 +18,14 @@ Route::put('/posts/{id}/update', [PostController::class, 'update'])->name('posts
 Route::delete('/posts/{id}/delete', [PostController::class, 'destroy'])->name('posts.destroy');
 
 // RESTful Resource Route (alternative to the above individual routes)
-Route::resource('/posts', PostController::class)->except(['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']);
+// Resource with excluded methods
+Route::resource('posts', PostController::class)->except(['create', 'store']);
+
+// Resource with only specific methods
+Route::resource('posts', PostController::class)->only(['index', 'show']);
+
+// Resource with middleware
+Route::resource('posts', PostController::class)->middleware(['auth']);
 
 Route::group(['prefix' => 'admin', 'middleware' => [Authenticate::class]], function() {
     // Admin resource routes
@@ -26,3 +33,5 @@ Route::group(['prefix' => 'admin', 'middleware' => [Authenticate::class]], funct
     Route::resource('/posts', PostController::class);
 });
 
+// Resource with middleware
+Route::resource('posts', PostController::class)->middleware(['auth']);
