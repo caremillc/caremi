@@ -27,3 +27,11 @@ ini_set('memory_limit', '1G');
 
 // Output current memory usage in MB
 echo sprintf('Memory usage: %.2f MB', memory_get_usage() / 1024 / 1024);
+
+echo"<br>";
+
+
+// Create core components
+$router = \Careminate\Routing\Router::getInstance();
+$app = new \Careminate\Application($router);
+return $app;
