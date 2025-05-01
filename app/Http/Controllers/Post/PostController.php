@@ -11,8 +11,10 @@ class PostController extends Controller
         return 'Post index';
     }
     public function create()
-    {
-        return 'Post create';
+    { 
+        return route('home'); 
+        $url = route('home'); 
+        $url = route('posts.show', ['id' => 5]); 
     }
     
     public function store(Request $request)

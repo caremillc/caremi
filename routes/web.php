@@ -1,26 +1,15 @@
 <?php
 
 use Careminate\Routing\Route;
-use Careminate\Http\Requests\Request;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Post\PostController;
-use App\Http\Controllers\Dashboard\DashboardController;
-use App\Http\Controllers\Invokable\InvokableController;
 
-// Test basic route
-// closure
-Route::get('/closure', function (Request $request) {
-    return new \Careminate\Http\Responses\Response("Closure executed with query");
-});
 
-// invoke
-Route::get('/invoke', InvokableController::class);
-
-// home
-Route::get('/', [HomeController::class, 'index']); 
-
-// Test parameterized route
-Route::get('/posts', [PostController::class, 'index']);
-Route::get('/posts/{id}/show', [PostController::class, 'show']);
-
-Route::get('/admin/dashboard', [DashboardController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
+Route::post('/posts/store', [PostController::class, 'store'])->name('posts.store');
+Route::get('/posts/{id}/show', [PostController::class, 'show'])->name('posts.show');
+Route::get('/posts/{id}/edit', [PostController::class, 'edit'])->name('posts.edit');
+Route::put('/posts/{id}/update', [PostController::class, 'update'])->name('posts.update');
+Route::delete('/posts/{id}/delete', [PostController::class, 'destroy'])->name('posts.destroy');
