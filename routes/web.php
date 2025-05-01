@@ -1,6 +1,7 @@
 <?php
 
 use Careminate\Routing\Route;
+use App\Http\Middlewares\Authenticate;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Post\PostController;
 
@@ -13,3 +14,8 @@ Route::get('/posts/{id}/show', [PostController::class, 'show'])->name('posts.sho
 Route::get('/posts/{id}/edit', [PostController::class, 'edit'])->name('posts.edit');
 Route::put('/posts/{id}/update', [PostController::class, 'update'])->name('posts.update');
 Route::delete('/posts/{id}/delete', [PostController::class, 'destroy'])->name('posts.destroy');
+
+Route::group(['prefix' => 'admin','middleware' => [Authenticate::class]], function() {
+    Route::get('/users', [PostController::class, 'index']);
+    Route::post('/users', [PostController::class, 'store']);
+});

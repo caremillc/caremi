@@ -1,6 +1,7 @@
 <?php 
 
 use Careminate\Routing\Route;
+use App\Http\Middlewares\Authenticate;
 use App\Http\Controllers\Api\ApiController;
 
 
@@ -19,3 +20,8 @@ Route::get('/api/posts/{id}/show', [ApiController::class, 'show'])->name('api.po
 Route::put('/api/posts/{id}/edit', [ApiController::class, 'edit'])->name('api.posts.edit');
 Route::patch('/api/posts/{id}/update', [ApiController::class, 'update'])->name('api.posts.update');
 Route::delete('/api/posts/{id}/delete', [ApiController::class, 'destroy'])->name('api.posts.destroy');
+
+Route::group(['prefix' => 'api','middleware' => [Authenticate::class]], function() {
+    Route::get('/users', [ApiController::class, 'index']);
+    Route::post('/users', [ApiController::class, 'store']);
+});
