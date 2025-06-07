@@ -1,15 +1,21 @@
 <?php declare(strict_types=1);
 
+use Careminate\Http\Requests\Request;
 use Careminate\Http\Responses\Response;
 
 define('BASE_PATH', dirname(__DIR__));
 
 require_once BASE_PATH . '/vendor/autoload.php';
 
-// Default usage (with buffering)
-$response = new Response('Hello World');
-$response->send();
+try {
+    $request = Request::createFromGlobals();
 
-// dd($response);
+    $kernel = new Kernel();
+    $response = $kernel->handle($request);
 
-$response->send();
+    $response->send();
+    $kernel->terminate($request, $response);
+
+} catch (Throwable $e) {
+    (new Response('Internal Server Error', 500))->send();
+}
