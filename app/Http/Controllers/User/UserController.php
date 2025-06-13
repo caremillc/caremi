@@ -1,6 +1,7 @@
 <?php declare (strict_types = 1);
 namespace App\Http\Controllers\User;
 
+use App\Models\User;
 use Careminate\Support\Str;
 use App\Http\Controllers\Controller;
 use Careminate\Http\Requests\Request;
@@ -60,5 +61,11 @@ class UserController extends Controller
             // returns 'uploads/resumes/john-doe.pdf' or false
         }
 
+    }
+
+    public function show(User $user)
+    {
+        // $user is already a resolved model
+        return view('users.profile', compact('user'));
     }
 }

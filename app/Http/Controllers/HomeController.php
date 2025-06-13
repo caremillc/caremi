@@ -3,9 +3,10 @@ namespace App\Http\Controllers;
 
 class HomeController extends Controller 
 {
-    public function index(): void
+    public function index()
     {
-        echo "Welcome to home index";
+        return view('home', ['title' => 'Welcome to Careminate']);
+        
     }
 
     public function about(): void
