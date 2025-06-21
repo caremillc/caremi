@@ -15,6 +15,16 @@ class HomeController extends Controller
         return response()->json(['custom' => true]); // using helper
     }
 
+     public function about()
+    {
+        return 'welcome to home about page';
+    }
+
+   public function article($id, $slug = ''): string
+    {
+        return "Welcome to article {$id} with slug {$slug}";
+    }
+    
     public function store(Request $request)
     {
         $data = [

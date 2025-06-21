@@ -1,5 +1,9 @@
 <?php declare(strict_types=1);
 
+use Careminate\Http\Kernel;
+use Careminate\Http\Requests\Request;
+use Careminate\Http\Responses\Response;
+
 define('BASE_PATH', dirname(__DIR__));
 
 // ✅ Autoload first
@@ -10,10 +14,6 @@ Dotenv\Dotenv::createImmutable(BASE_PATH)->safeLoad();
 
 // ✅ Then bootstrap (safe to use env now)
 require_once __DIR__ . '/../bootstrap/app.php';
-
-use Careminate\Http\Kernel;
-use Careminate\Http\Requests\Request;
-use Careminate\Http\Responses\Response;
 
 try {
     $request = Request::capture();

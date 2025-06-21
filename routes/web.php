@@ -1,12 +1,14 @@
 <?php
 
-use App\Http\Controllers\HomeController;
 use Careminate\Routing\Route;
+use App\Http\Controllers\HomeController;
 
-Route::add('GET', '/', function () {
+// Closure route
+Route::get('/', function () {
     return 'anonymous route is working!';
 });
 
-Route::add('GET', '/home', [HomeController::class, 'index']);
-Route::add('POST', '/home', [HomeController::class, 'store']);
-
+// Controller routes
+Route::get('/home', HomeController::class, 'index');
+Route::get('/about', HomeController::class, 'about');
+Route::get('/article/{id}/{slug}', HomeController::class, 'article');
