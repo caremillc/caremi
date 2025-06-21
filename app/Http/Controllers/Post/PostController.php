@@ -35,6 +35,8 @@ class PostController extends Controller
 
     public function show($id)
     {
+        echo $id;
+        exit;
         $post = Post::findOrFail($id); // Careminate must support or handle fallback
         return view('posts.show', compact('post'));
     }
