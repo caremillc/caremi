@@ -11,7 +11,25 @@ Dotenv\Dotenv::createImmutable(BASE_PATH)->safeLoad();
 // ✅ Then bootstrap (safe to use env now)
 require_once __DIR__ . '/../bootstrap/app.php';
 
+use Careminate\Http\Kernel;
+use Careminate\Http\Requests\Request;
 use Careminate\Http\Responses\Response;
 
-$response = new Response('Hello World! from index');
-$response->send();
+try {
+    $request = Request::capture();
+    
+    $kernel = new Kernel();
+    $response = $kernel->handle($request);
+
+    $response->send();
+    $kernel->terminate($request, $response);
+
+} catch (Throwable $e) {
+    // Log the error for debugging
+    error_log($e->getMessage());
+    error_log($e->getTraceAsString());
+    
+    (new Response('Internal Server Error: ' . $e->getMessage(), 500))->send();
+}
+
+?>
