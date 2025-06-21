@@ -10,6 +10,12 @@ class PostController extends Controller
 {
     public function index()
     {
+         // In a Blade-like view or controller:
+        $url1 = route('posts.show');                        // /posts/1/show
+        $url2 = route('posts.show', ['id' => 42]);          // /posts/42/show
+        $url3 = route('posts.show', ['id' => 5, 'lang' => 'en']); // /posts/5/show?lang=en
+        echo $url3;
+        
         echo   route('posts.show', ['id' => 42]); // → /posts/42/edit
         exit;
         $posts = Post::all(); // or paginate if implemented
