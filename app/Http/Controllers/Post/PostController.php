@@ -14,7 +14,7 @@ class PostController extends Controller
         $url1 = route('posts.show');                        // /posts/1/show
         $url2 = route('posts.show', ['id' => 42]);          // /posts/42/show
         $url3 = route('posts.show', ['id' => 5, 'lang' => 'en']); // /posts/5/show?lang=en
-        echo $url3;
+        echo $url1;
         
         echo   route('posts.show', ['id' => 42]); // → /posts/42/edit
         exit;
