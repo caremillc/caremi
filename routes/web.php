@@ -10,6 +10,13 @@ Route::get('/', function () {
     return 'Test route is working!';
 });
 
+Route::get('/test', function ($request) {
+    return 'Query string: ' . $request->query('q');
+});
+
+Route::get('/test-query', function ($request) {
+    return 'Query: ' . json_encode($request->query());
+});
 // __invoke()
 Route::get('/invoke', InvokeController::class); 
 

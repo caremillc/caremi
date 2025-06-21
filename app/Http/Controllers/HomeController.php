@@ -7,8 +7,14 @@ use Careminate\Http\Validations\Validate;
 
 class HomeController extends Controller
 {
-    public function index(): Response
+    public function index(Request $request): Response
     {
+        $search = $request->query('search');
+        $page = $request->query('page', 1);
+
+        echo "Showing page {$page} for search '{$search}'";
+
+        die;
         return Response::success('User created', ['id' => 123]);
         return Response::error('Validation failed', ['email' => 'Email is required']);
         return Response::fromThrowable($exception);
