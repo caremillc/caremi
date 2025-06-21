@@ -10,6 +10,8 @@ class PostController extends Controller
 {
     public function index()
     {
+        echo   route('posts.show', ['id' => 42]); // → /posts/42/edit
+        exit;
         $posts = Post::all(); // or paginate if implemented
         return view('posts.index', compact('posts'));
     }
