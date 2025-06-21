@@ -1,15 +1,17 @@
 <?php declare(strict_types=1);
 
-use Careminate\Http\Responses\Response;
-
 define('BASE_PATH', dirname(__DIR__));
 
-// Autoload classes
+// ✅ Autoload first
 require_once BASE_PATH . '/vendor/autoload.php';
 
-// Load .env environment variables
+// ✅ Load .env before bootstrap
 Dotenv\Dotenv::createImmutable(BASE_PATH)->safeLoad();
 
-// Example usage
+// ✅ Then bootstrap (safe to use env now)
+require_once __DIR__ . '/../bootstrap/app.php';
+
+use Careminate\Http\Responses\Response;
+
 $response = new Response('Hello World! from index');
 $response->send();

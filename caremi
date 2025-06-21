@@ -1,3 +1,10 @@
 #!/usr/bin/env php
-<?php // caremi
-//$argv
+<?php
+
+define('BASE_PATH', __DIR__);
+require_once BASE_PATH . '/vendor/autoload.php';
+Dotenv\Dotenv::createImmutable(BASE_PATH)->safeLoad();
+
+use Careminate\Console\CommandDispatcher;
+
+(new CommandDispatcher())->dispatch($argv);

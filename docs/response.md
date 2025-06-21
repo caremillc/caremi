@@ -156,8 +156,7 @@ $response->send();
     Default charset is UTF-8 for all content types
 
 
-
-    | Feature          | Method                                        |
+| Feature          | Method                                        |
 | ---------------- | --------------------------------------------- |
 | Set content      | `setContent(string)`                          |
 | Set status       | `setStatus(int)` / `withStatus(int)`          |
