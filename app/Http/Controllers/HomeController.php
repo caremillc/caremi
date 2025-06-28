@@ -1,26 +1,27 @@
-<?php declare(strict_types=1);
+<?php declare (strict_types = 1);
 namespace App\Http\Controllers;
 
 use Careminate\Http\Requests\Request;
 use Careminate\Http\Responses\Response;
-use Careminate\Validation\Validate;
+use Careminate\Http\Validations\Validate;
 
-class HomeController extends Controller 
+class HomeController extends Controller
 {
-    public function index(): Response
+    public function index(Request $request): Response
     {
-        return response('Welcome!', Response::HTTP_OK);
-        return response()->json(['user' => $user]);
-        return response()->xml(['status' => 'ok']);
-        return redirect('/dashboard');
-        return response()->redirect('/login');
+        $search = $request->query('search');
+        $page = $request->query('page', 1);
+
+        echo "Showing page {$page} for search '{$search}'";
+
+        die;
         return Response::success('User created', ['id' => 123]);
         return Response::error('Validation failed', ['email' => 'Email is required']);
         return Response::fromThrowable($exception);
         return response()->json(['custom' => true]); // using helper
     }
 
-    public function about()
+     public function about()
     {
         return 'welcome to home about page';
     }
@@ -30,7 +31,7 @@ class HomeController extends Controller
         return "Welcome to article {$id} with slug {$slug}";
     }
     
-     public function store(Request $request)
+    public function store(Request $request)
     {
         $data = [
             'email'                 => 'test@example.com',
@@ -52,5 +53,4 @@ class HomeController extends Controller
         }
 
     }
-
 }
