@@ -14,6 +14,9 @@ require BASE_PATH . '/bootstrap/app.php';
 $name = env('APP_NAME');
 $key  = env('APP_KEY');
 
+// echo encrypter()->encrypt('sensitive data');
+// exit;
+
 // Output or use in response
 $response = Response::json([
     'name' => $name,
@@ -21,4 +24,4 @@ $response = Response::json([
 ]);
 $response->send();
 
-?>
+
