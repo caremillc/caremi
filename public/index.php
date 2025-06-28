@@ -21,4 +21,4 @@ $response = Response::json([
 ]);
 $response->send();
 
-
+?>
