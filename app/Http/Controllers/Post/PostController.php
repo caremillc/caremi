@@ -2,18 +2,21 @@
 
 namespace App\Http\Controllers\Post;
 
+use App\Models\Post;
 use App\Http\Controllers\Controller;
 use Careminate\Http\Requests\Request;
-use App\Models\Post;
+use Careminate\Http\Responses\RedirectResponse;
 
 class PostController extends Controller
 {
     public function index()
     {
-        echo   route('posts.show', ['id' => 42]); // → /posts/42/edit
-        exit;
-        $posts = Post::all(); // or paginate if implemented
-        return view('posts.index', compact('posts'));
+        return new RedirectResponse(route('posts.show', ['id' => 7]));
+
+        // echo   route('posts.show', ['id' => 42]); // → /posts/42/edit
+        // exit;
+        // $posts = Post::all(); // or paginate if implemented
+        // return view('posts.index', compact('posts'));
     }
 
     public function create()
