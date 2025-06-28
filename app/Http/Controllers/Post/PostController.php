@@ -11,6 +11,10 @@ class PostController extends Controller
 {
     public function index()
     {
+        route('admin.index'); // => /admin/dashboard
+        exit;
+        route('about');     // => /admin/stats
+
         return new RedirectResponse(route('posts.show', ['id' => 7]));
 
         // echo   route('posts.show', ['id' => 42]); // → /posts/42/edit

@@ -9,6 +9,8 @@ class HomeController extends Controller
 {
     public function index(Request $request): Response
     {
+        echo'ok';
+        exit;
         $search = $request->query('search');
         $page = $request->query('page', 1);
 
