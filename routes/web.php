@@ -33,6 +33,15 @@ Route::get('/invoke', InvokeController::class);
 // Route::get('/posts/{id}/show', [PostController::class, 'show'])->defaults(['id' => 1])->name('posts.show');  // route with  default value
 // Route::delete('/posts/{id}/delete', [PostController::class, 'destroy'])->name('posts.destroy');
 
+
+
+Route::middleware(['App\Http\Middlewares\AuthMiddleware'])
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+        Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
+    });
+
 Route::prefix('admin')->name('admin.')->group(function () {
    Route::get('/home', [HomeController::class, 'index'])->name(('index'));
    Route::get('/about', [HomeController::class, 'about'])->name(('about'));
