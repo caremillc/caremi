@@ -1,5 +1,7 @@
 <?php declare(strict_types=1);
 
+use Careminate\Application;
+use Careminate\Http\Requests\Request;
 use Careminate\Http\Responses\Response;
 
 if (!defined('BASE_PATH')) {
@@ -10,18 +12,19 @@ define('APP_START', microtime(true));
 
 require BASE_PATH . '/bootstrap/app.php';
 
-// Test env access
-$name = env('APP_NAME');
-$key  = env('APP_KEY');
+try {
+    $request = Request::capture();
+    
+    $app = new Application();
+    $response = $app->handle($request);
 
-// echo encrypter()->encrypt('sensitive data');
-// exit;
+    $response->send();
+    $app->terminate($request, $response);
 
-// Output or use in response
-$response = Response::json([
-    'name' => $name,
-    'key' => $key,
-]);
-$response->send();
-
-
+} catch (Throwable $e) {
+    // Log the error for debugging
+    error_log($e->getMessage());
+    error_log($e->getTraceAsString());
+    
+    (new Response('Internal Server Error: ' . $e->getMessage(), 500))->send();
+}
