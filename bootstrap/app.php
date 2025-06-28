@@ -40,3 +40,5 @@ $app->loadProviders(require BASE_PATH . '/config/providers.php');
 
 $encrypter = $app->make(\Careminate\Encryption\Encrypter::class);
 $GLOBALS['encrypter'] = $encrypter;
+
+load_env();

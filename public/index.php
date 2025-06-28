@@ -20,6 +20,8 @@ try {
 
     $response->send();
     $app->terminate($request, $response);
+    
+	 throw new \Careminate\Logs\Log("Route '{$uri}' not found", 404);
 
 } catch (Throwable $e) {
     // Log the error for debugging
