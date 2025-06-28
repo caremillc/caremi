@@ -1,8 +1,24 @@
 <?php declare(strict_types=1);
 
-define('BASE_PATH', dirname(__DIR__));
+use Careminate\Http\Responses\Response;
+
+if (!defined('BASE_PATH')) {
+    define('BASE_PATH', dirname(__DIR__));
+}
+
 define('APP_START', microtime(true));
 
-require_once BASE_PATH . '/vendor/autoload.php';
+require BASE_PATH . '/bootstrap/app.php';
 
-echo "Hello World";
+// Test env access
+$name = env('APP_NAME');
+$key  = env('APP_KEY');
+
+// Output or use in response
+$response = Response::json([
+    'name' => $name,
+    'key' => $key,
+]);
+$response->send();
+
+
