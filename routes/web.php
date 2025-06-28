@@ -33,7 +33,9 @@ Route::get('/invoke', InvokeController::class);
 // Route::get('/posts/{id}/show', [PostController::class, 'show'])->defaults(['id' => 1])->name('posts.show');  // route with  default value
 // Route::delete('/posts/{id}/delete', [PostController::class, 'destroy'])->name('posts.destroy');
 
-
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});
 
 Route::middleware(['App\Http\Middlewares\AuthMiddleware'])
     ->prefix('admin')
