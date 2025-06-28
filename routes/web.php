@@ -33,6 +33,10 @@ Route::get('/invoke', InvokeController::class);
 // Route::get('/posts/{id}/show', [PostController::class, 'show'])->defaults(['id' => 1])->name('posts.show');  // route with  default value
 // Route::delete('/posts/{id}/delete', [PostController::class, 'destroy'])->name('posts.destroy');
 
+Route::middleware(['auth', 'encrypt', 'session'])->get('/priority-check', function () {
+    return 'Check the middleware execution order!';
+});
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });

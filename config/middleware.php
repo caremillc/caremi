@@ -1,16 +1,18 @@
-<?php
-
+<?php 
 return [
     'aliases' => [
         'auth'    => App\Http\Middlewares\AuthMiddleware::class,
-        'guest'   => App\Http\Middlewares\GuestMiddleware::class,
-        'admin'   => App\Http\Middlewares\AdminMiddleware::class,
-        'throttle' => App\Http\Middlewares\ThrottleRequests::class,
+        'encrypt' => App\Http\Middlewares\EncryptCookies::class,
+        'session' => App\Http\Middlewares\StartSession::class,
     ],
 
-    // Optional middleware groups (step 2)
     'groups' => [
-        'web' => ['auth', 'csrf'],
-        'api' => ['throttle'],
+        'web' => ['encrypt', 'session', 'auth'],
+    ],
+
+    'priority' => [
+        App\Http\Middleware\EncryptCookies::class,
+        App\Http\Middleware\StartSession::class,
+        App\Http\Middleware\AuthMiddleware::class,
     ],
 ];
