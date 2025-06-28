@@ -7,7 +7,7 @@ use App\Http\Controllers\Post\PostController;
 
 // Closure route
 Route::get('/', function () {
-    return 'anonymous route is working!';
+    return 'Test route is working!';
 });
 
 // __invoke()
@@ -17,13 +17,14 @@ Route::get('/invoke', InvokeController::class);
 Route::get('/home', [HomeController::class, 'index']);
 Route::get('/about', [HomeController::class, 'about']);
 // posts
-Route::get('/posts', [PostController::class, 'index']);
-Route::get('/posts/create', [PostController::class, 'create']);
-Route::post('/posts/store', [PostController::class, 'store']);
-Route::get('/posts/{id}/edit', [PostController::class, 'edit']);
-Route::put('/posts/{id}/update', [PostController::class, 'update']);
-Route::get('/posts/{id}/show', [PostController::class, 'show']);
-Route::delete('/posts/{id}/delete', [PostController::class, 'destroy']);
+Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
+Route::post('/posts/store', [PostController::class, 'store'])->name('posts.store');
+Route::get('/posts/{id}/edit', [PostController::class, 'edit'])->name('posts.edit');
+Route::put('/posts/{id}/update', [PostController::class, 'update'])->name('posts.update');
+Route::get('/posts/{id}/show', [PostController::class, 'show'])->name('posts.show');
+Route::delete('/posts/{id}/delete', [PostController::class, 'destroy'])->name('posts.destroy');
 
 // posts resource
 Route::resource('posts', [PostController::class]);
+
