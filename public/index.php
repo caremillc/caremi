@@ -43,10 +43,40 @@ $app = require_once dirname(__DIR__) . '/bootstrap/app.php';
 
 /**
  * --------------------------------------------------------------
- *  TEMPORARY RESPONSE FOR TESTING
+ *  Handle the Incoming HTTP Request
  * --------------------------------------------------------------
  *
- * Replace this with your request handling once the kernel,
- * router, and response system are fully wired.
+ * Here we create the Request instance using PHP's global
+ * superglobals ($_GET, $_POST, $_SERVER, etc.). This method
+ * gives you a structured Request object that the framework
+ * can pass through middleware, routing, and controllers.
  */
-echo 'Hello World';
+$request = \Careminate\Http\Requests\Request::createFromGlobals();
+
+/**
+ * --------------------------------------------------------------
+ *  Debug: Dump the Request Object
+ * --------------------------------------------------------------
+ *
+ * `dd()` is a temporary debugging helper used to inspect the
+ * Request object. This stops execution and prints formatted
+ * information useful during the development stage.
+ */
+
+
+// URL: /test?name=John
+$name = $request->query('name'); // "John"
+
+// POST: name=Jane
+$name = $request->getParam('name'); // "Jane"
+
+// Either GET or POST
+$name = $request->getParam('name'); // POST has priority
+
+// dd($name);
+dd($request);
+
+// AuthMiddleware example
+// if ($request->getParam('auth') !== '1') {
+//     return new Response('<h1>401 Unauthorized</h1>', 401);
+// }
