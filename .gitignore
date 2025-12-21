@@ -1,0 +1,7 @@
+# /.gitignore
+
+.idea/
+/vendor/
+/framework/
+/storage/*
+.env
