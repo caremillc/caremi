@@ -1,6 +1,9 @@
 # /.gitignore
 
 .idea/
+.env
+notes.txt
+composer.lock 
 /vendor/
 /framework/
 /storage/*
