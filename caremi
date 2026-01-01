@@ -6,4 +6,5 @@ require __DIR__ . '/vendor/autoload.php';
 use Careminate\Console\Application;
 
 $app = new Application();
+
 $app->run($argv);
