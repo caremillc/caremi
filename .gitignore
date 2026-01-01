@@ -1,0 +1,24 @@
+# /.gitignore
+
+.idea/
+.env
+notes.txt
+composer.lock 
+/vendor/
+/framework/
+/storage/*
+.env.local
+!/storage/.gitignore
+/public/uploads/
+/public/cache/
+/public/temp/
+.DS_Store
+/node_modules/
+npm-debug.log
+yarn-error.log
+/build/
+/.vscode/
+*.log
+*.sqlite
+*.sqlite3
+*.bak
