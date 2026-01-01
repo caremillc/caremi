@@ -1,5 +1,8 @@
 <?php declare(strict_types=1);
 
+use Careminate\Supports\Str;
+use Careminate\Supports\Config;
+
 /**
  * --------------------------------------------------------------
  *  Define the path to Composer's autoloader
@@ -51,4 +54,7 @@ $app = require_once dirname(__DIR__) . '/bootstrap/app.php';
  */
 echo 'Hello World';
 
+$name = Str::camel('user_name'); // 'userName'
 
+
+echo $name;
