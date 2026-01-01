@@ -4,7 +4,9 @@
 require __DIR__ . '/vendor/autoload.php';
 
 use Careminate\Console\Application;
+use Careminate\Supports\Console\Output;
+
+Output::init();
 
 $app = new Application();
-
 $app->run($argv);
