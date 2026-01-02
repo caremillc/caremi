@@ -1,4 +1,7 @@
 <?php declare(strict_types=1);
+// Load environment variables
+$dotenv = new \Symfony\Component\Dotenv\Dotenv();
+$dotenv->load(dirname(__DIR__) . '/.env');
 
 /**
  * --------------------------------------------------------------------------
@@ -19,6 +22,16 @@ $container = new \League\Container\Container();
 
 // Enable auto-resolution of dependencies through reflection
 $container->delegate(new \League\Container\ReflectionContainer(true));
+
+
+#env parameters
+$appEnv = env('APP_ENV', 'production'); // Default to 'production' if not set
+$appKey = env('APP_KEY'); // Default to 'production' if not set
+$appVersion = env('APP_VERSION');
+
+$container->add('APP_ENV', new \League\Container\Argument\Literal\StringArgument($appEnv));
+$container->add('APP_KEY', new \League\Container\Argument\Literal\StringArgument($appKey));
+$container->add('APP_VERSION', new \League\Container\Argument\Literal\StringArgument($appVersion));
 
 // Bind RouterInterface to Router implementation
 $container->add(\Careminate\Routing\RouterInterface::class, \Careminate\Routing\Router::class);
