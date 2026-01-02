@@ -7,7 +7,7 @@ use Careminate\Http\Responses\ViewResponse;
 
 class PostController extends Controller
 {
-    public function index(): ViewResponse
+    public function index(): Response
     { 
         $posts = "All Posts";
 
