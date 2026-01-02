@@ -59,6 +59,12 @@ $container->addShared('filesystem-loader', \Twig\Loader\FilesystemLoader::class)
 $container->addShared('twig', \Twig\Environment::class)
     ->addArgument('filesystem-loader');
 
+// $container->add('twig', function () {
+//     return new \Twig\Environment(
+//         new \Twig\Loader\FilesystemLoader(view_path())
+//     );
+// });
+
 // Register the AbstractController so it can be resolved by the container.
 $container->add(\Careminate\Http\Controllers\AbstractController::class);
 
@@ -86,7 +92,3 @@ $container->addShared(\Doctrine\DBAL\Connection::class, function () use ($contai
 // dd($container);
 
 return $container;
-
-
-
-
