@@ -1,8 +1,9 @@
 <?php declare(strict_types=1);
 
 use Careminate\Http\Kernel;
-use Careminate\Exceptions\ExceptionHandler;
+use Careminate\Routing\Router;
 use Careminate\Http\Requests\Request;
+use Careminate\Exceptions\ExceptionHandler;
 use Careminate\Exceptions\Http\AuthException;
 
 // ---------------------------------------------------------
@@ -16,10 +17,13 @@ try {
     // ---------------------------------------------------------
     $request = Request::createFromGlobals();
 
+    //instantiate router
+    $router = new Router();
+
     // ---------------------------------------------------------
     // Pass the request to the Kernel for handling
     // ---------------------------------------------------------
-    $kernel = new Kernel();
+    $kernel = new Kernel($router);
     $response = $kernel->handle($request);
 
     // ---------------------------------------------------------
