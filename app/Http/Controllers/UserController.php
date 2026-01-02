@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Careminate\Exceptions\Http\ValidationException;
-use Careminate\Http\Requests\Request;
-use Careminate\Http\Requests\UploadedFile;
-use Careminate\Http\Responses\ResponseFactory;
 use Careminate\Supports\Config;
+use Careminate\Http\Requests\Request;
+use Careminate\Http\Responses\Response;
+use Careminate\Http\Requests\UploadedFile;
+use Careminate\Exceptions\Http\AuthException;
+use Careminate\Exceptions\Http\HttpException;
+use Careminate\Http\Responses\ResponseFactory;
+use Careminate\Exceptions\Http\ValidationException;
 
 class UserController
 {
@@ -94,4 +97,56 @@ class UserController
             ],
         ]);
     }
+
+
+    public function showProfile(Request $request, int $userId)
+    {
+        // Use Case 2: Check authentication
+        if (!$this->auth->check()) {
+            throw new AuthException('Please login to view profile');
+        }
+        
+        // Use Case 4: Validate input
+        if ($userId <= 0) {
+            throw new \InvalidArgumentException('Invalid user ID');
+        }
+        
+        // Use Case 6: Check resource exists
+        $user = $this->userRepository->find($userId);
+        if (!$user) {
+            throw new HttpException('User not found', 404);
+        }
+        
+        // Return successful response
+        return new Response(json_encode($user), 200, [
+            'Content-Type' => 'application/json'
+        ]);
+    }
+    
+    public function updateProfile(Request $request)
+    {
+        // Use Case 3: Validation
+        $validator = $this->validator->make($request->all(), [
+            'email' => 'required|email',
+            'name' => 'required|min:2'
+        ]);
+        
+        if ($validator->fails()) {
+            throw new ValidationException(
+                'Profile update validation failed',
+                $validator->errors()->toArray()
+            );
+        }
+        
+        // Use Case 5: Database error (AJAX request)
+        try {
+            $this->userRepository->update($request->all());
+        } catch (\PDOException $e) {
+            // Use Case 7: Production error
+            throw new \RuntimeException('Failed to update profile', 0, $e);
+        }
+        
+        return new Response('Profile updated successfully', 200);
+    }
+
 }
