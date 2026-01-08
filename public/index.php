@@ -1,5 +1,8 @@
 <?php declare(strict_types=1);
 
+use Careminate\Supports\Str;
+use Careminate\Supports\Config;
+
 /**
  * --------------------------------------------------------------
  *  Define the path to Composer's autoloader
@@ -49,4 +52,5 @@ $app = require_once dirname(__DIR__) . '/bootstrap/app.php';
  * Replace this with your request handling once the kernel,
  * router, and response system are fully wired.
  */
-echo 'Hello World';
+$name = Config::get('app.name');
+dd($name);

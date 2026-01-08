@@ -2,9 +2,11 @@
 <?php
 
 use Careminate\Console\Application;
+use Careminate\Supports\Console\ColorOutput;
 
 require __DIR__ . '/vendor/autoload.php';
 
+ColorOutput::init();
 
 $app = new Application();
 $app->run($argv);
