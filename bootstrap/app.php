@@ -1,5 +1,12 @@
 <?php declare(strict_types=1);
-
+// ---------------------------------------------------------
+// Define application constants
+// ---------------------------------------------------------
+define('CAREMI_START', microtime(true));      // Application start time
+define('BASE_PATH', dirname(__DIR__));        // Project base directory
+define('BOOTSTRAP_PATH', __DIR__);            // Bootstrap directory
+define('CONFIG_PATH', BASE_PATH . '/config'); // Config directory
+define('PUBLIC_PATH', BASE_PATH . '/public'); // Public directory
 /**
  * Bootstrap the application
  */
@@ -38,7 +45,3 @@ $app = new \Careminate\Foundation\Application($basePath);
 // dd($app);
 // Return the application instance
 return $app;
-
-
-
-?>
