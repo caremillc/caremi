@@ -1,118 +1,50 @@
 <?php declare(strict_types=1);
-
 namespace App\Http\Controllers\Post;
 
 use App\Http\Controllers\Controller;
-use Careminate\Http\Requests\Request;
-use Careminate\Http\Requests\UploadedFile;
-use Careminate\Http\Responses\JsonResponse;
-use Careminate\Http\Responses\ViewResponse;
-use Careminate\Http\Requests\RequestValidator;
-use Careminate\Http\Responses\RedirectResponse;
-use Careminate\Exceptions\Http\ValidationException;
+use Careminate\Http\Responses\Response;
 
 class PostController extends Controller
 {
-    public function index(): ViewResponse
+    public function index(): Response
     {
-        return new ViewResponse('home', ['title' => 'Welcome to Careminate']);
+        // Your logic here
+        return new Response('<h1>Post Index</h1>');
     }
 
-    public function api(): JsonResponse
+    public function create(): Response
     {
-        return new JsonResponse(['status' => 'ok', 'time' => time()]);
+        // Your logic here
+        return new Response('<h1>Create Post</h1>');
     }
 
-    public function go(): RedirectResponse
+    public function store(): Response
     {
-        return new RedirectResponse('/api');
-    }
-    
-    public function profile(): JsonResponse
-    {
-        $user = ['id' => 1, 'name' => 'Tony Stark', 'role' => 'Genius, Billionaire, Philanthropist'];
-        return new JsonResponse($user);
+        // Your logic here
+        return new Response('<h1>Store Post</h1>');
     }
 
-    public function logout(): RedirectResponse
+    public function show(int $id): Response
     {
-        return new RedirectResponse('/login');
+        // Your logic here
+        return new Response("<h1>Show Post with ID: $id</h1>");
     }
-    
-    public function store(Request $request): JsonResponse
+
+    public function edit(int $id): Response
     {
-        $validator = RequestValidator::make($request);
-        
-        try {
-            $data = $validator->validate([
-                'name' => 'required|string|min:2|max:50',
-                'email' => 'required|email|max:100',
-                'password' => 'required|string|min:8',
-                'avatar' => 'nullable|image|max:2048',
-                'terms' => 'required|boolean',
-            ]);
-            
-            // Process file upload
-            if ($request->hasFile('avatar')) {
-                $avatar = $request->file('avatar');
-                
-                if ($avatar instanceof UploadedFile) {
-                    $avatar->validate([
-                        'maxSize' => 2 * 1024 * 1024,
-                        'allowedMimeTypes' => ['image/jpeg', 'image/png'],
-                    ]);
-                    
-                    $path = $avatar->store('uploads/avatars');
-                    $data['avatar_path'] = $path;
-                }
-            }
-            
-            // Return JsonResponse directly
-            return new JsonResponse([
-                'success' => true,
-                'message' => 'User created successfully',
-                'data' => $data,
-            ], 201);
-            
-        } catch (ValidationException $e) {
-            return new JsonResponse([
-                'success' => false,
-                'message' => 'Validation failed',
-                'errors' => $e->getErrors(),
-            ], 422);
-        }
+        // Your logic here
+        return new Response("<h1>Edit Post with ID: $id</h1>");
     }
-    
-    public function apiEndpoint(Request $request): JsonResponse
+
+    public function update(int $id): Response
     {
-        // Check for JSON request
-        if (!$request->expectsJson()) {
-            return new JsonResponse([
-                'error' => 'Unsupported Media Type'
-            ], 415);
-        }
-        
-        // Parse JSON body
-        $data = $request->json();
-        
-        if (!$data) {
-            return new JsonResponse([
-                'error' => 'Invalid JSON'
-            ], 400);
-        }
-        
-        // Get specific fields
-        $name = $request->string('name');
-        $age = $request->integer('age', 18);
-        $active = $request->boolean('active', false);
-        
-        return new JsonResponse([
-            'success' => true,
-            'data' => [
-                'name' => $name,
-                'age' => $age,
-                'active' => $active,
-            ]
-        ]);
+        // Your logic here
+        return new Response("<h1>Update Post with ID: $id</h1>");
+    }
+
+    public function delete(int $id): Response
+    {
+        // Your logic here
+        return new Response("<h1>Delete Post with ID: $id</h1>");
     }
 }
