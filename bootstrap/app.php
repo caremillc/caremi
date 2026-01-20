@@ -8,6 +8,7 @@ define('BOOTSTRAP_PATH', __DIR__);            // Bootstrap directory
 define('CONFIG_PATH', BASE_PATH . '/config'); // Config directory
 define('PUBLIC_PATH', BASE_PATH . '/public'); // Public directory
 
+
 /**
  * Bootstrap the application
  */
@@ -18,11 +19,35 @@ $basePath = dirname(__DIR__);
 // ---------------------------------------------------------
 // Load Composer's autoloader (if available)
 // ---------------------------------------------------------
-$autoloadPath = $basePath . '/vendor/autoload.php';
+$autoloadPath = BASE_PATH . '/vendor/autoload.php';
 if (file_exists($autoloadPath)) {
     require $autoloadPath;
 } else {
     die('Autoloader not found. Please run "composer install".');
+}
+
+// ---------------------------------------------------------
+// Load performance utilities (logs execution time, etc.)
+// ---------------------------------------------------------
+require_once BOOTSTRAP_PATH . '/performance.php';
+require_once BOOTSTRAP_PATH . '/env.php';
+
+// ---------------------------------------------------------
+// Set error handling
+// ---------------------------------------------------------
+if (!function_exists('app_debug_mode')) {
+    function app_debug_mode(): bool
+    {
+        return filter_var(env('APP_DEBUG') ?? false, FILTER_VALIDATE_BOOL);
+    }
+}
+
+if (app_debug_mode()) {
+    ini_set('display_errors', '1');
+    error_reporting(E_ALL);
+} else {
+    ini_set('display_errors', '0');
+    error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 }
 
 
@@ -32,5 +57,3 @@ $app = new \Careminate\Foundation\Application($basePath);
 // dd($app);
 // Return the application instance
 return $app;
-
-
