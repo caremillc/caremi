@@ -11,6 +11,8 @@ use Careminate\Exceptions\Http\AuthException;
 // ---------------------------------------------------------
 require __DIR__ . '/../bootstrap/app.php';
 
+$container = require BASE_PATH . '/config/container.php';
+// dd($container);
 try {
     // ---------------------------------------------------------
     // Capture the current HTTP request
@@ -23,9 +25,12 @@ try {
     //instantiate router
     $router = new Router();
 
-    // Initializes the application's kernel 
+     // ---------------------------------------------------------
+    // Pass the request to the Kernel for handling
+    // ---------------------------------------------------------
     //parse the $router into the constructor of the kernel class
-    $kernel = new Kernel($router);
+    //$kernel = new Kernel($router);
+	$kernel =  $container->get(Kernel::class); 
         
     $response = $kernel->handle($request);
 
