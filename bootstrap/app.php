@@ -7,6 +7,17 @@ define('BASE_PATH', dirname(__DIR__));        // Project base directory
 define('BOOTSTRAP_PATH', __DIR__);            // Bootstrap directory
 define('CONFIG_PATH', BASE_PATH . '/config'); // Config directory
 define('PUBLIC_PATH', BASE_PATH . '/public'); // Public directory
+define('STORAGE_PATH', BASE_PATH . '/storage'); // storage directory
+define('FRAMEWORK_PATH', BASE_PATH . '/framework');// framework directory
+
+// Ensure storage directory exists
+if (!is_dir(STORAGE_PATH)) {
+    mkdir(STORAGE_PATH, 0755, true);
+    mkdir(STORAGE_PATH . '/database', 0755, true);
+    mkdir(STORAGE_PATH . '/cache', 0755, true);
+    mkdir(STORAGE_PATH . '/logs', 0755, true);
+    mkdir(STORAGE_PATH . '/sessions', 0755, true);
+}
 
 
 /**

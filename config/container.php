@@ -72,6 +72,21 @@ $container->inflector(\Careminate\Http\Controllers\AbstractController::class)
 // Debug output (should be removed in production)
 // dd($container);
 
+// start db connection for sqlite only
+// Load database config
+$dbConfig = require BASE_PATH . '/config/database.php';
+
+$container->add(\Careminate\Database\Connections\Factory\ConnectionFactory::class)
+    ->addArguments([
+        new \League\Container\Argument\Literal\ArrayArgument($dbConfig)
+    ]);
+
+$container->addShared(\Doctrine\DBAL\Connection::class, function () use ($container): \Doctrine\DBAL\Connection {
+    return $container->get(\Careminate\Database\Connections\Factory\ConnectionFactory::class)->create();
+});
+
+// end db connection for sqlite only
+
 return $container;
 
 

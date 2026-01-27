@@ -3,7 +3,6 @@
 use Careminate\Http\Kernel;
 use Careminate\Routing\Router;
 use Careminate\Http\Requests\Request;
-use Careminate\Exceptions\Http\Handler;
 use Careminate\Exceptions\ExceptionHandler;
 use Careminate\Exceptions\Http\AuthException;
 
@@ -16,6 +15,8 @@ $container = require BASE_PATH . '/config/container.php';
 
 //dd($container);
 try {
+
+    require_once '../db_test.php';
     // ---------------------------------------------------------
     // Capture the current HTTP request
     // ---------------------------------------------------------
