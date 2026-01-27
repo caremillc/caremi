@@ -8,14 +8,14 @@ class PostController extends Controller
 {
     public function index(): Response
     {
-        // Your logic here
-        return new Response('<h1>Post Index</h1>');
+        $posts = "all posts list"; // Replace with actual data retrieval logic
+        return view('posts.index', ['posts' => $posts]);
     }
 
     public function create(): Response
     {
         // Your logic here
-        return new Response('<h1>Create Post</h1>');
+        return view('posts.create');
     }
 
     public function store(): Response
@@ -27,13 +27,15 @@ class PostController extends Controller
     public function show(int $id): Response
     {
         // Your logic here
-        return new Response("<h1>Show Post with ID: $id</h1>");
+        $postId = "<h1>Show Post with ID: $id</h1>";
+        return view('posts/show.html.twig', compact('postId'));
     }
 
     public function edit(int $id): Response
     {
         // Your logic here
-        return new Response("<h1>Edit Post with ID: $id</h1>");
+        $postId = "<h1>Edit Post with ID: $id</h1>";
+        return view('posts/edit.html.twig', compact('postId'));
     }
 
     public function update(int $id): Response
