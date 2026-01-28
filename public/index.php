@@ -1,5 +1,6 @@
 <?php declare(strict_types=1);
 
+use App\Models\User;
 use Careminate\Http\Kernel;
 use Careminate\Routing\Router;
 use Careminate\Http\Requests\Request;
@@ -13,10 +14,12 @@ use Careminate\Exceptions\Http\AuthException;
 require __DIR__ . '/../bootstrap/app.php';
 $container = require BASE_PATH . '/config/container.php';
 
+
+
 //dd($container);
 try {
 
-    require_once '../db_test.php';
+    // require_once '../db_test.php';
     // ---------------------------------------------------------
     // Capture the current HTTP request
     // ---------------------------------------------------------

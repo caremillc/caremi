@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Careminate\Supports\Config;
 use Careminate\Http\Requests\Request;
 use Careminate\Http\Responses\Response;
@@ -13,6 +14,12 @@ use Careminate\Exceptions\Http\ValidationException;
 
 class UserController
 {
+    public function index(): Response
+    {
+        $title = "Home Page";
+        return view('home.html.twig', compact('title'));
+    }
+    
     public function store(Request $request)
     {
         try {

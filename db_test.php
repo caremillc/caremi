@@ -12,6 +12,7 @@ DB::init(); // Auto-initializes from container
 
 // Query examples
 $users = DB::select('SELECT * FROM users WHERE active = ?', [1]);
+$users = DB::select('SELECT * FROM users WHERE active = ?', [1]);
 $user = DB::selectOne('SELECT * FROM users WHERE id = ?', [1]);
 DB::insert('users', ['name' => 'John', 'email' => 'john@example.com']);
 DB::update('users', ['name' => 'Jane'], ['id' => 1]);
@@ -30,11 +31,11 @@ try {
 // Query Builder
 $qb = DB::query('users')
     ->select('*')
-    ->where('active = :active')
-    ->setParameter('active', 1)
+    // ->where('active = :active')
+    // ->setParameter('active', 1)
     ->orderBy('created_at', 'DESC')
     ->setMaxResults(10);
     
 $results = $qb->fetchAllAssociative();
-
+// dd($qb);
 // end testing

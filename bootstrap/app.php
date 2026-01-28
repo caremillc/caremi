@@ -1,4 +1,9 @@
 <?php declare(strict_types=1);
+
+use App\Models\User;
+use Careminate\Database\BaseModel;
+use Careminate\Database\Drivers\MySQLConnection;
+use Careminate\Database\Drivers\SQLiteConnection;
 // ---------------------------------------------------------
 // Define application constants
 // ---------------------------------------------------------
@@ -61,6 +66,32 @@ if (app_debug_mode()) {
     error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 }
 
+// start db connection
+// Resolve driver from config
+$driver = config('database.default', 'sqlite');
+
+$connection = match ($driver) {
+    'mysql'  => new MySQLConnection(),
+    'sqlite' => new SQLiteConnection(),
+    default  => throw new RuntimeException("Unsupported DB driver: {$driver}")
+};
+
+// 🔥 THIS IS THE MISSING LINE
+BaseModel::setConnection($connection->getPDO());
+// end db connection
+
+//start db test cases
+//$users = User::all();
+// dd($users);
+//$user = User::find(2);
+// dd($user);
+// $newuser = User::create([
+//     'name' => 'Eric',
+//     'email' => 'eric@test.com',
+//     'password' => password_hash('secret', PASSWORD_BCRYPT),
+// ]);
+// dd($newuser);
+//end db test cases   
 
 // Create the application instance
 $app = new \Careminate\Foundation\Application($basePath);

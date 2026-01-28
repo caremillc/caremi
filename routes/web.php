@@ -1,6 +1,7 @@
 <?php declare(strict_types=1);
 
 use Careminate\Http\Responses\Response;
+use App\Http\Controllers\UserController;
 
 return [
     ['GET', '/', [App\Http\Controllers\HomeController::class, 'index']],
@@ -12,6 +13,10 @@ return [
     ['GET', '/posts/{id:\d+}/edit', [App\Http\Controllers\Post\PostController::class, 'edit']],
     ['PUT', '/posts/{id:\d+}/update', [App\Http\Controllers\Post\PostController::class, 'update']],
     ['DELETE', '/posts/{id:\d+}/delete', [App\Http\Controllers\Post\PostController::class, 'delete']],
+
+    // users 
+    ['GET', '/users', [UserController::class, 'index']],
+
 //response
     ['GET', '/Hello/{name:.+}', function (string $name) {
         return new Response("Hello $name");
