@@ -7,7 +7,8 @@ $envFile = __DIR__ . '/../.env';
 // $envFile = base_path('.env');
 // dd($envFile);
 if (!file_exists($envFile)) {
-    $exampleFile = base_path('.env.example');
+    // $exampleFile = base_path('.env.example');
+     $exampleFile = __DIR__ . '.env.example';
 // dd($exampleFile);
     if (file_exists($exampleFile)) {
         // Read content from .env.example
