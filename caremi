@@ -2,12 +2,14 @@
 <?php
 
 use Careminate\Console\Application;
+use Careminate\Supports\Console\ColorOutput;
 
 // Set base path
 define('BASE_PATH', __DIR__);
 
 require BASE_PATH . '/vendor/autoload.php';
 
-$app = new Application();
+ColorOutput::init();
 
+$app = new Application();
 $app->run($argv);
