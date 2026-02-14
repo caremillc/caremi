@@ -12,8 +12,10 @@ $request = \Careminate\Http\Requests\Request::createFromGlobals();
 // perform some logic
 
 // send response (string of content)
-$content = '<h1>Hello World</h1>';
+$kernel = new \Careminate\Http\Kernel();
 
-$response = new \Careminate\Http\Responses\Response(content: $content, status: 200, headers: []);
+$response = $kernel->handle($request);
 
 $response->send();
+
+dd($response);
