@@ -9,13 +9,15 @@ require dirname(__DIR__) . '/bootstrap/performance.php';
 // request received
 $request = \Careminate\Http\Requests\Request::createFromGlobals();
 
-// perform some logic
+//instantiate router
+$router = new \Careminate\Routing\Router();
 
 // send response (string of content)
-$kernel = new \Careminate\Http\Kernel();
+$kernel = new \Careminate\Http\Kernel($router);
 
 $response = $kernel->handle($request);
 
 $response->send();
 
-dd($response);
+// dd($response);
+
