@@ -23,6 +23,10 @@ use Careminate\Routing\RouterInterface;
 
 $container = new \League\Container\Container();
 
+#parameters
+// Load application routes from an external configuration file.
+$routes = include BASE_PATH . '/routes/web.php';
+
 // Bind RouterInterface to Router implementation
 $container->add(RouterInterface::class, Router::class)
           ->setShared(true);
@@ -43,6 +47,10 @@ $container->add(Kernel::class)
           ->addArgument(RouterInterface::class)
           ->addArgument(HandlerInterface::class) // Use the interface, not the concrete class
           ->setShared(true);
+
+          // Extend RouterInterface definition to inject routes
+$container->extend(Careminate\Routing\RouterInterface::class)
+          ->addMethodCall('setRoutes',[new League\Container\Argument\Literal\ArrayArgument($routes)]);
 
 // Debug output (should be removed in production)
 // dd($container);
