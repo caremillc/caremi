@@ -1,5 +1,7 @@
 <?php declare(strict_types=1);
 
+use Careminate\Http\Kernel;
+
 // bootstrapping
 require dirname(__DIR__) . '/bootstrap/app.php';
 require dirname(__DIR__) . '/bootstrap/performance.php';
@@ -9,17 +11,31 @@ $container = require BASE_PATH . '/config/container.php';
 // request received
 $request = \Careminate\Http\Requests\Request::createFromGlobals();
 
-// instantiate router
-$router = new \Careminate\Routing\Router();
+try {
+    // Get kernel from container (auto-wires dependencies)
+    $kernel = $container->get(Kernel::class);
+    
+    // Bootstrap the application
+    // $kernel->bootstrap();
+    
+    // handle request
+    $response = $kernel->handle($request);
+    
+    // send response
+    $response->send();
+    
+    // terminate
+    $kernel->terminate($request, $response);
+    
+} catch (\Throwable $e) {
+    // Fallback error handler if kernel fails
+    http_response_code(500);
+    echo "<h1>Fatal Error</h1>";
+    echo "<p>" . $e->getMessage() . "</p>";
+    echo "<pre>" . $e->getTraceAsString() . "</pre>";
+}
 
-// instantiate exception handler
-$handler = new \Careminate\Exceptions\Handler();
 
-// instantiate kernel (router + handler)
-$kernel = new \Careminate\Http\Kernel($router, $handler);
 
-// handle request
-$response = $kernel->handle($request);
 
-// send response
-$response->send();
+
