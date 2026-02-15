@@ -4,6 +4,8 @@
 require dirname(__DIR__) . '/bootstrap/app.php';
 require dirname(__DIR__) . '/bootstrap/performance.php';
 
+$container = require BASE_PATH . '/config/container.php';
+
 // request received
 $request = \Careminate\Http\Requests\Request::createFromGlobals();
 
