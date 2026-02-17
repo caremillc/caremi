@@ -23,6 +23,9 @@ use Careminate\Routing\RouterInterface;
 
 $container = new \League\Container\Container();
 
+// Enable auto-resolution of dependencies through reflection
+$container->delegate(new \League\Container\ReflectionContainer(true));
+
 #parameters
 // Load application routes from an external configuration file.
 $routes = include BASE_PATH . '/routes/web.php';
@@ -41,14 +44,14 @@ $container->add(HandlerInterface::class, Handler::class)
 // Register handler as singleton
 // $container->add(Handler::class)->setShared(true);
 
-// Register the HTTP Kernel with its dependencies
 // Register kernel with explicit arguments using references to other services
 $container->add(Kernel::class)
           ->addArgument(RouterInterface::class)
           ->addArgument(HandlerInterface::class) // Use the interface, not the concrete class
+          ->addArgument($container)
           ->setShared(true);
 
-          // Extend RouterInterface definition to inject routes
+// Extend RouterInterface definition to inject routes
 $container->extend(Careminate\Routing\RouterInterface::class)
           ->addMethodCall('setRoutes',[new League\Container\Argument\Literal\ArrayArgument($routes)]);
 

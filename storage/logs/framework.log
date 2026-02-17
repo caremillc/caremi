@@ -1,2 +1,4 @@
-[2026-02-14 19:06:17] Careminate\Exceptions\Http\HttpException: Page Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:107
-[2026-02-15 14:37:00] Careminate\Exceptions\Http\HttpException: Page Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:106
+[2026-02-17 15:57:52] League\Container\Exception\NotFoundException: Alias (App\Http\Controllers\HomeController) is not being managed by the container or delegates in C:\xampp\htdocs\caremi\vendor\league\container\src\Container.php:208
+[2026-02-17 15:59:53] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:93
+[2026-02-17 16:01:20] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:93
+[2026-02-17 16:02:00] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:93
