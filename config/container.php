@@ -73,14 +73,20 @@ $container->extend(Careminate\Routing\RouterInterface::class)
 $container->addShared('filesystem-loader', \Twig\Loader\FilesystemLoader::class)
     ->addArgument(new \League\Container\Argument\Literal\StringArgument($templatesPath));
 
-// Register the Twig Environment (template engine) as a shared service.
-// It depends on the previously registered 'filesystem-loader' service.
-$container->addShared(\Twig\Environment::class)
+// Register the Twig Environment as a shared (singleton) instance
+// and inject the 'filesystem-loader' service into its constructor.
+$container->addShared('twig', \Twig\Environment::class)
           ->addArgument('filesystem-loader');
 
+// Register the AbstractController so it can be resolved by the container.
+$container->add(\Careminate\Http\Controllers\AbstractController::class);
 
+// Automatically call the setContainer() method on any class that extends AbstractController
+// This injects the container itself into the controller, enabling dependency resolution within controllers.
+$container->inflector(\Careminate\Http\Controllers\AbstractController::class)
+    ->invokeMethod('setContainer', [$container]);
           
 // Debug output (should be removed in production)
-dd($container);
+// dd($container);
 
 return $container;

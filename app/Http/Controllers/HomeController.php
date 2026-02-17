@@ -3,17 +3,16 @@ namespace App\Http\Controllers;
 
 use App\Widget\Widget;
 use Careminate\Http\Responses\Response;
-use Twig\Environment;
 
 class HomeController extends Controller
 {
-    public function __construct(private Widget $widget, private Environment $twig)
+    public function __construct(private Widget $widget)
     {
     }
 
     public function index(): Response
     {
-        dd($this->twig);
+        dd($this->container->get('twig'));
 
         $content = "<h1>Hello {$this->widget->name}</h1>";
 
