@@ -87,6 +87,6 @@ $container->inflector(\Careminate\Http\Controllers\AbstractController::class)
     ->invokeMethod('setContainer', [$container]);
           
 // Debug output (should be removed in production)
-// dd($container);
+dd($container);
 
 return $container;
