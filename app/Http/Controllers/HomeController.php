@@ -2,18 +2,19 @@
 namespace App\Http\Controllers;
 
 use App\Widget\Widget;
-use Careminate\Http\Controllers\AbstractController;
 use Careminate\Http\Responses\Response;
+use Twig\Environment;
 
-
-class HomeController extends AbstractController
+class HomeController extends Controller
 {
-    public function __construct(private Widget $widget)
+    public function __construct(private Widget $widget, private Environment $twig)
     {
     }
 
     public function index(): Response
     {
+        dd($this->twig);
+
         $content = "<h1>Hello {$this->widget->name}</h1>";
 
         return new Response($content);

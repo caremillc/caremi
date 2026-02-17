@@ -32,6 +32,8 @@ $container->delegate(new \League\Container\ReflectionContainer(true));
 #parameters
 // Load application routes from an external configuration file.
 $routes = include BASE_PATH . '/routes/web.php';
+# twig template path
+$templatesPath = BASE_PATH . '/templates';
 #env parameters
 $appEnv = env('APP_ENV', 'production'); // Default to 'production' if not set
 $appKey = env('APP_KEY'); // Default to 'production' if not set
@@ -66,7 +68,18 @@ $container->add(Kernel::class)
 // Extend RouterInterface definition to inject routes
 $container->extend(Careminate\Routing\RouterInterface::class)
           ->addMethodCall('setRoutes',[new League\Container\Argument\Literal\ArrayArgument($routes)]);
+// Register the Twig FilesystemLoader as a shared (singleton) service.
+// It will use the provided $templatesPath as the base directory for template files.
+$container->addShared('filesystem-loader', \Twig\Loader\FilesystemLoader::class)
+    ->addArgument(new \League\Container\Argument\Literal\StringArgument($templatesPath));
 
+// Register the Twig Environment (template engine) as a shared service.
+// It depends on the previously registered 'filesystem-loader' service.
+$container->addShared(\Twig\Environment::class)
+          ->addArgument('filesystem-loader');
+
+
+          
 // Debug output (should be removed in production)
 dd($container);
 
