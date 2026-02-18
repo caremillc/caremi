@@ -1,0 +1,32 @@
+{% extends 'layouts/app.html.twig' %}
+
+{% block main %}
+    <form action="/users/store" method="post">
+        
+        <div class="mb-3">
+            <label for="name" class="form-label">Full Name</label>
+            <input name="name" type="text" class="form-control" id="name" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Email Address</label>
+            <input name="email" type="email" class="form-control" id="email" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input name="password" type="password" class="form-control" id="password" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="role" class="form-label">User Role</label>
+            <select name="role" id="role" class="form-control" required>
+                <option value="admin">Admin</option>
+                <option value="editor">Editor</option>
+                <option value="viewer">Viewer</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create User</button>
+    </form>
+{% endblock %}
