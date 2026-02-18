@@ -1,6 +1,5 @@
-<!doctype html>
-<html lang="en">
-<body>
-<h1> {{ posts }}</h1>
-</body>
-</html>
+{% extends 'layouts/app.html.twig' %} 
+
+{% block main %}
+<h1>All Posts <a href="/posts/create">Create</a></h1>
+{% endblock  %}
