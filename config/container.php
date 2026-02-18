@@ -33,7 +33,7 @@ $container->delegate(new \League\Container\ReflectionContainer(true));
 // Load application routes from an external configuration file.
 $routes = include BASE_PATH . '/routes/web.php';
 # twig template path
-$templatesPath = BASE_PATH . '/templates';
+$templatesPath = BASE_PATH . '/templates/views';
 #env parameters
 $appEnv = env('APP_ENV', 'production'); // Default to 'production' if not set
 $appKey = env('APP_KEY'); // Default to 'production' if not set
