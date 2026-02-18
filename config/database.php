@@ -6,7 +6,7 @@ return [
     'drivers' => [
         'sqlite' => [
             'driver' => 'pdo_sqlite',
-            'path' => BASE_PATH . '/' . env('DB_SQLITE', 'storage/database.sqlite'),
+            'path' => storage_path('database.sqlite'),
         ],
 
         'mysql' => [

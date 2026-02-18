@@ -1,10 +1,14 @@
 <?php declare(strict_types=1);
 
+use Careminate\Database\Dbal\Connections\ConnectionFactory;
+use Careminate\Database\Dbal\Connections\Contracts\ConnectionInterface;
+use Careminate\Database\Dbal\Connections\DatabaseManager;
 use Careminate\Exceptions\Handler;
 use Careminate\Exceptions\HandlerInterface;
 use Careminate\Http\Kernel;
 use Careminate\Routing\Router;
 use Careminate\Routing\RouterInterface;
+use Doctrine\DBAL\Connection;
 
 // Load environment variables
 $dotenv = new \Symfony\Component\Dotenv\Dotenv();
@@ -86,18 +90,31 @@ $container->add(\Careminate\Http\Controllers\AbstractController::class);
 $container->inflector(\Careminate\Http\Controllers\AbstractController::class)
     ->invokeMethod('setContainer', [$container]);
 
-    # start database connection
+# start database connection
 $dbConfig = require BASE_PATH . '/config/database.php';
+
 $defaultDriver = $dbConfig['default'];
+
+if (! isset($dbConfig['drivers'][$defaultDriver])) {
+    throw new \RuntimeException("Database driver [$defaultDriver] not supported.");
+}
+
 $driverConfig = $dbConfig['drivers'][$defaultDriver];
 
-$container->add(Careminate\Database\Dbal\Connections\Contracts\ConnectionInterface::class, Careminate\Database\Dbal\Connections\ConnectionFactory::class)
+/**
+ * Register ConnectionFactory
+ */
+$container->addShared(ConnectionInterface::class, ConnectionFactory::class)
     ->addArgument($driverConfig);
-# Optional – Register DB Connection globally in container
-$container->addShared(\Doctrine\DBAL\Connection::class, function () use ($container) {
-    return $container->get(Careminate\Database\Dbal\Connections\Contracts\ConnectionInterface::class)->create();
+
+/**
+ * Register Doctrine DBAL Connection as Singleton
+ */
+$container->addShared(Connection::class, function () use ($container) {
+    return $container->get(ConnectionInterface::class)->create();
 });
 
+$container->addShared(DatabaseManager::class);
 # end database connection
 
 // Debug output (should be removed in production)
