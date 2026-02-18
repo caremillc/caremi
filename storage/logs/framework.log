@@ -2,3 +2,4 @@
 [2026-02-17 15:59:53] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:93
 [2026-02-17 16:01:20] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:93
 [2026-02-17 16:02:00] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:93
+[2026-02-18 10:08:20] Twig\Error\LoaderError: Unable to find template "<h1>Hello {{ name }}</h1>" (looked into: C:\xampp\htdocs\caremi/templates). in C:\xampp\htdocs\caremi\vendor\twig\twig\src\Loader\FilesystemLoader.php:234
