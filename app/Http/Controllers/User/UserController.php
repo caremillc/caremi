@@ -19,10 +19,12 @@ class UserController extends Controller
         return view('users/create.html.twig');
     }
 
-    public function store(): Response
+   public function store(): Response
     {
         // Your logic here
-        return new Response('<h1>Store Post</h1>');
+        var_dump($this->request->all());
+       
+        return new Response("<h1>User store successfully</h1>");
     }
 
     public function show(int $id): Response
