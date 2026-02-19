@@ -1,7 +1,9 @@
 <?php declare(strict_types=1);
 namespace App\Http\Controllers\Post;
 
+use App\Entity\Post;
 use App\Http\Controllers\Controller;
+use Careminate\Supports\Image\FileUploader;
 use Careminate\Http\Responses\Response;
 
 
@@ -22,8 +24,32 @@ class PostController extends Controller
 
     public function store(): Response
     {
-        // Your logic here
-        return new Response('<h1>Store Post</h1>');
+       
+        $title       = $this->request->input('title');
+        $description = $this->request->input('description');
+        $imagePath   = null;
+
+        if (empty($title) || empty($description)) {
+            return new Response("<h1>Error: Title and description are required.</h1>", 400);
+        }
+
+        // Use the helper function to handle file upload
+        if (isset($_FILES['image'])) {
+            $imagePath = FileUploader::store($_FILES['image'], storage_path('app/public/images'));
+
+            if ($imagePath === null) {
+                return new Response("<h1>Image upload failed.</h1>", 400);
+            }
+        }
+
+        // Create the post
+        $post = Post::create(null, $title, $description, $imagePath, null);
+
+        dd($post);
+        //$this->postMapper->save($post);
+        // Debugging output (remove after testing)
+       // $this->request->getSession()->setFlash('success', sprintf('Post "%s" successfully created', $title)); // step 2
+         return new Response("/posts");
     }
 
     public function show(int $id): Response
