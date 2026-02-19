@@ -3,12 +3,15 @@ namespace App\Http\Controllers\Post;
 
 use App\Entity\Post;
 use App\Http\Controllers\Controller;
-use Careminate\Supports\Image\FileUploader;
+use App\Repository\PostMapper;
 use Careminate\Http\Responses\Response;
+use Careminate\Supports\Image\FileUploader;
 
 
 class PostController extends Controller
 {
+     public function __construct(private PostMapper $postMapper){}
+     
     public function index(): Response
     { 
         $posts = "All Posts";
@@ -22,7 +25,7 @@ class PostController extends Controller
         return view('posts/create.html.twig');
     }
 
-    public function store(): Response
+   public function store(): Response
     {
        
         $title       = $this->request->input('title');
@@ -45,12 +48,14 @@ class PostController extends Controller
         // Create the post
         $post = Post::create(null, $title, $description, $imagePath, null);
 
-        dd($post);
-        //$this->postMapper->save($post);
+    //   dd($post);
+        $this->postMapper->save($post);
+		
         // Debugging output (remove after testing)
        // $this->request->getSession()->setFlash('success', sprintf('Post "%s" successfully created', $title)); // step 2
          return new Response("/posts");
     }
+    
 
     public function show(int $id): Response
     {
