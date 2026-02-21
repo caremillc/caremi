@@ -13,3 +13,60 @@
 [2026-02-21 06:22:25] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
 [2026-02-21 06:28:01] Twig\Error\SyntaxError: Unknown "storage_asset" function in "posts/show.html.twig" at line 6. in C:\xampp\htdocs\caremi\templates\views\posts\show.html.twig:6
 [2026-02-21 06:28:16] Twig\Error\SyntaxError: Unknown "asset" function in "posts/index.html.twig" at line 34. in C:\xampp\htdocs\caremi\templates\views\posts\index.html.twig:34
+[2026-02-21 06:39:48] Twig\Error\SyntaxError: Unknown "asset" function in "posts/index.html.twig" at line 34. in C:\xampp\htdocs\caremi\templates\views\posts\index.html.twig:34
+[2026-02-21 06:51:18] Twig\Error\SyntaxError: Unknown "asset" function in "posts/index.html.twig" at line 34. in C:\xampp\htdocs\caremi\templates\views\posts\index.html.twig:34
+[2026-02-21 07:00:57] Twig\Error\SyntaxError: Unknown "asset" function in "posts/index.html.twig" at line 33. in C:\xampp\htdocs\caremi\templates\views\posts\index.html.twig:33
+[2026-02-21 07:01:02] Twig\Error\SyntaxError: Unknown "asset" function in "posts/index.html.twig" at line 33. in C:\xampp\htdocs\caremi\templates\views\posts\index.html.twig:33
+[2026-02-21 07:01:32] Twig\Error\SyntaxError: Unknown "asset" function in "posts/index.html.twig" at line 33. in C:\xampp\htdocs\caremi\templates\views\posts\index.html.twig:33
+[2026-02-21 07:04:31] Twig\Error\SyntaxError: Unknown "asset" function in "posts/index.html.twig" at line 33. in C:\xampp\htdocs\caremi\templates\views\posts\index.html.twig:33
+[2026-02-21 07:07:45] Twig\Error\SyntaxError: Unknown "asset" function in "posts/index.html.twig" at line 33. in C:\xampp\htdocs\caremi\templates\views\posts\index.html.twig:33
+[2026-02-21 07:08:28] Twig\Error\SyntaxError: Unknown "asset" function in "posts/index.html.twig" at line 33. in C:\xampp\htdocs\caremi\templates\views\posts\index.html.twig:33
+[2026-02-21 07:08:51] Twig\Error\LoaderError: Unable to find template "posts/index" (looked into: C:\xampp\htdocs\caremi/templates/views). in C:\xampp\htdocs\caremi\vendor\twig\twig\src\Loader\FilesystemLoader.php:234
+[2026-02-21 07:12:03] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 07:12:03] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 07:12:03] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 07:13:16] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 07:13:17] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 07:13:17] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 07:20:27] LogicException: Unable to register extension "Twig\Extension\DebugExtension" as it is already registered. in C:\xampp\htdocs\caremi\vendor\twig\twig\src\ExtensionSet.php:163
+[2026-02-21 07:21:02] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 07:21:02] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 07:21:02] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 07:21:28] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 07:21:41] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 07:21:41] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 07:21:41] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 07:22:57] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 07:22:57] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 07:22:57] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 07:26:01] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 07:26:01] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 07:26:01] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 07:27:30] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 07:27:30] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 07:27:30] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 07:34:56] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 07:34:56] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 07:34:56] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 07:34:56] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 07:37:08] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 07:37:08] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 07:37:15] Careminate\Exceptions\Http\HttpException: Route handler is not callable in C:\xampp\htdocs\caremi\framework\src\Http\Kernel.php:69
+[2026-02-21 08:16:27] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 08:16:36] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 08:16:36] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 08:16:36] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 08:16:36] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 08:16:38] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 08:16:45] Error: Call to undefined function Careminate\Supports\Image\imagecreatefrompng() in C:\xampp\htdocs\caremi\framework\src\Supports\Image\ImageManager.php:70
+[2026-02-21 08:45:59] Error: Call to undefined function Careminate\Supports\Image\imagecreatefrompng() in C:\xampp\htdocs\caremi\framework\src\Supports\Image\ImageManager.php:70
+[2026-02-21 08:46:04] Error: Call to undefined function Careminate\Supports\Image\imagecreatefrompng() in C:\xampp\htdocs\caremi\framework\src\Supports\Image\ImageManager.php:70
+[2026-02-21 08:46:07] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 08:46:19] Error: Call to undefined function Careminate\Supports\Image\imagecreatefrompng() in C:\xampp\htdocs\caremi\framework\src\Supports\Image\ImageManager.php:70
+[2026-02-21 08:48:33] Error: Call to undefined function Careminate\Supports\Image\imagecreatefrompng() in C:\xampp\htdocs\caremi\framework\src\Supports\Image\ImageManager.php:70
+[2026-02-21 08:48:56] Error: Call to undefined function Careminate\Supports\Image\imagecreatefrompng() in C:\xampp\htdocs\caremi\framework\src\Supports\Image\ImageManager.php:70
+[2026-02-21 08:49:59] Error: Call to undefined function Careminate\Supports\Image\imagecreatefrompng() in C:\xampp\htdocs\caremi\framework\src\Supports\Image\ImageManager.php:70
+[2026-02-21 09:03:39] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 09:03:39] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 09:03:39] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 09:03:39] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96

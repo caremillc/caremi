@@ -1,4 +1,5 @@
-<?php declare (strict_types = 1);
+<?php declare(strict_types=1);
+
 namespace App\Http\Controllers\Post;
 
 use App\Entity\Post;
@@ -7,7 +8,7 @@ use App\Repository\PostMapper;
 use App\Repository\PostRepository;
 use Careminate\Http\Requests\Request;
 use Careminate\Http\Responses\Response;
-use Careminate\Supports\Image\FileUploader;
+use Careminate\Supports\Image\ImageManager;
 
 class PostController extends Controller
 {
@@ -16,6 +17,7 @@ class PostController extends Controller
         private PostRepository $postRepository
     ) {}
 
+    
     public function index()
     {
         $request = new Request();
@@ -35,40 +37,8 @@ class PostController extends Controller
 
     public function create(): Response
     {
-        // Your logic here
         return view('posts/create.html.twig');
     }
-
-    // public function store(): Response
-    // {
-
-    //     $title       = $this->request->input('title');
-    //     $description = $this->request->input('description');
-    //     $imagePath   = null;
-
-    //     if (empty($title) || empty($description)) {
-    //         return new Response("<h1>Error: Title and description are required.</h1>", 400);
-    //     }
-
-    //     // Use the helper function to handle file upload
-    //     if (isset($_FILES['image'])) {
-    //         $imagePath = FileUploader::store($_FILES['image'], storage_path('app/public/images'));
-
-    //         if ($imagePath === null) {
-    //             return new Response("<h1>Image upload failed.</h1>", 400);
-    //         }
-    //     }
-
-    //     // Create the post
-    //     $post = Post::create(null, $title, $description, $imagePath, null);
-
-    //     //   dd($post);
-    //     $this->postMapper->save($post);
-
-    //     // Debugging output (remove after testing)
-    //     // $this->request->getSession()->setFlash('success', sprintf('Post "%s" successfully created', $title)); // step 2
-    //     return new Response("/posts");
-    // }
 
     public function store(): Response
     {
@@ -81,24 +51,19 @@ class PostController extends Controller
         }
 
         if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+            $imageManager = new ImageManager('images/posts');
 
-            // Create SEO-friendly filename from title
+            // SEO-friendly filename
             $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $title)));
+            $imageName = $imageManager->upload($_FILES['image'], $slug);
 
-            // Preserve original extension
-            $extension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
-
-            $filename = $slug . '-' . time() . '.' . $extension;
-
-            $imagePath = FileUploader::store(
-                $_FILES['image'],
-                storage_path('app/public/images'),
-                $filename
-            );
-
-            if ($imagePath === null) {
+            if ($imageName === null) {
                 return new Response("<h1>Image upload failed.</h1>", 400);
             }
+
+            // Resize image to 800x600
+            $imageManager->resize($imageName, 800, 600);
+            $imagePath = $imageName;
         }
 
         $post = Post::create(null, $title, $description, $imagePath, null);
@@ -107,31 +72,38 @@ class PostController extends Controller
         return Response::redirect("/posts");
     }
 
-   public function show(int $id): Response
+    public function show(int $id): Response
     {
         $post = $this->postRepository->findById($id);
-
         return view('posts/show.html.twig', compact('post'));
     }
 
     public function edit(int $id): Response
     {
-        // Your logic here
         $post = $this->postRepository->findById($id);
         return view('posts/edit.html.twig', compact('post'));
     }
 
     public function update(int $id): Response
     {
-        $request = new Request();
-        $post    = $this->postRepository->findOrFail($id);
+        $post = $this->postRepository->findOrFail($id);
 
         $title       = $this->request->input('title');
         $description = $this->request->input('description');
         $imagePath   = $post->getImage();
 
         if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-            $imagePath = FileUploader::store($_FILES['image'], storage_path('app/public/images'));
+            $imageManager = new ImageManager('images/posts');
+
+            // SEO-friendly filename
+            $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $title)));
+            $imagePath = $imageManager->replace($_FILES['image'], $post->getImage());
+            
+            if ($imagePath === null) {
+                return new Response("<h1>Image upload failed.</h1>", 400);
+            }
+
+            $imageManager->resize($imagePath, 800, 600);
         }
 
         $post->setTitle($title);
@@ -145,8 +117,15 @@ class PostController extends Controller
 
     public function destroy(int $id): Response
     {
+        $post = $this->postRepository->findOrFail($id);
+
+        if ($post->getImage()) {
+            $imageManager = new ImageManager('images/posts');
+            $imageManager->delete($post->getImage());
+        }
+
         $this->postRepository->delete($id);
-        // flash('success', 'Post deleted successfully');
+
         return Response::redirect("/posts");
     }
 }

@@ -8,6 +8,7 @@ use Careminate\Exceptions\HandlerInterface;
 use Careminate\Http\Kernel;
 use Careminate\Routing\Router;
 use Careminate\Routing\RouterInterface;
+use Careminate\Template\TwigFactory;
 use Doctrine\DBAL\Connection;
 
 // Load environment variables
@@ -79,9 +80,15 @@ $container->addShared('filesystem-loader', \Twig\Loader\FilesystemLoader::class)
 
 // Register the Twig Environment as a shared (singleton) instance
 // and inject the 'filesystem-loader' service into its constructor.
-$container->addShared('twig', \Twig\Environment::class)
-          ->addArgument('filesystem-loader');
+// $container->addShared('twig', \Twig\Environment::class)
+//           ->addArgument('filesystem-loader');
 
+// Bind Twig via factory so extensions are automatically added
+$container->addShared('twig', function () use ($templatesPath) {
+    $factory = new TwigFactory($templatesPath);
+    return $factory->create(); // DebugExtension + AppExtension included
+});
+          
 // Register the AbstractController so it can be resolved by the container.
 $container->add(\Careminate\Http\Controllers\AbstractController::class);
 

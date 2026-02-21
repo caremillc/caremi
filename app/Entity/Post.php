@@ -59,7 +59,13 @@ class Post extends Entity
     {
         return $this->image;
     }
+    public function getImageUrl(): ?string
+    {
+        if (!$this->image) return null;
 
+        $imageManager = new \Careminate\Supports\Image\ImageManager('images/posts');
+        return $imageManager->url($this->image);
+    }
     public function setImage(?string $image): void
     {
         $this->image = $image;
