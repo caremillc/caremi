@@ -1,5 +1,36 @@
-{% extends 'layouts/app.html.twig' %} 
+{% extends 'layouts/app.html.twig' %}
 
 {% block main %}
-<h1> {{ postId }}</h1>
-{% endblock  %}
+    <h1>Edit Post</h1>
+
+    <form action="/posts/update/{{ post.id }}" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="_method" value="PUT"> {# For method spoofing if needed #}
+
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input name="title" type="text" class="form-control" id="title" value="{{ post.title }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea name="description" id="description" class="form-control" rows="6" required>{{ post.description }}</textarea>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Current Image</label><br>
+            {% if post.image %}
+                <img src="/storage/images/{{ post.image }}" alt="Current Image" class="img-fluid mb-2" style="max-width: 300px;">
+            {% else %}
+                <p>No image uploaded.</p>
+            {% endif %}
+        </div>
+
+        <div class="mb-3">
+            <label for="image" class="form-label">Change Image (optional)</label>
+            <input name="image" type="file" class="form-control" id="image" accept="image/*">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update Post</button>
+        <a href="/posts" class="btn btn-secondary">Cancel</a>
+    </form>
+{% endblock %}
