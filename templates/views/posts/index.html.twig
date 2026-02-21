@@ -31,7 +31,7 @@
                             <td>
                                 {% if post.image %}
                                {# {{ dump(asset('public/storage/images/' ~ post.image)) }} #}
-                                  <img src="/storage/images/' ~ post.image" alt="{{ post.title }}" style="width: 80px; height: auto;">
+                                  <img src="{{ asset('storage/images/' ~ post.image) }}" alt="{{ post.title }}" style="width: 80px; height: auto;">
                                     {# <img src="/storage/images/{{ post.image }}" alt="{{ post.title }}" style="width: 80px; height: auto;"> #}
                                 {% else %}
                                     <span class="text-muted">No image</span>

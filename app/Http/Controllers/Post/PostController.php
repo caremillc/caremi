@@ -107,7 +107,7 @@ class PostController extends Controller
         return Response::redirect("/posts");
     }
 
-    public function show(int $id): Response
+   public function show(int $id): Response
     {
         $post = $this->postRepository->findById($id);
 

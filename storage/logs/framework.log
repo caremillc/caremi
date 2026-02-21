@@ -4,3 +4,12 @@
 [2026-02-21 05:54:15] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
 [2026-02-21 05:54:26] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
 [2026-02-21 05:57:11] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 06:09:09] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 06:10:23] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 06:10:54] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 06:12:57] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 06:13:01] Twig\Error\SyntaxError: Unknown "asset" function in "posts/index.html.twig" at line 33. in C:\xampp\htdocs\caremi\templates\views\posts\index.html.twig:33
+[2026-02-21 06:21:43] Twig\Error\SyntaxError: Unknown "asset" function in "posts/index.html.twig" at line 33. in C:\xampp\htdocs\caremi\templates\views\posts\index.html.twig:33
+[2026-02-21 06:22:25] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 06:28:01] Twig\Error\SyntaxError: Unknown "storage_asset" function in "posts/show.html.twig" at line 6. in C:\xampp\htdocs\caremi\templates\views\posts\show.html.twig:6
+[2026-02-21 06:28:16] Twig\Error\SyntaxError: Unknown "asset" function in "posts/index.html.twig" at line 34. in C:\xampp\htdocs\caremi\templates\views\posts\index.html.twig:34

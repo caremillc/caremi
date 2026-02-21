@@ -3,7 +3,7 @@
 {% block main %}
     <div class="card mb-4">
         {% if post.image %}
-            <img src="/storage/images/{{ post.image }}" class="card-img-top" alt="{{ post.title }}">
+            <img src="{{ storage_asset('images/' ~ post.image) }}" class="card-img-top" alt="{{ post.title }}">
         {% endif %}
 
         <div class="card-body">
@@ -15,5 +15,4 @@
             <a href="/posts" class="btn btn-secondary">← Back to Posts</a>
         </div>
     </div>
-    
 {% endblock %}
