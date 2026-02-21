@@ -70,3 +70,18 @@
 [2026-02-21 09:03:39] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
 [2026-02-21 09:03:39] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
 [2026-02-21 09:03:39] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 18:55:09] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 18:55:17] Doctrine\DBAL\Exception\ConnectionException: An exception occurred in the driver: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in C:\xampp\htdocs\caremi\vendor\doctrine\dbal\src\Driver\API\MySQL\ExceptionConverter.php:112
+[2026-02-21 19:11:14] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 19:14:06] Doctrine\DBAL\Exception\ConnectionException: An exception occurred in the driver: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in C:\xampp\htdocs\caremi\vendor\doctrine\dbal\src\Driver\API\MySQL\ExceptionConverter.php:112
+[2026-02-21 19:14:10] Doctrine\DBAL\Exception\ConnectionException: An exception occurred in the driver: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in C:\xampp\htdocs\caremi\vendor\doctrine\dbal\src\Driver\API\MySQL\ExceptionConverter.php:112
+[2026-02-21 19:14:14] Doctrine\DBAL\Exception\ConnectionException: An exception occurred in the driver: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in C:\xampp\htdocs\caremi\vendor\doctrine\dbal\src\Driver\API\MySQL\ExceptionConverter.php:112
+[2026-02-21 19:15:10] Doctrine\DBAL\Exception\ConnectionException: An exception occurred in the driver: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in C:\xampp\htdocs\caremi\vendor\doctrine\dbal\src\Driver\API\MySQL\ExceptionConverter.php:112
+[2026-02-21 19:15:12] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 19:15:14] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 19:15:19] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 19:15:25] Doctrine\DBAL\Exception\ConnectionException: An exception occurred in the driver: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in C:\xampp\htdocs\caremi\vendor\doctrine\dbal\src\Driver\API\MySQL\ExceptionConverter.php:112
+[2026-02-21 19:15:40] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 19:15:40] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 19:15:40] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-21 19:15:40] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96

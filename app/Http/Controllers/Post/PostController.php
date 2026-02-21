@@ -69,7 +69,8 @@ class PostController extends Controller
         $post = Post::create(null, $title, $description, $imagePath, null);
         $this->postMapper->save($post);
 
-        return Response::redirect("/posts");
+        // return Response::redirect("/posts");
+         return redirect("/posts");
     }
 
     public function show(int $id): Response
@@ -112,7 +113,8 @@ class PostController extends Controller
 
         $this->postRepository->update($post);
 
-        return Response::redirect("/posts");
+        // return Response::redirect("/posts");
+         return redirect("/posts");
     }
 
     public function destroy(int $id): Response
@@ -126,6 +128,7 @@ class PostController extends Controller
 
         $this->postRepository->delete($id);
 
-        return Response::redirect("/posts");
+        // return Response::redirect("/posts");
+         return redirect("/posts");
     }
 }
