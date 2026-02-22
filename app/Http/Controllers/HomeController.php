@@ -6,11 +6,12 @@ use Careminate\Http\Responses\Response;
 
 class HomeController extends Controller
 {
-    public function __construct(private Widget $widget){}
+    public function __construct(private Widget $widget)
+    {
+    }
 
     public function index(): Response
     {
-        $title = "Home Page";
-        return view('home.html.twig', compact('title'));
+        return view('home.html.twig');
     }
 }
