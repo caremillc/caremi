@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php declare (strict_types = 1);
 
 use Careminate\Database\Dbal\Connections\ConnectionFactory;
 use Careminate\Database\Dbal\Connections\Contracts\ConnectionInterface;
@@ -8,7 +8,6 @@ use Careminate\Exceptions\HandlerInterface;
 use Careminate\Http\Kernel;
 use Careminate\Routing\Router;
 use Careminate\Routing\RouterInterface;
-use Careminate\Template\TwigFactory;
 use Doctrine\DBAL\Connection;
 
 // Load environment variables
@@ -40,55 +39,46 @@ $routes = include BASE_PATH . '/routes/web.php';
 # twig template path
 $templatesPath = BASE_PATH . '/templates/views';
 #env parameters
-$appEnv = env('APP_ENV', 'production'); // Default to 'production' if not set
-$appKey = env('APP_KEY'); // Default to 'production' if not set
+$appEnv     = env('APP_ENV', 'production'); // Default to 'production' if not set
+$appKey     = env('APP_KEY');               // Default to 'production' if not set
 $appVersion = env('APP_VERSION');
 
 $container->add('APP_ENV', new \League\Container\Argument\Literal\StringArgument($appEnv));
 $container->add('APP_KEY', new \League\Container\Argument\Literal\StringArgument($appKey));
 $container->add('APP_VERSION', new \League\Container\Argument\Literal\StringArgument($appVersion));
 
-
 // Bind RouterInterface to Router implementation
 $container->add(RouterInterface::class, Router::class)
-          ->setShared(true);
+    ->setShared(true);
 
 // Register interfaces to their implementations
 $container->add(HandlerInterface::class, Handler::class)
-          ->setShared(true);
-
-// Register router as singleton
-// $container->add(Router::class)->setShared(true);
-
-// Register handler as singleton
-// $container->add(Handler::class)->setShared(true);
+    ->setShared(true);
 
 // Register kernel with explicit arguments using references to other services
 $container->add(Kernel::class)
-          ->addArgument(RouterInterface::class)
-          ->addArgument(HandlerInterface::class) // Use the interface, not the concrete class
-          ->addArgument($container)
-          ->setShared(true);
+    ->addArgument(RouterInterface::class)
+    ->addArgument(HandlerInterface::class) // Use the interface, not the concrete class
+    ->addArgument($container)
+    ->setShared(true);
 
 // Extend RouterInterface definition to inject routes
 $container->extend(Careminate\Routing\RouterInterface::class)
-          ->addMethodCall('setRoutes',[new League\Container\Argument\Literal\ArrayArgument($routes)]);
+    ->addMethodCall('setRoutes', [new League\Container\Argument\Literal\ArrayArgument($routes)]);
+
 // Register the Twig FilesystemLoader as a shared (singleton) service.
 // It will use the provided $templatesPath as the base directory for template files.
-$container->addShared('filesystem-loader', \Twig\Loader\FilesystemLoader::class)
-    ->addArgument(new \League\Container\Argument\Literal\StringArgument($templatesPath));
+$container->add('template-renderer-factory', \Careminate\Template\TwigFactory::class)
+    ->addArguments([
+        \Careminate\Sessions\SessionInterface::class,                          // Inject session service
+        new \League\Container\Argument\Literal\StringArgument($templatesPath), // Path to view templates
+    ]);
 
-// Register the Twig Environment as a shared (singleton) instance
-// and inject the 'filesystem-loader' service into its constructor.
-// $container->addShared('twig', \Twig\Environment::class)
-//           ->addArgument('filesystem-loader');
-
-// Bind Twig via factory so extensions are automatically added
-$container->addShared('twig', function () use ($templatesPath) {
-    $factory = new TwigFactory($templatesPath);
-    return $factory->create(); // DebugExtension + AppExtension included
+$container->addShared('twig', function () use ($container) {
+    return $container
+        ->get('template-renderer-factory')
+        ->create();
 });
-          
 // Register the AbstractController so it can be resolved by the container.
 $container->add(\Careminate\Http\Controllers\AbstractController::class);
 
@@ -124,10 +114,8 @@ $container->addShared(Connection::class, function () use ($container) {
 $container->addShared(DatabaseManager::class);
 # end database connection
 
-//add session to container 
-$container->addShared(
-    Careminate\Sessions\SessionInterface::class,
-    Careminate\Sessions\Session::class
+//add session to container
+$container->addShared(Careminate\Sessions\SessionInterface::class, Careminate\Sessions\Session::class
 );
 
 // Debug output (should be removed in production)

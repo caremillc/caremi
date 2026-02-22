@@ -98,3 +98,16 @@
 [2026-02-21 19:23:20] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
 [2026-02-21 19:23:20] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
 [2026-02-21 19:23:20] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-22 06:09:01] League\Container\Exception\NotFoundException: Alias (twig) is not being managed by the container or delegates in C:\xampp\htdocs\caremi\vendor\league\container\src\Container.php:208
+[2026-02-22 06:12:48] ArgumentCountError: Too few arguments to function Twig\Environment::__construct(), 0 passed and at least 1 expected in C:\xampp\htdocs\caremi\vendor\twig\twig\src\Environment.php:111
+[2026-02-22 06:14:20] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-22 06:14:22] Doctrine\DBAL\Exception\TableNotFoundException: An exception occurred while executing a query: SQLSTATE[HY000]: General error: 1 no such table: posts in C:\xampp\htdocs\caremi\vendor\doctrine\dbal\src\Driver\API\SQLite\ExceptionConverter.php:52
+[2026-02-22 06:14:44] Doctrine\DBAL\Exception\TableNotFoundException: An exception occurred while executing a query: SQLSTATE[HY000]: General error: 1 no such table: posts in C:\xampp\htdocs\caremi\vendor\doctrine\dbal\src\Driver\API\SQLite\ExceptionConverter.php:52
+[2026-02-22 06:15:30] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-22 06:15:31] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-22 06:15:31] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-22 06:15:31] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-22 06:15:38] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-22 06:15:38] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-22 06:15:38] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-22 06:15:39] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
