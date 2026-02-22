@@ -258,3 +258,5 @@
 [2026-02-22 11:19:05] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
 [2026-02-22 11:19:09] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
 [2026-02-22 11:24:03] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-22 11:41:34] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-22 11:41:36] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
