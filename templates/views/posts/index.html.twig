@@ -30,7 +30,7 @@
                         <td>{{ post.description|length > 100 ? post.description[:100] ~ '...' : post.description }}</td>
                         <td>
                             {% if post.image %}
-                                <img src="{{ storage_asset('images/posts/' ~ post.image) }}" 
+                                <img src="{{ storage_asset('images/' ~ post.image) }}" 
                                      alt="{{ post.title }}" 
                                      style="width: 80px; height: auto; object-fit: cover;">
                             {% else %}
