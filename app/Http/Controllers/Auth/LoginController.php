@@ -13,6 +13,14 @@ class LoginController extends Controller
 
     public function login(): Response
     {
+        // Attempt to authenticate the user using a security component (bool)
+       // dd($this->request);
 		dd($this->request->all());
+        // create a session for the user
+
+        // If successful, retrieve the user
+
+        // Redirect the user to intended location
+        return redirect('/');
     }
 }
