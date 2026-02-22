@@ -23,7 +23,7 @@ class PostController extends Controller
     {
         $request = new Request();
         $page    = max(1, (int) $request->get('page', 1));
-        $perPage = 5;
+        $perPage = 50;
         $offset  = ($page - 1) * $perPage;
 
         $posts = $this->postRepository->paginate($perPage, $offset);
