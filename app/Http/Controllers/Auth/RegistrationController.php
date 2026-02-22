@@ -8,11 +8,7 @@ use Careminate\Http\Responses\Response;
 
 class RegistrationController extends Controller
 {
-     public function __construct(
-        private UserMapper $userMapper,
-        // private UserRepository $userRepository,
-        // private SessionAuthentication $auth
-    ) {}
+     public function __construct(private UserMapper $userMapper){}
 
     public function index(): Response
     {
