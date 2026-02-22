@@ -134,6 +134,7 @@ $container->add(\Careminate\Http\Middlewares\RouterDispatch::class)
 $container->add(\Careminate\Authentication\SessionAuthentication::class)
     ->addArguments([\App\Repository\UserRepository::class,\Careminate\Sessions\SessionInterface::class]);
 
+
 // dd($container);
 
 return $container;

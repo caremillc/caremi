@@ -48,6 +48,7 @@ class User extends Entity implements AuthUserInterface
         }
         return $this->id;
     }
+    
     public function getAuthIdentifier(): int|string
     {
         return $this->id;

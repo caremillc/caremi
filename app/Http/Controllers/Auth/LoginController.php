@@ -17,16 +17,25 @@ class LoginController extends Controller
         return view('auth/login.html.twig');
     }
 
-    public function login(): Response
+     public function login(): Response
     {
-        // Attempt to authenticate the user using a security component (bool)
-        // create a session for the user
-        $userIsAuthenticated = $this->auth->authenticate($this->request->input('email'),$this->request->input('password'));
-       dd($userIsAuthenticated);
-       
-        // If successful, retrieve the user
+        $email    = $this->request->input('email');
+        $password = $this->request->input('password');
 
-        // Redirect the user to intended location
-        return redirect('/');
+        // ✅ Check if user exists before attempting authentication
+        $user = $this->userRepository->findByEmail($email);
+        if (! $user) {
+            flash('error', 'User does not exist');
+            return redirect('/login');
+        }
+
+        // ✅ Attempt to authenticate the user
+        if (! $this->auth->authenticate($email, $password)) {
+            flash('error', 'Invalid credentials');
+            return redirect('/login');
+        }
+
+        flash('success', 'You are now logged in');
+        return view('admin/dashboard.html.twig', ['user' => $user]);
     }
 }
