@@ -29,6 +29,8 @@ return [
     ['GET', '/register', [\App\Http\Controllers\Auth\RegistrationController::class, 'index']],
     ['POST', '/register', [\App\Http\Controllers\Auth\RegistrationController::class, 'register']],
  
+       //dashboard 
+    ['GET', '/admin/dashboard', [\App\Http\Controllers\Dashboard\DashboardController::class, 'index']],
 //response
    ['GET', '/Hello/{name:.+}', function (string $name) {
        return new Response("Hello $name");

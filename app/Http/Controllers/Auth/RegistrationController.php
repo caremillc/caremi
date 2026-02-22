@@ -59,7 +59,7 @@ class RegistrationController extends Controller
         // Log the user in
         //   $this->auth->login($user);
         // Redirect to somewhere useful
-        return redirect('users');
+        return redirect('admin/dashboard');
     }
 
 }
