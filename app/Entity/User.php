@@ -48,7 +48,15 @@ class User extends Entity implements AuthUserInterface
         }
         return $this->id;
     }
-
+    public function getAuthIdentifier(): int|string
+    {
+        return $this->id;
+    }
+        
+    public function getAuthPassword(): string
+    {
+        return $this->password;
+    }
     public function setUsername(string $username): void
     {
         $this->username = $username;

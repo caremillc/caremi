@@ -129,6 +129,11 @@ $container->addShared(Careminate\Sessions\SessionInterface::class, Careminate\Se
 $container->add(\Careminate\Http\Middlewares\RouterDispatch::class)
           ->addArguments([\Careminate\Routing\RouterInterface::class, $container]);
 // Debug output (should be removed in production)
+
+// Register the SessionAuthentication service with both UserRepository and SessionInterface dependencies
+$container->add(\Careminate\Authentication\SessionAuthentication::class)
+    ->addArguments([\App\Repository\UserRepository::class,\Careminate\Sessions\SessionInterface::class]);
+
 // dd($container);
 
 return $container;
