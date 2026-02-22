@@ -55,13 +55,11 @@ $container->add(RouterInterface::class, Router::class)
 $container->add(HandlerInterface::class, Handler::class)
     ->setShared(true);
 
-    
-    // Register the RequestHandler service which implements the RequestHandlerInterface.
-// This handler is responsible for processing the middleware stack.
+// Register the RequestHandler service and inject the container itself for resolving middleware dependencies.
 $container->add(
     \Careminate\Http\Middlewares\Contracts\RequestHandlerInterface::class,
     \Careminate\Http\Middlewares\RequestHandler::class
-);
+)->addArgument($container);
 
 // Register kernel with explicit arguments using references to other services
 $container->add(Kernel::class)
