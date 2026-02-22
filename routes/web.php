@@ -29,6 +29,9 @@ return [
     ['GET', '/register', [\App\Http\Controllers\Auth\RegistrationController::class, 'index']],
     ['POST', '/register', [\App\Http\Controllers\Auth\RegistrationController::class, 'register']],
  
+       //login
+     ['GET', '/login', [\App\Http\Controllers\Auth\LoginController::class, 'loginForm']],
+     ['POST', '/login', [\App\Http\Controllers\Auth\LoginController::class, 'login']],
        //dashboard 
     ['GET', '/admin/dashboard', [\App\Http\Controllers\Dashboard\DashboardController::class, 'index']],
 //response
