@@ -10,6 +10,7 @@ class User extends Entity implements AuthUserInterface
     protected ?int $id = null;
     protected string $username;
     protected string $email;
+    protected string $role;
     protected string $password;
     protected ?\DateTimeImmutable $createdAt = null;
     protected ?\DateTimeImmutable $updatedAt = null;
@@ -19,11 +20,12 @@ class User extends Entity implements AuthUserInterface
         parent::__construct($data);
     }
 
-    public static function create(string $username, string $email, string $plainPassword) : self
+    public static function create(string $username, string $email, string $role, string $plainPassword) : self
     {
         return new self([
             'username'  => $username,
             'email'     => $email,
+            'role'      => $role,
             'password'  => password_hash($plainPassword, PASSWORD_DEFAULT),
             'createdAt' => new \DateTimeImmutable(),
         ]);
@@ -63,6 +65,14 @@ class User extends Entity implements AuthUserInterface
     public function getEmail(): string
     {
         return $this->email;
+    }
+    public function setRole(string $role): void
+    {
+        $this->role = $role;
+    }
+    public function getRole(): string
+    {
+        return $this->role;
     }
     public function setPassword(string $password): void
     {

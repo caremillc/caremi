@@ -25,10 +25,14 @@ return [
    ['PUT', '/users/{id}/update', [App\Http\Controllers\User\UserController::class, 'update']],
    ['DELETE', '/users/{id}/delete', [App\Http\Controllers\User\UserController::class, 'delete']],
 
-
+    //register 
+    ['GET', '/register', [\App\Http\Controllers\Auth\RegistrationController::class, 'index']],
+    ['POST', '/register', [\App\Http\Controllers\Auth\RegistrationController::class, 'register']],
+ 
 //response
    ['GET', '/Hello/{name:.+}', function (string $name) {
        return new Response("Hello $name");
    }],
 
+   
 ];
