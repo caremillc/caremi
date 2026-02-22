@@ -124,6 +124,12 @@ $container->addShared(Connection::class, function () use ($container) {
 $container->addShared(DatabaseManager::class);
 # end database connection
 
+//add session to container 
+$container->addShared(
+    Careminate\Sessions\SessionInterface::class,
+    Careminate\Sessions\Session::class
+);
+
 // Debug output (should be removed in production)
 // dd($container);
 
