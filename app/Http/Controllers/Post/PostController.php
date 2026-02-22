@@ -8,7 +8,6 @@ use App\Repository\PostMapper;
 use App\Repository\PostRepository;
 use Careminate\Http\Requests\Request;
 use Careminate\Http\Responses\Response;
-use Careminate\Sessions\SessionInterface;
 use Careminate\Supports\Image\ImageManager;
 
 class PostController extends Controller
@@ -16,7 +15,7 @@ class PostController extends Controller
     public function __construct(
         private PostMapper $postMapper,
         private PostRepository $postRepository,
-        private SessionInterface $session
+        // private SessionInterface $session
     ){}
     
     public function index()
@@ -69,8 +68,8 @@ class PostController extends Controller
 
         $post = Post::create(null, $title, $description, $imagePath, null);
         $this->postMapper->save($post);
-        $this->request->getSession()->setFlash('success', sprintf('Post "%s" successfully created', $title)); // step 2
-
+        flash('success', sprintf('Post "%s" successfully created', $title)); // step 2
+        // $this->request->getSession()->setFlash('success', sprintf('Post "%s" successfully created', $title)); // step 2
         // return Response::redirect("/posts");
          return redirect("/posts");
     }
