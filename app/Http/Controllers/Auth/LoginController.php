@@ -11,19 +11,20 @@ class LoginController extends Controller
     public function __construct(
         private SessionAuthentication $auth,
         private UserRepository $userRepository) {}
-        
+    
     public function loginForm(): Response
     {
         return view('auth/login.html.twig');
     }
 
-     public function login(): Response
+    public function login(): Response
     {
         $email    = $this->request->input('email');
         $password = $this->request->input('password');
 
         // ✅ Check if user exists before attempting authentication
         $user = $this->userRepository->findByEmail($email);
+      
         if (! $user) {
             flash('error', 'User does not exist');
             return redirect('/login');

@@ -51,8 +51,7 @@ class UserRepository implements AuthRepositoryInterface
         $this->connection->insert('users', [
             'username' => $user->getUsername(),
             'email'    => $user->getEmail(),
-            'password' => $hashedPassword,
-            'version'  => 1,
+            'password' => $hashedPassword            
         ]);
 
         $user->setId((int) $this->connection->lastInsertId());
@@ -103,7 +102,7 @@ class UserRepository implements AuthRepositoryInterface
     private function findOne(array $criteria): ?User
     {
         $qb = $this->connection->createQueryBuilder()
-            ->select('id', 'username', 'email', 'password', 'version')
+            ->select('id', 'username', 'email', 'password')
             ->from('users');
 
         foreach ($criteria as $field => $value) {

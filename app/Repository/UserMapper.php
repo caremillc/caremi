@@ -105,9 +105,7 @@ class UserMapper
              role = :role,
              password = :password,
              updated_at = :updated_at,
-             version = version + 1
-         WHERE id = :id
-           AND version = :version',
+         WHERE id = :id',
             [
                 'username'   => $user->getUsername(),
                 'email'      => $user->getEmail(),

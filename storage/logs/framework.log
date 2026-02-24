@@ -273,3 +273,40 @@
 [2026-02-22 15:11:04] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
 [2026-02-22 15:37:26] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
 [2026-02-22 15:39:21] Doctrine\DBAL\Exception\ConnectionException: An exception occurred in the driver: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in C:\xampp\htdocs\caremi\vendor\doctrine\dbal\src\Driver\API\MySQL\ExceptionConverter.php:112
+[2026-02-22 16:11:00] Doctrine\DBAL\Exception\ConnectionException: An exception occurred in the driver: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in C:\xampp\htdocs\caremi\vendor\doctrine\dbal\src\Driver\API\MySQL\ExceptionConverter.php:112
+[2026-02-22 16:11:21] Doctrine\DBAL\Exception\InvalidFieldNameException: An exception occurred while executing a query: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'version' in 'field list' in C:\xampp\htdocs\caremi\vendor\doctrine\dbal\src\Driver\API\MySQL\ExceptionConverter.php:69
+[2026-02-22 16:15:39] Doctrine\DBAL\Exception\InvalidFieldNameException: An exception occurred while executing a query: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'version' in 'field list' in C:\xampp\htdocs\caremi\vendor\doctrine\dbal\src\Driver\API\MySQL\ExceptionConverter.php:69
+[2026-02-22 16:15:42] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-22 16:15:49] Doctrine\DBAL\Exception\InvalidFieldNameException: An exception occurred while executing a query: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'version' in 'field list' in C:\xampp\htdocs\caremi\vendor\doctrine\dbal\src\Driver\API\MySQL\ExceptionConverter.php:69
+[2026-02-22 16:18:23] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-22 16:18:26] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-22 16:18:32] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-22 16:18:39] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-22 16:20:49] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-22 16:20:56] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-22 16:22:12] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-22 16:23:35] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-22 16:23:49] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-22 16:23:58] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-22 16:25:16] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-22 16:28:27] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-22 16:28:47] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-22 16:29:10] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-22 16:31:43] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-22 19:35:06] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-22 19:35:06] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-22 19:35:32] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-22 19:35:40] Doctrine\DBAL\Exception\ConnectionException: An exception occurred in the driver: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in C:\xampp\htdocs\caremi\vendor\doctrine\dbal\src\Driver\API\MySQL\ExceptionConverter.php:112
+[2026-02-22 19:35:57] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-24 13:28:42] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-24 13:28:42] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-24 13:28:51] Doctrine\DBAL\Exception\ConnectionException: An exception occurred in the driver: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in C:\xampp\htdocs\caremi\vendor\doctrine\dbal\src\Driver\API\MySQL\ExceptionConverter.php:112
+[2026-02-24 13:29:16] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-24 13:29:16] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-24 13:29:17] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-24 13:29:17] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-24 13:29:17] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-24 13:29:17] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-24 13:29:17] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-24 13:29:17] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-24 13:29:17] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96

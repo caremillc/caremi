@@ -1,4 +1,15 @@
 {% extends 'layouts/app.html.twig' %}
+
 {% block main %}
-    <h1>Dashboard</h1>
+    <h1>Welcome to your Dashboard</h1>
+
+    {% if user %}
+        <p>User ID: {{ user.id }}</p>
+        <p>Username: {{ user.username }}</p>
+        <p>Email: {{ user.email }}</p>
+    {% else %}
+        <p>You are not logged in.</p>
+    {% endif %}
+
+    <a href="/logout">Logout</a>
 {% endblock %}
