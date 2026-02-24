@@ -310,3 +310,31 @@
 [2026-02-24 13:29:17] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
 [2026-02-24 13:29:17] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
 [2026-02-24 13:29:17] Careminate\Exceptions\Http\HttpException: Not Found in C:\xampp\htdocs\caremi\framework\src\Routing\Router.php:96
+[2026-02-24 16:34:41] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-24 16:35:41] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-24 16:36:26] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-24 16:36:28] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-24 16:37:22] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-24 16:37:22] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-24 16:37:22] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-24 16:37:22] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-24 16:37:22] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-24 16:37:22] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-24 16:37:23] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-24 16:37:23] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-24 16:37:23] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-24 16:39:25] Error: Call to undefined method Careminate\Exceptions\Http\HttpException::setStatusCode() in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:53
+[2026-02-24 16:39:25] Error: Call to undefined method Careminate\Exceptions\Http\HttpException::setStatusCode() in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:53
+[2026-02-24 16:39:26] Error: Call to undefined method Careminate\Exceptions\Http\HttpException::setStatusCode() in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:53
+[2026-02-24 16:39:26] Error: Call to undefined method Careminate\Exceptions\Http\HttpException::setStatusCode() in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:53
+[2026-02-24 16:39:26] Error: Call to undefined method Careminate\Exceptions\Http\HttpException::setStatusCode() in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:53
+[2026-02-24 16:39:26] Error: Call to undefined method Careminate\Exceptions\Http\HttpException::setStatusCode() in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:53
+[2026-02-24 16:39:26] Error: Call to undefined method Careminate\Exceptions\Http\HttpException::setStatusCode() in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:53
+[2026-02-24 16:39:26] Error: Call to undefined method Careminate\Exceptions\Http\HttpException::setStatusCode() in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:53
+[2026-02-24 16:39:26] Error: Call to undefined method Careminate\Exceptions\Http\HttpException::setStatusCode() in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:53
+[2026-02-24 16:39:31] Error: Call to undefined method Careminate\Exceptions\Http\HttpException::setStatusCode() in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:53
+[2026-02-24 16:41:04] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-24 16:41:42] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-24 16:41:43] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-24 16:41:46] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-24 16:42:04] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52

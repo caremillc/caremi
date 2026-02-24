@@ -70,8 +70,12 @@ $container->add(Kernel::class)
     ->setShared(true);
 
 // Extend RouterInterface definition to inject routes
-$container->extend(Careminate\Routing\RouterInterface::class)
-    ->addMethodCall('setRoutes', [new League\Container\Argument\Literal\ArrayArgument($routes)]);
+// $container->extend(Careminate\Routing\RouterInterface::class)
+//     ->addMethodCall('setRoutes', [new League\Container\Argument\Literal\ArrayArgument($routes)]);
+
+    // Register the ExtractRouteInfo middleware and inject the route definitions as a literal array argument.
+$container->add(\Careminate\Http\Middlewares\ExtractRouteInfo::class)
+           ->addArgument(new \League\Container\Argument\Literal\ArrayArgument($routes));
 
 // Register the Twig FilesystemLoader as a shared (singleton) service.
 // It will use the provided $templatesPath as the base directory for template files.

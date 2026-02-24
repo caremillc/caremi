@@ -34,8 +34,9 @@ return [
        //login
      ['GET', '/login', [\App\Http\Controllers\Auth\LoginController::class, 'loginForm']],
      ['POST', '/login', [\App\Http\Controllers\Auth\LoginController::class, 'login']],
-   //dashboard 
-    ['GET', '/dashboard', [\App\Http\Controllers\Dashboard\DashboardController::class, 'index',[Authenticate::class, DummyMiddleware::class]]],
+    
+     //dashboard 
+    ['GET', '/admin/dashboard', [\App\Http\Controllers\Dashboard\DashboardController::class, 'index',[Authenticate::class, DummyMiddleware::class]]],
 
 //response
    ['GET', '/Hello/{name:.+}', function (string $name) {
