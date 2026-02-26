@@ -1,5 +1,6 @@
 <?php declare (strict_types = 1);
-namespace Careminate\Http\Middlewares;
+
+namespace App\Http\Middlewares;
 
 use Careminate\Http\Middlewares\Contracts\MiddlewareInterface;
 use Careminate\Http\Middlewares\Contracts\RequestHandlerInterface;

@@ -383,3 +383,27 @@
 [2026-02-26 17:17:20] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
 [2026-02-26 17:17:20] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
 [2026-02-26 17:17:20] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-26 17:25:05] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-26 17:25:05] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-26 17:25:05] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-26 17:25:05] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-26 17:25:06] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-26 17:25:06] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-26 17:25:06] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-26 17:25:06] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-26 17:25:06] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-26 17:25:07] League\Container\Exception\NotFoundException: Alias (Careminate\Http\Middlewares\GuestMiddleware) is not being managed by the container or delegates in C:\xampp\htdocs\caremi\vendor\league\container\src\Container.php:208
+[2026-02-26 17:27:22] League\Container\Exception\NotFoundException: Alias (Careminate\Http\Middlewares\GuestMiddleware) is not being managed by the container or delegates in C:\xampp\htdocs\caremi\vendor\league\container\src\Container.php:208
+[2026-02-26 17:27:23] League\Container\Exception\NotFoundException: Alias (Careminate\Http\Middlewares\GuestMiddleware) is not being managed by the container or delegates in C:\xampp\htdocs\caremi\vendor\league\container\src\Container.php:208
+[2026-02-26 17:27:25] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-26 17:27:25] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-26 17:27:25] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-26 17:27:25] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-26 17:27:25] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-26 17:27:25] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-26 17:27:25] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-26 17:27:25] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-26 17:27:26] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-26 17:27:27] League\Container\Exception\NotFoundException: Alias (Careminate\Http\Middlewares\GuestMiddleware) is not being managed by the container or delegates in C:\xampp\htdocs\caremi\vendor\league\container\src\Container.php:208
+[2026-02-26 17:27:53] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52
+[2026-02-26 17:28:19] Careminate\Exceptions\Http\HttpException: Not found in C:\xampp\htdocs\caremi\framework\src\Http\Middlewares\ExtractRouteInfo.php:52

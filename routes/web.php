@@ -2,7 +2,7 @@
 
 use App\Http\Middlewares\DummyMiddleware;
 use Careminate\Http\Middlewares\Authenticate;
-use Careminate\Http\Middlewares\GuestMiddleware;
+use App\Http\Middlewares\GuestMiddleware;
 use Careminate\Http\Responses\Response;
 
 return [

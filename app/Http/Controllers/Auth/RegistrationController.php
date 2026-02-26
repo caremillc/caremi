@@ -4,11 +4,18 @@ namespace App\Http\Controllers\Auth;
 use App\Entity\Register;
 use App\Http\Controllers\Controller;
 use App\Repository\UserMapper;
+use App\Repository\UserRepository;
+use Careminate\Authentication\SessionAuthentication;
 use Careminate\Http\Responses\Response;
 
 class RegistrationController extends Controller
 {
-     public function __construct(private UserMapper $userMapper){}
+    // public function __construct(private UserMapper $userMapper){}
+     public function __construct(
+        private UserMapper $userMapper,
+        private UserRepository $userRepository,
+        private SessionAuthentication $auth
+    ) {}
 
     public function index(): Response
     {
@@ -57,7 +64,7 @@ class RegistrationController extends Controller
         //     sprintf('User %s created', $user->getUsername())
         // );
         // Log the user in
-        //   $this->auth->login($user);
+          $this->auth->login($user);
         // Redirect to somewhere useful
         return redirect('admin/dashboard');
     }
