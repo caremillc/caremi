@@ -39,4 +39,16 @@ class LoginController extends Controller
         flash('success', 'You are now logged in');
         return view('admin/dashboard.html.twig', ['user' => $user]);
     }
+
+     public function logout(): Response
+    {
+        // Log the user out
+        $this->auth->logout();
+
+        // Set a logout session message
+        flash('success', 'Bye..see you soon!');
+
+        // Redirect to login page
+        return redirect('/login');
+    }
 }

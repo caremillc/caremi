@@ -39,6 +39,8 @@ return [
     ]],
     ['POST', '/login', [\App\Http\Controllers\Auth\LoginController::class, 'login']],
 
+    ['GET', '/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout',[Authenticate::class]]],
+    
     //dashboard
     ['GET', '/admin/dashboard', [\App\Http\Controllers\Dashboard\DashboardController::class, 'index'
     , [Authenticate::class, DummyMiddleware::class]
@@ -49,3 +51,6 @@ return [
         return new Response("Hello $name");
     }],
 ];
+
+
+
