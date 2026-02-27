@@ -10,6 +10,7 @@ use Careminate\Routing\Router;
 use Careminate\Routing\RouterInterface;
 use Doctrine\DBAL\Connection;
 
+
 // Load environment variables
 $dotenv = new \Symfony\Component\Dotenv\Dotenv();
 $dotenv->load(dirname(__DIR__) . '/.env');
@@ -62,10 +63,14 @@ $container->add(
 )->addArgument($container);
 
 // Register kernel with explicit arguments using references to other services
+// - the container itself,
+// - the request handler interface implementation,
+// - and the event dispatcher for managing lifecycle events.
 $container->add(Kernel::class)
     ->addArgument(RouterInterface::class)
     ->addArgument(HandlerInterface::class) // Use the interface, not the concrete class
     ->addArgument(\Careminate\Http\Middlewares\Contracts\RequestHandlerInterface::class) // Middleware pipeline handler
+    ->addArgument(\Careminate\Database\EventDispatcher\EventDispatcher::class) // add event EventDispatcher
     ->addArgument($container)
     ->setShared(true);
 
@@ -138,7 +143,9 @@ $container->add(\Careminate\Http\Middlewares\RouterDispatch::class)
 $container->add(\Careminate\Authentication\SessionAuthentication::class)
     ->addArguments([\App\Repository\UserRepository::class,\Careminate\Sessions\SessionInterface::class]);
 
-
+// Register the EventDispatcher as a shared (singleton) service in the container,
+// ensuring the same instance is used throughout the application lifecycle.
+$container->addShared(\Careminate\Database\EventDispatcher\EventDispatcher::class);
 // dd($container);
 
 return $container;

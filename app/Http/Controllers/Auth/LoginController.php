@@ -48,7 +48,7 @@ class LoginController extends Controller
         // Set a logout session message
         flash('success', 'Bye..see you soon!');
 
-        // Redirect to login page
-        return redirect('/login');
+        // Redirect to home or login page
+        return redirect('/');
     }
 }
