@@ -5,6 +5,7 @@
     <h1>Login</h1>
 
     <form action="/login" method="post">
+     {{ csrf() }}
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
             <input name="email" type="email" class="form-control" id="email" required>
@@ -16,5 +17,6 @@
       
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+
 
 {% endblock %}
