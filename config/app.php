@@ -16,4 +16,10 @@ return [
     'maintenance'     => [
         'driver' => 'file',
     ],
+
+
+    'providers' => [
+        \Careminate\Providers\EventServiceProvider::class,
+    ],
+    
 ];

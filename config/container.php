@@ -35,10 +35,43 @@ $container = new \League\Container\Container();
 $container->delegate(new \League\Container\ReflectionContainer(true));
 
 #parameters
+/*
+|--------------------------------------------------------------------------
+| Start Base Path (ROOT of project)
+|--------------------------------------------------------------------------
+*/
+$basePath = dirname(__DIR__);
+$container->add('basePath', new \League\Container\Argument\Literal\StringArgument($basePath));
+/*
+|--------------------------------------------------------------------------
+| End Base Path (ROOT of project)
+|--------------------------------------------------------------------------
+*/
+/*
+|--------------------------------------------------------------------------
+| Start Load Specific Config Files
+|--------------------------------------------------------------------------
+*/
+$allowed = ['app.php', 'view.php'];
+$config = [];
+foreach (glob($basePath . '/config/*.php') as $file) {
+    if (in_array(basename($file), $allowed, true)) {
+        $key = basename($file, '.php');
+        $config[$key] = require $file;
+    }
+}
+$container->add('config', $config);
+
+/*
+|--------------------------------------------------------------------------
+| End Load Specific Config Files
+|--------------------------------------------------------------------------
+*/
+
 // Load application routes from an external configuration file.
-$routes = include BASE_PATH . '/routes/web.php';
+$routes = include $basePath . '/routes/web.php';
 # twig template path
-$templatesPath = BASE_PATH . '/templates/views';
+// $templatesPath = $basePath . '/templates/views';
 #env parameters
 $appEnv     = env('APP_ENV', 'production'); // Default to 'production' if not set
 $appKey     = env('APP_KEY');               // Default to 'production' if not set
@@ -87,7 +120,8 @@ $container->add(\Careminate\Http\Middlewares\ExtractRouteInfo::class)
 $container->add('template-renderer-factory', \Careminate\Template\TwigFactory::class)
     ->addArguments([
         \Careminate\Sessions\SessionInterface::class,                          // Inject session service
-        new \League\Container\Argument\Literal\StringArgument($templatesPath), // Path to view templates
+        // new \League\Container\Argument\Literal\StringArgument($templatesPath), // Path to view templates
+         new \League\Container\Argument\Literal\StringArgument(config('view.path')), // Path to view templates
     ]);
 
 $container->addShared('twig', function () use ($container) {
@@ -104,7 +138,7 @@ $container->inflector(\Careminate\Http\Controllers\AbstractController::class)
     ->invokeMethod('setContainer', [$container]);
 
 # start database connection
-$dbConfig = require BASE_PATH . '/config/database.php';
+$dbConfig = require $basePath . '/config/database.php';
 
 $defaultDriver = $dbConfig['default'];
 
@@ -146,6 +180,21 @@ $container->add(\Careminate\Authentication\SessionAuthentication::class)
 // Register the EventDispatcher as a shared (singleton) service in the container,
 // ensuring the same instance is used throughout the application lifecycle.
 $container->addShared(\Careminate\Database\EventDispatcher\EventDispatcher::class);
+
+/*
+|--------------------------------------------------------------------------
+| Load Service Providers
+|--------------------------------------------------------------------------
+*/
+
+$appConfig = $config['app'];
+
+$repository = new \Careminate\Providers\ProviderRepository(
+    $container,
+    $appConfig['providers']
+);
+
+$repository->load();
 // dd($container);
 
 return $container;

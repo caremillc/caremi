@@ -5,20 +5,11 @@ require dirname(__DIR__) . '/bootstrap/app.php';
 require dirname(__DIR__) . '/bootstrap/performance.php';
 
 $container = require BASE_PATH . '/config/container.php';
-
+$GLOBALS['container'] = $container;
 // request received
 $request = \Careminate\Http\Requests\Request::createFromGlobals();
 
-// Retrieve the EventDispatcher instance from the container and register a listener:
-// - The listener `ContentLengthListener` will be triggered when the `ResponseEvent` is dispatched,
-//   allowing it to automatically set the Content-Length header on the response.
-$eventDispatcher = $container->get(\Careminate\Database\EventDispatcher\EventDispatcher::class);
-$eventDispatcher->addListener(
-    \Careminate\Http\Events\ResponseEvent::class,
-    new Careminate\Database\EventListener\InternalErrorListener()
-)->addListener(\Careminate\Http\Events\ResponseEvent::class,
-    new Careminate\Database\EventListener\ContentLengthListener()
-);
+
 
 try {
     // Get kernel from container (auto-wires dependencies)
