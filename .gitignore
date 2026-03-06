@@ -1,0 +1,10 @@
+#folders 
+/vendor/
+/framework/
+
+#files
+.maintenance
+.idea/
+.env
+notes.txt
+composer.lock 
