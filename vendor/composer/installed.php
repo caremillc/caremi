@@ -3,7 +3,7 @@
         'name' => 'caremillc/caremi',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '5a54a99e200c0c2bcff8583403cb44d967d51fb6',
+        'reference' => '724dd485c086e8a4c0fbd4e3914130291b6db65e',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'caremillc/caremi' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '5a54a99e200c0c2bcff8583403cb44d967d51fb6',
+            'reference' => '724dd485c086e8a4c0fbd4e3914130291b6db65e',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -22,7 +22,7 @@
         'caremillc/framework' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '78aed9b4f82cc133989636e5f2742be0b5ecf5e1',
+            'reference' => 'e0b99222e0b6cc5c3bee09ed4a58592da85e1d8a',
             'type' => 'library',
             'install_path' => __DIR__ . '/../caremillc/framework',
             'aliases' => array(

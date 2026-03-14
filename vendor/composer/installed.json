@@ -7,7 +7,7 @@
             "dist": {
                 "type": "path",
                 "url": "framework",
-                "reference": "78aed9b4f82cc133989636e5f2742be0b5ecf5e1"
+                "reference": "e0b99222e0b6cc5c3bee09ed4a58592da85e1d8a"
             },
             "require": {
                 "doctrine/dbal": "^3.6",
