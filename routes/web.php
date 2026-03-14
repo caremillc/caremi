@@ -7,11 +7,16 @@ Route::get('/', function () {
 });
 
 Route::get('/view', function () {
-    return response()->view('home', [
-        'title' => 'Careminate',
-        'loggedIn' => true,
-        'user' => 'John',
-        'users' => ['Alice', 'Bob', 'Charlie']
-    ]);
+    return response()->view('auth.register');
 });
 
+Route::post('/register', function () {
+
+    request()->validate([
+        'name' => 'required|min:3',
+        'email' => 'required|email',
+        'password' => 'required|min:8'
+    ]);
+
+    return "User created!";
+});
