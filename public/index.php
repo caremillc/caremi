@@ -1,5 +1,8 @@
 <?php declare(strict_types=1);
 
+use Careminate\Http\HttpKernel;
+use Careminate\Http\Requests\Request;
+
 // require_once __DIR__.'/../bootstrap/app.php';
 $app = require_once __DIR__.'/../bootstrap/app.php';
 
@@ -11,19 +14,19 @@ require BASE_PATH . '/bootstrap/performance.php';
 | Handle Request Through Kernel
 |--------------------------------------------------------------------------
 */
-// $request = Request::capture();
+$request = Request::capture();
 
 // dd($request);
 
-// $kernel = $app->make(HttpKernel::class);
+$kernel = $app->make(HttpKernel::class);
 
 // dd($kernel);
 
-// $response = $kernel->handle($request);
+$response = $kernel->handle($request);
 
 // $response->send();
 
-// $kernel->terminate($request, $response);
+$kernel->terminate($request, $response);
 
 
 // dd($response);
@@ -34,4 +37,4 @@ require BASE_PATH . '/bootstrap/performance.php';
 |--------------------------------------------------------------------------
 */
 
-// $response->send();
+$response->send();
