@@ -1,0 +1,5 @@
+storage/logs/.gitkeep
+storage/cache/views/.gitkeep
+storage/cache/data/.gitkeep
+storage/sessions/.gitkeep
+storage/uploads/.gitkeep
