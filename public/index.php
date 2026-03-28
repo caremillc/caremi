@@ -16,7 +16,14 @@ require BASE_PATH . '/bootstrap/performance.php';
 */
 $request = Request::capture();
 
-// dd($request);
+// Better debug
+// dd(
+//     $request,
+//     $request->method(),
+//     $request->path(),
+//     $request->all()
+// );
+
 
 $kernel = $app->make(HttpKernel::class);
 
