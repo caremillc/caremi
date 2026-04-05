@@ -1,0 +1,17 @@
+#folders 
+/vendor/
+/framework/
+/bootstrap/cache/*
+
+#files
+.maintenance
+.idea/
+.env
+notes.txt
+composer.lock
+
+storage/logs/*
+storage/cache/*
+storage/sessions/*
+storage/uploads/*
+!.gitkeep
