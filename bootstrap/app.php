@@ -1,23 +1,37 @@
-<?php declare(strict_types=1);
+<?php
 
-/* ==============================
-Purpose:
+use Careminate\Foundation\Application\Application;
+use Careminate\Http\HttpKernel;
+use Careminate\Http\Requests\Request;
 
-1.Build the Application instance
-2.Load environment variables
-3.Initialize the DI container
-4.Register service providers
-5.Load configuration
-6.Register routes
-7.Boot services
-*/
-
-// Define application constants
 define('CAREMI_START', microtime(true));
 define('BASE_PATH', dirname(__DIR__));
 define('ROOT_PATH', __DIR__);
 
-// Composer autoload
-require_once BASE_PATH . '/vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
+$app = new Application(dirname(__DIR__));
 
+// $app->registerBaseBindings(); 
+// $app->registerBaseServiceProviders(); 
+// $app->registerServiceProviders(); 
+
+/*
+|--------------------------------------------------------------------------
+| Register Providers
+|--------------------------------------------------------------------------
+*/
+
+$app->registerConfiguredProviders();
+
+/*
+|--------------------------------------------------------------------------
+| Handle Request
+|--------------------------------------------------------------------------
+*/
+
+$request = $app->make(Request::class);
+
+$kernel = $app->make(HttpKernel::class);
+
+$kernel->send($request);
