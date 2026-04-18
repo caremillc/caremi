@@ -16,7 +16,7 @@ $app = new Application(dirname(__DIR__));
 |
 */
 
-// $app->register(\Careminate\Providers\ConfigServiceProvider::class);
+$app->register(\Careminate\Foundation\Providers\ConfigServiceProvider::class);  // this code
 
 $app->boot();
 
