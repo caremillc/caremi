@@ -1,21 +1,27 @@
 <?php declare(strict_types=1);
 
+use App\Http\Middleware\TrustProxies;
+use Careminate\Contracts\Http\KernelInterface;
+use Careminate\Foundation\Application;
+use Careminate\Foundation\Providers\ConfigServiceProvider;
+use Careminate\Foundation\Providers\HttpServiceProvider;
+use Careminate\Foundation\Providers\KernelServiceProvider;
+
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$app = new Careminate\Foundation\Application(dirname(__DIR__));
 
-/*
-|--------------------------------------------------------------------------
-| Register core providers
-|--------------------------------------------------------------------------
-|
-| Later we will register ConfigServiceProvider, RoutingServiceProvider,
-| ViewServiceProvider, DatabaseServiceProvider, etc.
-|
-*/
+$app = new Application(dirname(__DIR__));
 
-$app->register(\Careminate\Foundation\Providers\ConfigServiceProvider::class);  // this code
-$app->register(\Careminate\Foundation\Providers\HttpServiceProvider::class);
+$app->register(ConfigServiceProvider::class);
+$app->register(HttpServiceProvider::class);
+$app->register(KernelServiceProvider::class);
+
 $app->boot();
+
+/** @var KernelInterface $kernel */
+$kernel = $app->make(KernelInterface::class);
+$kernel->setMiddleware([
+    TrustProxies::class,
+]);
 
 return $app;
