@@ -11,18 +11,19 @@
             "Modules\\": "modules/"
         }
     },
-	"autoload-dev": {
+    "autoload-dev": {
         "psr-4": {
             "Careminate\\Tests\\": "tests/"
         }
     },
     "require": {
         "php": ">=8.2",
+        "psr/container": "^2.0",
         "caremillc/framework": "dev-main"
     },
     "require-dev": {
         "symfony/var-dumper": "6.3.x-dev",
-        "phpunit/phpunit": "^11.0"
+        "phpunit/phpunit": "^11.5"
     },
     "repositories": [
         {
@@ -36,9 +37,13 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
-        "post-autoload-dump": [
-         
-        ],
+        "post-autoload-dump": [],
+        "test": "phpunit --configuration phpunit.xml",
+        "test:coverage": "phpunit --configuration phpunit.xml --coverage-text",
         "serve": "php -S localhost:8000 -t public"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
     }
 }
