@@ -1,0 +1,81 @@
+{
+    "$schema": "https://getcomposer.org/schema.json",
+    "name": "caremillc/caremi",
+    "description": "Careminate reference application and local framework development workspace.",
+    "type": "project",
+    "license": "proprietary",
+    "require": {
+        "php": "^8.4",
+        "ext-ctype": "*",
+        "ext-filter": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "ext-openssl": "*",
+        "caremillc/framework": "0.1.x-dev"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^2.2",
+        "phpstan/phpstan-deprecation-rules": "^2.0",
+        "phpstan/phpstan-strict-rules": "^2.0",
+        "phpunit/phpunit": "^12.5",
+        "rector/rector": "^2.5",
+        "squizlabs/php_codesniffer": "^4.0"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "framework",
+            "options": {
+                "symlink": true,
+                "versions": {
+                    "caremillc/framework": "0.1.x-dev"
+                }
+            }
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Modules\\": "modules/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {},
+        "discard-changes": false,
+        "optimize-autoloader": true,
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "scripts": {
+        "test": [
+            "@test:application",
+            "@test:framework"
+        ],
+        "test:application": "@php vendor/bin/phpunit --configuration phpunit.xml",
+        "test:framework": "@php vendor/bin/phpunit --configuration framework/phpunit.xml",
+        "analyse": "@php vendor/bin/phpstan analyse --configuration phpstan.neon --no-progress",
+        "analyse:framework": "@php vendor/bin/phpstan analyse --configuration framework/phpstan.neon --no-progress",
+        "style": "@php vendor/bin/phpcs --standard=phpcs.xml",
+        "style:framework": "@php vendor/bin/phpcs --standard=framework/phpcs.xml",
+        "refactor:check": "@php vendor/bin/rector process --config=rector.php --dry-run",
+        "refactor:framework": "@php vendor/bin/rector process --config=framework/rector.php --dry-run",
+        "validate": "@composer validate --strict",
+        "audit": "@composer audit",
+        "quality": [
+            "@validate",
+            "@test",
+            "@analyse",
+            "@style",
+            "@refactor:check"
+        ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

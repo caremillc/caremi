@@ -1,0 +1,62 @@
+# Composer
+/vendor/
+/framework/vendor/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# PHPUnit
+.phpunit.cache/
+.phpunit.result.cache
+/framework/.phpunit.cache/
+/framework/.phpunit.result.cache
+
+# PHPStan
+.phpstan-cache/
+/framework/.phpstan-cache/
+
+# Rector
+/.rector.cache/
+/framework/.rector.cache/
+
+# Runtime data
+/storage/cache/*
+!/storage/cache/.gitignore
+
+/storage/logs/*
+!/storage/logs/.gitignore
+
+/storage/runtime/*
+!/storage/runtime/.gitignore
+
+# IDEs
+/.idea/
+/.vscode/
+*.code-workspace
+
+# Operating systems
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Test coverage
+/coverage/
+/build/coverage/
+/framework/coverage/
+/framework/build/coverage/
+
+# Local tooling
+.php-cs-fixer.cache
+.phpunit.cache
