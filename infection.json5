@@ -1,0 +1,17 @@
+{
+  "$schema": "vendor/infection/infection/resources/schema.json",
+  "source": {
+    "directories": ["framework/src"]
+  },
+  "logs": {
+    "text": "php://stdout"
+  },
+  "mutators": {
+    "@default": true
+  },
+  "testFramework": "phpunit",
+  "testFrameworkOptions": "--configuration=phpunit.xml.dist",
+  "minMsi": 90,
+  "minCoveredMsi": 95
+}
+

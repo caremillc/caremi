@@ -1,0 +1,64 @@
+{
+  "name": "caremillc/caremi",
+  "description": "Careminate application project",
+  "type": "project",
+  "license": "MIT",
+  "require": {
+    "php": ">=8.4",
+    "caremillc/framework": "dev-main"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.95",
+    "infection/infection": "^0.35",
+    "phpstan/phpstan": "^2.2",
+    "phpstan/phpstan-phpunit": "^2.0",
+    "phpstan/phpstan-strict-rules": "^2.0",
+    "phpunit/phpunit": "^12.5",
+    "rector/rector": "^2.2"
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "framework",
+      "options": {
+        "symlink": true
+      }
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "App\\Tests\\": "tests/",
+      "Careminate\\Tests\\": "framework/tests/"
+    }
+  },
+  "scripts": {
+    "analyse": "@php vendor/bin/phpstan analyse --configuration=phpstan.neon.dist --no-progress",
+    "format": "@php vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --verbose",
+    "format-check": "@php vendor/bin/php-cs-fixer check --config=.php-cs-fixer.dist.php --diff --verbose",
+    "mutation": "@php -d memory_limit=1G vendor/bin/infection --configuration=infection.json5 --threads=max",
+    "quality": [
+      "@test",
+      "@analyse",
+      "@format-check"
+    ],
+    "rector": "@php vendor/bin/rector process --config=rector.php",
+    "rector-check": "@php vendor/bin/rector process --config=rector.php --dry-run",
+    "test": "@php vendor/bin/phpunit --configuration=phpunit.xml.dist"
+  },
+  "config": {
+    "allow-plugins": {
+      "infection/extension-installer": true
+    },
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "sort-packages": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
+
