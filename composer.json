@@ -8,7 +8,7 @@
     "caremillc/framework": "0.1.0-dev"
   },
   "require-dev": {
-    "phpunit/phpunit": "^11.5"
+    "phpunit/phpunit": "^12.5"
   },
   "repositories": [
     {
