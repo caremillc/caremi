@@ -4,15 +4,15 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f4cf89f0be20ac8ed176d976c6fc3316",
+    "content-hash": "9e5770a52ac9945cfaa48c0349a98c42",
     "packages": [
         {
             "name": "caremillc/framework",
-            "version": "0.1.0-dev",
+            "version": "0.3.0-dev",
             "dist": {
                 "type": "path",
                 "url": "framework",
-                "reference": "fc4a22d3e41abebd17b60d2c4a509dda76c6be0d"
+                "reference": "044f0d4aef850fedb4c3de27470d8a1bbd07ef30"
             },
             "require": {
                 "php": "^8.4",
@@ -28,7 +28,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "0.2.x-dev"
+                    "dev-main": "0.3.x-dev"
                 }
             },
             "autoload": {
@@ -72,6 +72,7 @@
             ],
             "description": "A modular, testable, enterprise-oriented PHP application framework.",
             "keywords": [
+                "application-kernel",
                 "careminate",
                 "container",
                 "dependency-injection",
