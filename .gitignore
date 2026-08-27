@@ -1,0 +1,45 @@
+# Composer
+/vendor/
+/framework/
+/framework/vendor/
+/framework/composer.lock
+
+# PHPUnit
+/.phpunit.cache/
+/framework/.phpunit.cache/
+
+# Static analysis and automated refactoring
+/build/
+/framework/build/
+/.php-cs-fixer.cache
+/framework/.php-cs-fixer.cache
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Runtime files
+/storage/logs/*
+!/storage/logs/.gitignore
+/storage/cache/*
+!/storage/cache/.gitignore
+/storage/sessions/*
+!/storage/sessions/.gitignore
+
+# IDEs and editors
+/.idea/
+/.vscode/
+*.code-workspace
+
+# Operating systems
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.swp
+*.swo

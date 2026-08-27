@@ -1,0 +1,38 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true
+
+[*.{json,yml,yaml,neon,xml,xml.dist}]
+indent_size = 2
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.bat]
+end_of_line = crlf
+
+2. C:\xampp\htdocs\caremi\.gitattributes
+* text=auto eol=lf
+
+*.php text eol=lf
+*.json text eol=lf
+*.xml text eol=lf
+*.dist text eol=lf
+*.neon text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.bat text eol=crlf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
