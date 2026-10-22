@@ -7,6 +7,7 @@ use Careminate\Config\ConfigurationLoader;
 use Careminate\Config\ConfigurationValidator;
 use Careminate\Config\Environment;
 use Careminate\Foundation\Application;
+use Careminate\Foundation\ConfiguredProviderLoader;
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
@@ -116,6 +117,11 @@ $application = new Application();
 
 $application->container()->instance(
     Configuration::class,
+    $configuration
+);
+
+new ConfiguredProviderLoader()->register(
+    $application,
     $configuration
 );
 

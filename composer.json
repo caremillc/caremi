@@ -43,9 +43,13 @@
         "lint": [
             "@php -l bootstrap/app.php",
             "@php -l config/app.php",
+            "@php -l config/providers.php",
+            "@php -l app/Services/ApplicationIdentity.php",
+            "@php -l app/Providers/AppServiceProvider.php",
             "@php -l tests/bootstrap.php",
             "@php -l tests/Unit/BootstrapTest.php",
-            "@php -l tests/Unit/ConfigurationBootstrapTest.php"
+            "@php -l tests/Unit/ConfigurationBootstrapTest.php",
+            "@php -l tests/Unit/ProviderBootstrapTest.php"
         ],
         "check": [
             "composer validate --strict",
