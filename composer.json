@@ -38,15 +38,17 @@
         "test:bootstrap": "@php tests/bootstrap.php",
         "test": "@php vendor/bin/phpunit --configuration=phpunit.xml",
         "analyse": "@php vendor/bin/phpstan analyse --configuration=phpstan.neon --no-progress",
-         "cs:check": "@php vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --dry-run --diff --allow-unsupported-php-version=yes",
+        "cs:check": "@php vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --dry-run --diff --allow-unsupported-php-version=yes",
         "cs:fix": "@php vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --allow-unsupported-php-version=yes",
         "lint": [
             "@php -l bootstrap/app.php",
+            "@php -l config/app.php",
             "@php -l tests/bootstrap.php",
-            "@php -l tests/Unit/BootstrapTest.php"
+            "@php -l tests/Unit/BootstrapTest.php",
+            "@php -l tests/Unit/ConfigurationBootstrapTest.php"
         ],
         "check": [
-            "@validate --strict",
+            "composer validate --strict",
             "@lint",
             "@cs:check",
             "@analyse",

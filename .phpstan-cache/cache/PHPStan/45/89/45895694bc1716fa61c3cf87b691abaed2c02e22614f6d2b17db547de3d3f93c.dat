@@ -1,0 +1,1 @@
+O:23:"PHPStan\Cache\CacheItem":2:{s:11:"variableKey";s:74:"v2-cb8b31e82c61ce197871c9e8a6f122256751f2ab606dd2be90846d4fa5f8933e-8.5.11";s:4:"data";a:3:{s:7:"classes";a:4:{s:9:"attribute";b:1;s:20:"returntypewillchange";b:1;s:22:"allowdynamicproperties";b:1;s:18:"sensitiveparameter";b:1;}s:9:"functions";a:0:{}s:9:"constants";a:0:{}}}

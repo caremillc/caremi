@@ -2,59 +2,43 @@
 
 declare(strict_types=1);
 
+use Careminate\Config\Configuration;
+use Careminate\Foundation\Application;
 use Careminate\Foundation\Framework;
 
-$bootstrap = dirname(__DIR__) . '/bootstrap/app.php';
+$environmentOverrides = [
+    'APP_NAME' => 'Careminate',
+    'APP_ENV' => 'testing',
+    'APP_DEBUG' => 'false',
+    'APP_PORT' => '8080',
+];
 
-try {
-    $result = require $bootstrap;
+$environmentFile = dirname(__DIR__) . '/.env.smoke-nonexistent';
 
-    if (!is_array($result)) {
-        throw new RuntimeException(
-            'Application bootstrap must return an array.'
-        );
-    }
+$application = require dirname(__DIR__) . '/bootstrap/app.php';
 
-    if (!class_exists(Framework::class)) {
-        throw new RuntimeException(
-            'Careminate framework could not be autoloaded.'
-        );
-    }
-
-    if (($result['framework'] ?? null) !== Framework::version()) {
-        throw new RuntimeException(
-            'Framework version mismatch.'
-        );
-    }
-
-    if (($result['php'] ?? null) !== PHP_VERSION) {
-        throw new RuntimeException(
-            'PHP runtime version mismatch.'
-        );
-    }
-
-    if (!Framework::supportsRuntime()) {
-        throw new RuntimeException(
-            'Unsupported PHP runtime.'
-        );
-    }
-
-    echo sprintf(
-        "Careminate skeleton bootstrapped successfully.\n"
-        . "Framework: %s\n"
-        . "PHP: %s\n",
-        Framework::version(),
-        PHP_VERSION
-    );
-
-    exit(0);
-} catch (Throwable $exception) {
-    fwrite(
-        STDERR,
-        "Bootstrap test failed: "
-        . $exception->getMessage()
-        . PHP_EOL
-    );
-
-    exit(1);
+if (!$application instanceof Application) {
+    throw new RuntimeException('Bootstrap did not return an application.');
 }
+
+if (!$application->isBooted()) {
+    throw new RuntimeException('Application was not booted.');
+}
+
+$config = $application->container()->get(Configuration::class);
+
+if (!$config instanceof Configuration) {
+    throw new RuntimeException('Configuration was not registered.');
+}
+
+if ($config->string('app.environment') !== 'testing') {
+    throw new RuntimeException('Unexpected application environment.');
+}
+
+echo sprintf(
+    "Careminate skeleton bootstrapped successfully.\nFramework: %s\nPHP: %s\n",
+    Framework::version(),
+    PHP_VERSION
+);
+
+$application->terminate();

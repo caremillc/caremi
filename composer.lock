@@ -12,10 +12,11 @@
             "dist": {
                 "type": "path",
                 "url": "framework",
-                "reference": "9482a5882a387cbbb07d849654b954ef6afe1d51"
+                "reference": "ced1f4f9ca190e334573111400a99e6aabf675ec"
             },
             "require": {
-                "php": "^8.4"
+                "php": "^8.4",
+                "psr/container": "^2.0"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^3.0",
@@ -44,18 +45,37 @@
                     "@php vendor/bin/phpstan analyse --configuration=phpstan.neon --no-progress"
                 ],
                 "cs:check": [
-                    "@php vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --dry-run --diff"
+                    "@php vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --dry-run --diff --allow-unsupported-php-version=yes"
                 ],
                 "cs:fix": [
-                    "@php vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php"
+                    "@php vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --allow-unsupported-php-version=yes"
                 ],
                 "lint": [
                     "@php -l src/Foundation/Framework.php",
+                    "@php -l src/Container/Container.php",
+                    "@php -l src/Container/Exception/ContainerException.php",
+                    "@php -l src/Container/Exception/NotFoundException.php",
                     "@php -l tests/smoke.php",
-                    "@php -l tests/Unit/Foundation/FrameworkTest.php"
+                    "@php -l tests/Unit/Foundation/FrameworkTest.php",
+                    "@php -l tests/Unit/Container/ContainerTest.php",
+                    "@php -l tests/Unit/Container/AliasContainerTest.php",
+                    "@php -l tests/Unit/Container/PsrContainerTest.php",
+                    "@php -l tests/Unit/Container/AutowiringTest.php",
+                    "@php -l tests/Unit/Container/AutowiringEdgeCaseTest.php",
+                    "@php -l src/Foundation/Application.php",
+                    "@php -l tests/Unit/Foundation/ApplicationTest.php",
+                    "@php -l src/Config/Environment.php",
+                    "@php -l src/Config/Configuration.php",
+                    "@php -l tests/Unit/Config/EnvironmentTest.php",
+                    "@php -l tests/Unit/Config/ConfigurationTest.php",
+                    "@php -l src/Config/ConfigurationLoader.php",
+                    "@php -l src/Config/ConfigurationValidator.php",
+                    "@php -l tests/Unit/Config/ConfigurationLoaderTest.php",
+                    "@php -l tests/Unit/Config/ConfigurationValidatorTest.php",
+                    "@php -l tests/Unit/Config/ConfigurationIntegrationTest.php"
                 ],
                 "check": [
-                    "@validate --strict",
+                    "composer validate --strict",
                     "@lint",
                     "@cs:check",
                     "@analyse",
@@ -71,6 +91,59 @@
                 "symlink": true,
                 "relative": true
             }
+        },
+        {
+            "name": "psr/container",
+            "version": "2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/container.git",
+                "reference": "c71ecc56dfe541dbd90c5360474fbc405f8d5963"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/container/zipball/c71ecc56dfe541dbd90c5360474fbc405f8d5963",
+                "reference": "c71ecc56dfe541dbd90c5360474fbc405f8d5963",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Container\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "Common Container Interface (PHP FIG PSR-11)",
+            "homepage": "https://github.com/php-fig/container",
+            "keywords": [
+                "PSR-11",
+                "container",
+                "container-interface",
+                "container-interop",
+                "psr"
+            ],
+            "support": {
+                "issues": "https://github.com/php-fig/container/issues",
+                "source": "https://github.com/php-fig/container/tree/2.0.2"
+            },
+            "time": "2021-11-05T16:47:00+00:00"
         }
     ],
     "packages-dev": [
@@ -1384,59 +1457,6 @@
                 }
             ],
             "time": "2026-10-16T05:55:07+00:00"
-        },
-        {
-            "name": "psr/container",
-            "version": "2.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-fig/container.git",
-                "reference": "c71ecc56dfe541dbd90c5360474fbc405f8d5963"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/container/zipball/c71ecc56dfe541dbd90c5360474fbc405f8d5963",
-                "reference": "c71ecc56dfe541dbd90c5360474fbc405f8d5963",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.4.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Psr\\Container\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PHP-FIG",
-                    "homepage": "https://www.php-fig.org/"
-                }
-            ],
-            "description": "Common Container Interface (PHP FIG PSR-11)",
-            "homepage": "https://github.com/php-fig/container",
-            "keywords": [
-                "PSR-11",
-                "container",
-                "container-interface",
-                "container-interop",
-                "psr"
-            ],
-            "support": {
-                "issues": "https://github.com/php-fig/container/issues",
-                "source": "https://github.com/php-fig/container/tree/2.0.2"
-            },
-            "time": "2021-11-05T16:47:00+00:00"
         },
         {
             "name": "psr/event-dispatcher",

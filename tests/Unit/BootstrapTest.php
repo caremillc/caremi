@@ -2,31 +2,52 @@
 
 declare(strict_types=1);
 
-namespace Tests\Unit;
+namespace App\Tests\Unit;
 
-use Careminate\Foundation\Framework;
+use Careminate\Config\Configuration;
+use Careminate\Foundation\Application;
 use PHPUnit\Framework\TestCase;
 
 final class BootstrapTest extends TestCase
 {
-    public function testBootstrapReturnsFrameworkMetadata(): void
+    public function testBootstrapReturnsBootedApplication(): void
     {
-        $result = require dirname(__DIR__, 2) . '/bootstrap/app.php';
+        $application = $this->bootstrap();
 
-        self::assertIsArray($result);
-        self::assertSame(
-            Framework::version(),
-            $result['framework']
-        );
-        self::assertSame(
-            PHP_VERSION,
-            $result['php']
-        );
+        self::assertTrue($application->isBooted());
+
+        $application->terminate();
     }
 
-    public function testFrameworkIsAvailableThroughComposer(): void
+    public function testBootstrapRegistersConfiguration(): void
     {
-        self::assertTrue(class_exists(Framework::class));
-        self::assertTrue(Framework::supportsRuntime());
+        $application = $this->bootstrap();
+
+        $configuration = $application->container()->get(
+            Configuration::class
+        );
+
+        self::assertInstanceOf(Configuration::class, $configuration);
+        self::assertSame('Careminate', $configuration->string('app.name'));
+
+        $application->terminate();
+    }
+
+    private function bootstrap(): Application
+    {
+        $environmentOverrides = [
+            'APP_NAME' => 'Careminate',
+            'APP_ENV' => 'testing',
+            'APP_DEBUG' => 'false',
+            'APP_PORT' => '8080',
+        ];
+
+        $environmentFile = dirname(__DIR__, 2) . '/.env.test-nonexistent';
+
+        $application = require dirname(__DIR__, 2) . '/bootstrap/app.php';
+
+        self::assertInstanceOf(Application::class, $application);
+
+        return $application;
     }
 }

@@ -1,0 +1,18 @@
+O:23:"PHPStan\Cache\CacheItem":2:{s:11:"variableKey";s:38:"v3-6.73.0.6-dev-master@e4f5f6c-8.5.11-";s:4:"data";a:22:{s:13:"locatedSource";a:2:{s:5:"class";s:68:"PHPStan\BetterReflection\SourceLocator\Located\InternalLocatedSource";s:4:"data";a:4:{s:4:"name";s:8:"Override";s:8:"filename";s:31:"phpstorm-stubs:Core/Core_c.stub";s:13:"extensionName";s:4:"Core";s:9:"aliasName";N;}}s:9:"namespace";N;s:4:"name";s:8:"Override";s:9:"shortName";s:8:"Override";s:11:"isInterface";b:0;s:7:"isTrait";b:0;s:6:"isEnum";b:0;s:12:"isBackedEnum";b:0;s:9:"modifiers";i:32;s:10:"docComment";s:532:"/**
+ * This attribute is used to indicate that a method or a property is intended to override a method
+ * or a property of a parent class or that it implements a method or a property defined in an
+ * interface.
+ *
+ * If no method or property with the same name exists in a parent class or in an implemented
+ * interface a compile-time error will be emitted. The attribute cannot be used on the __construct()
+ * method, which is exempt from signature checks.
+ *
+ * @link https://php.net/manual/en/class.override.php
+ * @since 8.3
+ */";s:10:"attributes";a:1:{i:0;a:3:{s:4:"name";s:9:"Attribute";s:10:"isRepeated";b:0;s:9:"arguments";a:1:{i:0;a:2:{s:4:"code";s:91:"\Attribute::TARGET_METHOD | \Attribute::TARGET_PROPERTY | \Attribute::TARGET_CLASS_CONSTANT";s:10:"attributes";a:6:{s:9:"startLine";i:16;s:7:"endLine";i:16;s:13:"startTokenPos";i:11;s:12:"startFilePos";i:617;s:11:"endTokenPos";i:25;s:10:"endFilePos";i:707;}}}}}s:9:"startLine";i:16;s:7:"endLine";i:29;s:11:"startColumn";i:5;s:9:"endColumn";i:5;s:15:"parentClassName";N;s:20:"implementsClassNames";a:0:{}s:15:"traitClassNames";a:0:{}s:18:"immediateConstants";a:0:{}s:19:"immediateProperties";a:0:{}s:16:"immediateMethods";a:1:{s:11:"__construct";a:20:{s:4:"name";s:11:"__construct";s:10:"parameters";a:0:{}s:16:"returnsReference";b:0;s:10:"returnType";N;s:10:"attributes";a:0:{}s:10:"docComment";s:157:"/**
+ * Construct a new Override attribute instance
+ *
+ * Constructs a new Override instance.
+ *
+ * @link https://php.net/manual/en/override.construct.php
+ */";s:9:"startLine";i:26;s:7:"endLine";i:28;s:11:"startColumn";i:9;s:9:"endColumn";i:9;s:10:"couldThrow";b:0;s:9:"isClosure";b:0;s:11:"isGenerator";b:0;s:10:"isVariadic";b:0;s:9:"modifiers";i:1;s:9:"namespace";N;s:18:"declaringClassName";s:8:"Override";s:21:"implementingClassName";s:8:"Override";s:16:"currentClassName";s:8:"Override";s:9:"aliasName";N;}}s:10:"traitsData";a:4:{s:7:"aliases";a:0:{}s:9:"modifiers";a:0:{}s:11:"precedences";a:0:{}s:6:"hashes";a:0:{}}}}

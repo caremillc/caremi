@@ -6,9 +6,13 @@ use PhpCsFixer\Config;
 use PhpCsFixer\Finder;
 
 $finder = Finder::create()
-    ->in(__DIR__ . '/src')
+    ->in(__DIR__ . '/framework/src')
+    ->in(__DIR__ . '/framework/tests')
+    ->in(__DIR__ . '/bootstrap')
+    ->in(__DIR__ . '/config')
     ->in(__DIR__ . '/tests')
-    ->name('*.php');
+    ->name('*.php')
+    ->exclude('vendor');
 
 return (new Config())
     ->setRiskyAllowed(true)
