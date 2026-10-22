@@ -1,0 +1,9 @@
+parameters:
+    level: max
+
+    paths:
+        - app
+        - bootstrap
+        - tests
+
+    tmpDir: .phpstan-cache

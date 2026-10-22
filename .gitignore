@@ -1,0 +1,7 @@
+vendor
+framework
+.env
+
+.phpunit.cache
+.phpstan.cache
+.php-cs-fixer.cache
