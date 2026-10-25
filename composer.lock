@@ -12,7 +12,7 @@
             "dist": {
                 "type": "path",
                 "url": "framework",
-                "reference": "ced1f4f9ca190e334573111400a99e6aabf675ec"
+                "reference": "a932ccb2756d452d03972807fae5497295e6c6b1"
             },
             "require": {
                 "php": "^8.4",
@@ -72,7 +72,50 @@
                     "@php -l src/Config/ConfigurationValidator.php",
                     "@php -l tests/Unit/Config/ConfigurationLoaderTest.php",
                     "@php -l tests/Unit/Config/ConfigurationValidatorTest.php",
-                    "@php -l tests/Unit/Config/ConfigurationIntegrationTest.php"
+                    "@php -l tests/Unit/Config/ConfigurationIntegrationTest.php",
+                    "@php -l src/Logging/LogLevel.php",
+                    "@php -l src/Logging/JsonLogger.php",
+                    "@php -l tests/Unit/Logging/JsonLoggerTest.php",
+                    "@php -l src/Logging/LogLevel.php",
+                    "@php -l src/Logging/JsonLogger.php",
+                    "@php -l src/Logging/CorrelationId.php",
+                    "@php -l src/Logging/ExceptionReport.php",
+                    "@php -l src/Logging/ExceptionReporter.php",
+                    "@php -l tests/Unit/Logging/JsonLoggerTest.php",
+                    "@php -l tests/Unit/Logging/ExceptionReporterTest.php",
+                    "@php -l src/Foundation/Application.php",
+                    "@php -l tests/Unit/Foundation/ApplicationExceptionReportingTest.php",
+                    "@php -l tests/Unit/Logging/JsonLoggerHardeningTest.php",
+                    "@php -l src/Http/Request.php",
+                    "@php -l src/Http/Response.php",
+                    "@php -l tests/Unit/Http/RequestTest.php",
+                    "@php -l tests/Unit/Http/ResponseTest.php",
+                    "@php -l src/Http/Routing/Route.php",
+                    "@php -l src/Http/Routing/Router.php",
+                    "@php -l tests/Unit/Http/Routing/RouteTest.php",
+                    "@php -l tests/Unit/Http/Routing/RouterTest.php",
+                    "@php -l src/Http/Middleware/Middleware.php",
+                    "@php -l src/Http/Middleware/Pipeline.php",
+                    "@php -l tests/Unit/Http/Middleware/PipelineTest.php",
+                    "@php -l src/Http/Exception/HttpException.php",
+                    "@php -l src/Http/Middleware/ExceptionHandler.php",
+                    "@php -l tests/Unit/Http/Exception/HttpExceptionTest.php",
+                    "@php -l tests/Unit/Http/Middleware/ExceptionHandlerTest.php",
+                    "@php -l tests/Unit/Http/ResponseHardeningTest.php",
+                    "@php -l src/Http/Kernel.php",
+                    "@php -l tests/Unit/Http/KernelTest.php",
+                    "@php -l tests/Unit/Http/Routing/RouterFreezeTest.php",
+                    "@php -l tests/Unit/Http/KernelFreezeTest.php",
+                    "@php -l tests/Unit/Http/Middleware/PipelineFreezeTest.php",
+                    "@php -l tests/Unit/Http/KernelPipelineFreezeTest.php",
+                    "@php -l tests/Unit/Http/KernelLifecycleTest.php",
+                    "@php -l src/Http/ServerRequestFactory.php",
+                    "@php -l tests/Unit/Http/ServerRequestFactoryTest.php",
+                    "@php -l src/Http/Emission/ResponseOutput.php",
+                    "@php -l src/Http/Emission/NativeResponseOutput.php",
+                    "@php -l src/Http/Emission/BufferedResponseOutput.php",
+                    "@php -l src/Http/Emission/ResponseEmitter.php",
+                    "@php -l tests/Unit/Http/Emission/ResponseEmitterTest.php"
                 ],
                 "check": [
                     "composer validate --strict",
@@ -289,16 +332,16 @@
         },
         {
             "name": "composer/semver",
-            "version": "3.5.1",
+            "version": "3.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/semver.git",
-                "reference": "528948210cc46f967a4b98e83b19e76f2b504993"
+                "reference": "9dfce66f1e97360ea5e6d3e38ab14277e4cc591e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/semver/zipball/528948210cc46f967a4b98e83b19e76f2b504993",
-                "reference": "528948210cc46f967a4b98e83b19e76f2b504993",
+                "url": "https://api.github.com/repos/composer/semver/zipball/9dfce66f1e97360ea5e6d3e38ab14277e4cc591e",
+                "reference": "9dfce66f1e97360ea5e6d3e38ab14277e4cc591e",
                 "shasum": ""
             },
             "require": {
@@ -350,7 +393,7 @@
             "support": {
                 "irc": "ircs://irc.libera.chat:6697/composer",
                 "issues": "https://github.com/composer/semver/issues",
-                "source": "https://github.com/composer/semver/tree/3.5.1"
+                "source": "https://github.com/composer/semver/tree/3.5.2"
             },
             "funding": [
                 {
@@ -362,7 +405,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-10-05T13:12:12+00:00"
+            "time": "2026-10-22T15:37:26+00:00"
         },
         {
             "name": "composer/xdebug-handler",
@@ -949,11 +992,11 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.3.1",
+            "version": "2.3.2",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/6155239b488e95d26d1ebd95c6b4bb294d7f09db",
-                "reference": "6155239b488e95d26d1ebd95c6b4bb294d7f09db",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/18bc23a0682f08591529377d271b5c4dfe9ed1dd",
+                "reference": "18bc23a0682f08591529377d271b5c4dfe9ed1dd",
                 "shasum": ""
             },
             "require": {
@@ -1009,7 +1052,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-10-08T21:09:11+00:00"
+            "time": "2026-10-24T11:36:00+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
