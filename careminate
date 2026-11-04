@@ -1,0 +1,118 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+use Careminate\Console\AboutCommand;
+use Careminate\Console\ConsoleApplication;
+use Careminate\Console\ConsoleResult;
+use Careminate\Console\RouteListCommand;
+use Careminate\Http\Routing\Router;
+
+$autoload = __DIR__ . '/vendor/autoload.php';
+
+if (! is_file($autoload)) {
+    fwrite(
+        STDERR,
+        "Careminate: Composer autoload missing; run composer install.\n",
+    );
+
+    exit(78);
+}
+
+/*
+ * Day 27 — Application migration commands.
+ *
+ * Insert after vendor/autoload.php is required,
+ * before the launcher's existing command dispatcher.
+ */
+$cliArguments = $_SERVER['argv'] ?? [];
+
+if (is_array($cliArguments)) {
+    $selectedCommand = $cliArguments[1] ?? null;
+
+    if (
+        $selectedCommand === 'migrate'
+        || $selectedCommand === 'migrate:status'
+    ) {
+        $migrationArguments = [];
+
+        foreach (
+            array_slice($cliArguments, 1)
+            as $argument
+        ) {
+            if (! is_string($argument)) {
+                fwrite(
+                    STDERR,
+                    "Invalid CLI arguments.\n",
+                );
+                exit(64);
+            }
+
+            $migrationArguments[] = $argument;
+        }
+
+        exit(
+            \App\Console\MigrationCommand::run(
+                __DIR__,
+                $migrationArguments,
+            )
+        );
+    }
+}
+
+try {
+    require $autoload;
+
+    $console = new ConsoleApplication();
+
+    $about = new AboutCommand();
+
+    $console->register(
+        'about',
+        'Show framework and PHP runtime information',
+        $about(...),
+    );
+
+    $console->register(
+        'route:list',
+        'List registered HTTP routes',
+        /** @param list<string> $arguments */
+        static function (array $arguments): ConsoleResult {
+            // Application routes are loaded only when listing them.
+            $router = require __DIR__ . '/bootstrap/routes.php';
+
+            if (! $router instanceof Router) {
+                throw new UnexpectedValueException(
+                    'Invalid route bootstrap result.',
+                );
+            }
+
+            return (new RouteListCommand($router))(
+                $arguments,
+            );
+        },
+    );
+
+    $result = $console->run(
+        array_slice($argv, 1),
+    );
+
+    if ($result->stdout !== '') {
+        fwrite(STDOUT, $result->stdout);
+    }
+
+    if ($result->stderr !== '') {
+        fwrite(STDERR, $result->stderr);
+    }
+
+    exit($result->exitCode);
+} catch (Throwable) {
+    // No exception messages, source paths, or secrets on stderr.
+    fwrite(
+        STDERR,
+        "Careminate: Application CLI failed.\n",
+    );
+
+    exit(70);
+}

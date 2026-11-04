@@ -1,0 +1,18 @@
+O:23:"PHPStan\Cache\CacheItem":2:{s:11:"variableKey";s:38:"v3-6.75.0.4-dev-master@e4f5f6c-8.5.11-";s:4:"data";a:17:{s:4:"name";s:6:"printf";s:10:"parameters";a:2:{s:6:"format";a:14:{s:4:"name";s:6:"format";s:7:"default";N;s:4:"type";a:2:{s:5:"class";s:55:"PHPStan\BetterReflection\Reflection\ReflectionNamedType";s:4:"data";a:2:{s:4:"name";s:6:"string";s:12:"isIdentifier";b:1;}}s:10:"isVariadic";b:0;s:5:"byRef";b:0;s:10:"isPromoted";b:0;s:10:"docComment";N;s:10:"attributes";a:0:{}s:9:"startLine";i:22;s:7:"endLine";i:22;s:11:"startColumn";i:21;s:9:"endColumn";i:34;s:14:"parameterIndex";i:0;s:10:"isOptional";b:0;}s:6:"values";a:14:{s:4:"name";s:6:"values";s:7:"default";N;s:4:"type";a:2:{s:5:"class";s:55:"PHPStan\BetterReflection\Reflection\ReflectionNamedType";s:4:"data";a:2:{s:4:"name";s:5:"mixed";s:12:"isIdentifier";b:1;}}s:10:"isVariadic";b:1;s:5:"byRef";b:0;s:10:"isPromoted";b:0;s:10:"docComment";N;s:10:"attributes";a:0:{}s:9:"startLine";i:22;s:7:"endLine";i:22;s:11:"startColumn";i:37;s:9:"endColumn";i:52;s:14:"parameterIndex";i:1;s:10:"isOptional";b:1;}}s:16:"returnsReference";b:0;s:10:"returnType";a:2:{s:5:"class";s:55:"PHPStan\BetterReflection\Reflection\ReflectionNamedType";s:4:"data";a:2:{s:4:"name";s:3:"int";s:12:"isIdentifier";b:1;}}s:10:"attributes";a:0:{}s:10:"docComment";s:954:"/**
+ * Output a formatted string
+ * @link https://php.net/manual/en/function.printf.php
+ * @param string $format <p>
+ * See sprintf for a description of
+ * format.
+ * </p>
+ * @param string|int|float ...$values [optional] <p>
+ * </p>
+ * @return int the length of the outputted string.
+ * @throws \ValueError As of PHP 8.0.0, a ValueError is thrown if the number of arguments is zero.
+ * Prior to PHP 8.0.0, a E_WARNING was emitted instead. As of PHP 8.0.0, a ValueError is thrown if
+ * [width] is less than zero or bigger than PHP_INT_MAX. Prior to PHP 8.0.0, a E_WARNING was emitted
+ * instead. As of PHP 8.0.0, a ValueError is thrown if [precision] is less than zero or bigger than
+ * PHP_INT_MAX. Prior to PHP 8.0.0, a E_WARNING was emitted instead.
+ * @throws \ArgumentCountError As of PHP 8.0.0, a ArgumentCountError is thrown when less arguments
+ * are given than required. Prior to PHP 8.0.0, false was returned and a E_WARNING emitted instead.
+ */";s:9:"startLine";i:22;s:7:"endLine";i:24;s:11:"startColumn";i:5;s:9:"endColumn";i:5;s:10:"couldThrow";b:0;s:9:"isClosure";b:0;s:11:"isGenerator";b:0;s:10:"isVariadic";b:1;s:8:"isStatic";b:0;s:9:"namespace";N;s:13:"locatedSource";a:2:{s:5:"class";s:68:"PHPStan\BetterReflection\SourceLocator\Located\InternalLocatedSource";s:4:"data";a:4:{s:4:"name";s:6:"printf";s:8:"filename";s:39:"phpstorm-stubs:standard/standard_2.stub";s:13:"extensionName";s:8:"standard";s:9:"aliasName";N;}}}}

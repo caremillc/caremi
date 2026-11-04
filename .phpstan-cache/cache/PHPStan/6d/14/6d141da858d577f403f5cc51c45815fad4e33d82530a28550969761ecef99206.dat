@@ -1,0 +1,9 @@
+O:23:"PHPStan\Cache\CacheItem":2:{s:11:"variableKey";s:38:"v3-6.75.0.4-dev-master@e4f5f6c-8.5.11-";s:4:"data";a:17:{s:4:"name";s:10:"proc_close";s:10:"parameters";a:1:{s:7:"process";a:14:{s:4:"name";s:7:"process";s:7:"default";N;s:4:"type";N;s:10:"isVariadic";b:0;s:5:"byRef";b:0;s:10:"isPromoted";b:0;s:10:"docComment";N;s:10:"attributes";a:0:{}s:9:"startLine";i:13;s:7:"endLine";i:13;s:11:"startColumn";i:25;s:9:"endColumn";i:32;s:14:"parameterIndex";i:0;s:10:"isOptional";b:0;}}s:16:"returnsReference";b:0;s:10:"returnType";a:2:{s:5:"class";s:55:"PHPStan\BetterReflection\Reflection\ReflectionNamedType";s:4:"data";a:2:{s:4:"name";s:3:"int";s:12:"isIdentifier";b:1;}}s:10:"attributes";a:0:{}s:10:"docComment";s:310:"/**
+ * Close a process opened by {@see proc_open} and return the exit code of that process
+ * @link https://php.net/manual/en/function.proc-close.php
+ * @param resource $process <p>
+ * The proc_open resource that will
+ * be closed.
+ * </p>
+ * @return int the termination status of the process that was run.
+ */";s:9:"startLine";i:13;s:7:"endLine";i:15;s:11:"startColumn";i:5;s:9:"endColumn";i:5;s:10:"couldThrow";b:0;s:9:"isClosure";b:0;s:11:"isGenerator";b:0;s:10:"isVariadic";b:0;s:8:"isStatic";b:0;s:9:"namespace";N;s:13:"locatedSource";a:2:{s:5:"class";s:68:"PHPStan\BetterReflection\SourceLocator\Located\InternalLocatedSource";s:4:"data";a:4:{s:4:"name";s:10:"proc_close";s:8:"filename";s:39:"phpstorm-stubs:standard/standard_2.stub";s:13:"extensionName";s:8:"standard";s:9:"aliasName";N;}}}}

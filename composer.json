@@ -1,0 +1,94 @@
+{
+    "name": "caremillc/caremi",
+    "description": "Careminate application skeleton",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "php": "^8.4",
+        "caremillc/framework": "^0.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^12.0",
+        "phpstan/phpstan": "^2.0",
+        "friendsofphp/php-cs-fixer": "^3.0"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "framework",
+            "options": {
+                "symlink": true,
+                "versions": {
+                    "caremillc/framework": "0.1.0"
+                }
+            }
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test:bootstrap": "@php tests/bootstrap.php",
+        "test": "@php vendor/bin/phpunit --configuration=phpunit.xml",
+        "analyse": "@php vendor/bin/phpstan analyse --configuration=phpstan.neon --no-progress",
+        "cs:check": "@php vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --dry-run --diff --allow-unsupported-php-version=yes",
+        "cs:fix": "@php vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --allow-unsupported-php-version=yes",
+        "smoke:http": "@php scripts/http-smoke.php",
+        "lint": [
+            "@php -l bootstrap/app.php",
+            "@php -l config/app.php",
+            "@php -l config/providers.php",
+            "@php -l app/Services/ApplicationIdentity.php",
+            "@php -l app/Providers/AppServiceProvider.php",
+            "@php -l tests/bootstrap.php",
+            "@php -l tests/Unit/BootstrapTest.php",
+            "@php -l tests/Unit/ConfigurationBootstrapTest.php",
+            "@php -l tests/Unit/ProviderBootstrapTest.php",
+            "@php -l careminate",
+            "@php -l bootstrap/routes.php",
+            "@php -l bootstrap/http.php",
+            "@php -l routes/web.php",
+            "@php -l public/index.php",
+            "@php -l careminate",
+            "@php -l tests/Unit/SkeletonRoutingTest.php",
+            "@php -l tests/Unit/ApplicationConsoleCliTest.php",
+            "@php -l tests/Unit/ApplicationCliSecurityTest.php",
+            "@php -l app/Http/ReferenceEndpoints.php",
+            "@php -l routes/web.php",
+            "@php -l tests/Unit/ReferenceHttpEndpointsTest.php",
+            "@php -l scripts/http-smoke.php",
+            "@php -l config/database.php",
+            "@php -l app/Providers/DatabaseServiceProvider.php",
+            "@php -l tests/Unit/DatabaseBootstrapTest.php",
+            "@php -l src/Database/SqlConnection.php",
+            "@php -l src/Database/SqlResult.php",
+            "@php -l src/Database/SqlBindings.php",
+            "@php -l src/Database/QueryException.php",
+            "@php -l src/Database/TransactionException.php",
+            "@php -l src/Database/MySql/MySqlConnection.php",
+            "@php -l tests/Unit/Database/SqlContractsTest.php",
+            "@php -l tests/Integration/Database/MySqlSqlExecutionIntegrationTest.php",
+            "@php -l app/Console/MigrationCommand.php",
+            "@php -l database/migrations/20261104_000001_create_users.php",
+            "@php -l database/migrations/20261104_000002_create_tasks.php",
+            "@php -l tests/Integration/ReferenceSchemaIntegrationTest.php"
+        ],
+        "check": [
+            "composer validate --strict",
+            "@lint",
+            "@cs:check",
+            "@analyse",
+            "@test",
+            "@test:bootstrap"
+        ]
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

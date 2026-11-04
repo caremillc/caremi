@@ -1,0 +1,6 @@
+O:23:"PHPStan\Cache\CacheItem":2:{s:11:"variableKey";s:38:"v3-6.75.0.4-dev-master@e4f5f6c-8.5.11-";s:4:"data";a:17:{s:4:"name";s:16:"sys_get_temp_dir";s:10:"parameters";a:0:{}s:16:"returnsReference";b:0;s:10:"returnType";a:2:{s:5:"class";s:55:"PHPStan\BetterReflection\Reflection\ReflectionNamedType";s:4:"data";a:2:{s:4:"name";s:6:"string";s:12:"isIdentifier";b:1;}}s:10:"attributes";a:0:{}s:10:"docComment";s:192:"/**
+ * Returns directory path used for temporary files
+ * @link https://php.net/manual/en/function.sys-get-temp-dir.php
+ * @return string the path of the temporary directory.
+ * @since 5.2
+ */";s:9:"startLine";i:10;s:7:"endLine";i:12;s:11:"startColumn";i:5;s:9:"endColumn";i:5;s:10:"couldThrow";b:0;s:9:"isClosure";b:0;s:11:"isGenerator";b:0;s:10:"isVariadic";b:0;s:8:"isStatic";b:0;s:9:"namespace";N;s:13:"locatedSource";a:2:{s:5:"class";s:68:"PHPStan\BetterReflection\SourceLocator\Located\InternalLocatedSource";s:4:"data";a:4:{s:4:"name";s:16:"sys_get_temp_dir";s:8:"filename";s:39:"phpstorm-stubs:standard/standard_9.stub";s:13:"extensionName";s:8:"standard";s:9:"aliasName";N;}}}}

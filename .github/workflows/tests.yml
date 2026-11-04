@@ -1,0 +1,118 @@
+
+name: Skeleton Quality Gates
+
+on:
+    push:
+    pull_request:
+
+permissions:
+    contents: read
+
+jobs:
+    test:
+        name: PHP ${{ matrix.php }} / Linux
+
+        runs-on: ubuntu-latest
+
+        timeout-minutes: 35
+
+        strategy:
+            fail-fast: false
+            matrix:
+                php:
+                    - '8.4'
+                    - '8.5'
+
+        steps:
+            # Application skeleton repository.
+            - name: Checkout skeleton
+              uses: actions/checkout@v4
+              with:
+                  path: skeleton
+                  persist-credentials: false
+
+             # Framework repository is separate from the skeleton.
+             # Its location must match the Composer path repository.
+            - name: Checkout framework
+              uses: actions/checkout@v4
+              with:
+                  repository: ${{ github.repository_owner }}/framework
+                  path: skeleton/framework
+                  ref: YOUR_TESTED_FRAMEWORK_COMMIT
+                  persist-credentials: false
+
+                  # For a reproducible release milestone, pin this
+                  # to the tested framework commit or release tag.
+                  #
+                  # ref: <tested-framework-revision>
+
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: ${{ matrix.php }}
+                  coverage: none
+                  tools: composer:v2
+                  ini-values: allow_url_fopen=On
+
+            # Confirm that the committed application contains
+            # everything required for an independent installation.
+            - name: Verify clean-install prerequisites
+              working-directory: skeleton
+              shell: bash
+              run: |
+                  set -euo pipefail
+
+                  php -v
+                  composer --version
+
+                  test -f composer.json
+                  test -f composer.lock
+                  test -f .env.example
+
+                  test -f framework/composer.json
+
+                  test -f scripts/http-smoke.php
+                  test -f scripts/rehearse-clean-skeleton.sh
+
+                  test -f bootstrap/routes.php
+                  test -f bootstrap/http.php
+                  test -f routes/web.php
+                  test -f public/index.php
+
+                  test -f docs/quick-start.md
+                  test -f docs/staging-plan.md
+
+                  git ls-files \
+                      --error-unmatch composer.lock
+
+                  bash -n scripts/rehearse-clean-skeleton.sh
+
+                  composer validate --strict
+
+            # Performs:
+            # 1. Independent framework clone.
+            # 2. Independent application clone.
+            # 3. Composer install in both clones.
+            # 4. Both Composer quality gates.
+            # 5. Application route verification.
+            # 6. Local HTTP server startup.
+            # 7. Ten live HTTP smoke tests.
+            # 8. JSON evidence generation.
+            - name: Day 24 clean skeleton rehearsal
+              working-directory: skeleton
+              shell: bash
+              env:
+                  HTTP_SMOKE_PORT: '18080'
+              run: |
+                  set -euo pipefail
+
+                  bash scripts/rehearse-clean-skeleton.sh
+
+            - name: Upload Day 24 HTTP evidence
+              if: success()
+              uses: actions/upload-artifact@v4
+              with:
+                  name: day24-linux-php-${{ matrix.php }}
+                  path: skeleton/docs/evidence/day24-clean-linux.json
+                  if-no-files-found: error
+                  retention-days: 14

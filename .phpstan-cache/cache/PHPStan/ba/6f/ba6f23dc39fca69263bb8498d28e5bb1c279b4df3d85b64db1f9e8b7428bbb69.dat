@@ -1,0 +1,4 @@
+O:23:"PHPStan\Cache\CacheItem":2:{s:11:"variableKey";s:38:"v3-6.75.0.4-dev-master@e4f5f6c-8.5.11-";s:4:"data";a:11:{s:13:"locatedSource";a:2:{s:5:"class";s:68:"PHPStan\BetterReflection\SourceLocator\Located\InternalLocatedSource";s:4:"data";a:4:{s:4:"name";s:10:"PHP_BINARY";s:8:"filename";s:31:"phpstorm-stubs:Core/Core_d.stub";s:13:"extensionName";s:4:"Core";s:9:"aliasName";N;}}s:4:"name";s:10:"PHP_BINARY";s:9:"shortName";s:10:"PHP_BINARY";s:5:"value";a:2:{s:4:"code";s:22:"'C:\xampp\php\php.exe'";s:10:"attributes";a:6:{s:9:"startLine";i:7;s:7:"endLine";i:7;s:13:"startTokenPos";i:9;s:12:"startFilePos";i:147;s:11:"endTokenPos";i:9;s:10:"endFilePos";i:168;}}s:10:"docComment";s:118:"/**
+ * Specifies where the binaries were installed into.
+ * @link https://php.net/manual/en/reserved.constants.php
+ */";s:10:"attributes";a:0:{}s:9:"startLine";i:7;s:7:"endLine";i:7;s:11:"startColumn";i:1;s:9:"endColumn";i:44;s:9:"namespace";N;}}
