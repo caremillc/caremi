@@ -5,7 +5,8 @@
     "license": "MIT",
     "require": {
         "php": "^8.4",
-        "caremillc/framework": "^0.1"
+        "caremillc/framework": "^0.1",
+        "twig/twig": "^3.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^12.0",
@@ -83,7 +84,14 @@
             "@php -l tests/Integration/TaskRepositoryIntegrationTest.php",
             "@php -l app/Persistence/TaskPage.php",
             "@php -l tests/Unit/TaskRepositoryDay30Test.php",
-            "@php -l tests/Integration/TaskRepositoryDay30IntegrationTest.php"
+            "@php -l tests/Integration/TaskRepositoryDay30IntegrationTest.php",
+            "@php -l app/Providers/ViewServiceProvider.php",
+            "@php -l app/View/TaskViews.php",
+            "@php -l tests/Unit/TaskViewsTest.php",
+            "@php -l app/View/TaskFormData.php",
+            "@php -l app/View/TaskFormValidator.php",
+            "@php -l app/View/TaskFormHandler.php",
+            "@php -l tests/Unit/TaskFormsTest.php"
         ],
         "check": [
             "composer validate --strict",

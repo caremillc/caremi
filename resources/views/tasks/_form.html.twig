@@ -1,0 +1,54 @@
+{% if form.errors is not empty %}
+    <div role="alert" aria-label="Validation errors">
+        <p>Please correct the highlighted fields.</p>
+    </div>
+{% endif %}
+
+<form method="post" action="{{ action }}">
+    <div>
+        <label for="task-title">Title</label>
+        <input type="text" id="task-title" name="title" value="{{ form.title }}"
+               maxlength="200" required
+               {% if form.errors.title is defined %}aria-invalid="true" aria-describedby="title-error"{% endif %}>
+        {% if form.errors.title is defined %}
+            <p id="title-error">{{ form.errors.title }}</p>
+        {% endif %}
+    </div>
+
+    <div>
+        <label for="task-description">Description (optional)</label>
+        <textarea id="task-description" name="description"
+                  {% if form.errors.description is defined %}aria-invalid="true" aria-describedby="description-error"{% endif %}>{{ form.description }}</textarea>
+        {% if form.errors.description is defined %}
+            <p id="description-error">{{ form.errors.description }}</p>
+        {% endif %}
+    </div>
+
+    {% if editing %}
+        <div>
+            <label for="task-status">Status</label>
+            <select id="task-status" name="status"
+                    {% if form.errors.status is defined %}aria-invalid="true" aria-describedby="status-error"{% endif %}>
+                <option value="pending"{% if form.status == 'pending' %} selected{% endif %}>Pending</option>
+                <option value="in_progress"{% if form.status == 'in_progress' %} selected{% endif %}>In progress</option>
+                <option value="completed"{% if form.status == 'completed' %} selected{% endif %}>Completed</option>
+            </select>
+
+            {% if form.errors.status is defined %}
+                <p id="status-error">{{ form.errors.status }}</p>
+            {% endif %}
+        </div>
+    {% else %}
+        <p>New tasks start as pending.</p>
+        <input type="hidden" name="status" value="pending">
+
+        {% if form.errors.status is defined %}
+            <p role="alert">{{ form.errors.status }}</p>
+        {% endif %}
+    {% endif %}
+
+    {# Day 34 must add and verify a session-bound CSRF token before routes go live. #}
+    <button type="submit">{{ submitLabel }}</button>
+</form>
+
+

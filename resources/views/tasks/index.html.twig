@@ -1,0 +1,40 @@
+{% extends 'layouts/app.html.twig' %}
+
+{% block title %}My tasks · Careminate{% endblock %}
+
+{% block content %}
+    <h1>My tasks</h1>
+
+    <nav aria-label="Filter tasks">
+        <a href="/tasks"{% if status is null %} aria-current="page"{% endif %}>All</a>
+        <a href="/tasks?status=pending"{% if status == 'pending' %} aria-current="page"{% endif %}>Pending</a>
+        <a href="/tasks?status=in_progress"{% if status == 'in_progress' %} aria-current="page"{% endif %}>In progress</a>
+        <a href="/tasks?status=completed"{% if status == 'completed' %} aria-current="page"{% endif %}>Completed</a>
+    </nav>
+
+    {% if tasks is empty %}
+        <p>No tasks found.</p>
+    {% else %}
+        <ul>
+            {% for task in tasks %}
+                <li>
+                    <h2>
+                        <a href="/tasks/{{ task.id|url_encode }}">
+                            {{ task.title }}
+                        </a>
+                    </h2>
+
+                    <p>Status: {{ task.status|replace({'_': ' '}) }}</p>
+
+                    {% if task.description is not null %}
+                        <p>{{ task.description }}</p>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if nextUrl is not null %}
+        <a rel="next" href="{{ nextUrl }}">Next page</a>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,9 @@
+O:23:"PHPStan\Cache\CacheItem":2:{s:11:"variableKey";s:38:"v3-6.75.0.4-dev-master@f690ff3-8.5.12-";s:4:"data";a:17:{s:4:"name";s:14:"session_status";s:10:"parameters";a:0:{}s:16:"returnsReference";b:0;s:10:"returnType";a:2:{s:5:"class";s:55:"PHPStan\BetterReflection\Reflection\ReflectionNamedType";s:4:"data";a:2:{s:4:"name";s:3:"int";s:12:"isIdentifier";b:1;}}s:10:"attributes";a:0:{}s:10:"docComment";s:354:"/**
+ * (PHP 5 >= 5.4.0)<br>
+ * Returns the current session status
+ * @link https://php.net/manual/en/function.session-status.php
+ * @return int <b>PHP_SESSION_DISABLED</b> if sessions are disabled.
+ * <b>PHP_SESSION_NONE</b> if sessions are enabled, but none exists.
+ * <b>PHP_SESSION_ACTIVE</b> if sessions are enabled, and one exists.
+ * @since 5.4
+ */";s:9:"startLine";i:13;s:7:"endLine";i:15;s:11:"startColumn";i:5;s:9:"endColumn";i:5;s:10:"couldThrow";b:0;s:9:"isClosure";b:0;s:11:"isGenerator";b:0;s:10:"isVariadic";b:0;s:8:"isStatic";b:0;s:9:"namespace";N;s:13:"locatedSource";a:2:{s:5:"class";s:68:"PHPStan\BetterReflection\SourceLocator\Located\InternalLocatedSource";s:4:"data";a:4:{s:4:"name";s:14:"session_status";s:8:"filename";s:35:"phpstorm-stubs:session/session.stub";s:13:"extensionName";s:7:"session";s:9:"aliasName";N;}}}}

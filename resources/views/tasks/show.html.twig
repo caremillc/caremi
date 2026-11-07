@@ -1,0 +1,27 @@
+{% extends 'layouts/app.html.twig' %}
+
+{% block title %}Task details · Careminate{% endblock %}
+
+{% block content %}
+    <article>
+        <h1>{{ task.title }}</h1>
+
+        <p>Status: {{ task.status|replace({'_': ' '}) }}</p>
+
+        {% if task.description is not null %}
+            <section aria-label="Description">
+                <p>{{ task.description }}</p>
+            </section>
+        {% endif %}
+
+        <dl>
+            <dt>Created (UTC)</dt>
+            <dd>{{ task.createdAt }}</dd>
+
+            <dt>Updated (UTC)</dt>
+            <dd>{{ task.updatedAt }}</dd>
+        </dl>
+    </article>
+
+    <p><a href="/tasks">Back to tasks</a></p>
+{% endblock %}

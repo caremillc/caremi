@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Careminate Tasks{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <nav aria-label="Main navigation">
+            <a href="/tasks">Careminate Tasks</a>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

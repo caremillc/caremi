@@ -1,0 +1,1 @@
+O:23:"PHPStan\Cache\CacheItem":2:{s:11:"variableKey";s:74:"v2-32485b69ffe40920c6b43f5e231bd6f127f4d2083b39f9886af95d296bcace89-8.5.12";s:4:"data";a:3:{s:7:"classes";a:1:{s:44:"careminate\http\middleware\sessionmiddleware";b:1;}s:9:"functions";a:0:{}s:9:"constants";a:0:{}}}

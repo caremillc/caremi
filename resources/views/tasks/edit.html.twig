@@ -1,0 +1,14 @@
+{% extends 'layouts/app.html.twig' %}
+
+{% block title %}Edit task · Careminate{% endblock %}
+
+{% block content %}
+    <h1>Edit task</h1>
+
+    {% include 'tasks/_form.html.twig' with {
+        form: form,
+        action: '/tasks/' ~ (task.id|url_encode),
+        submitLabel: 'Save changes',
+        editing: true
+    } only %}
+{% endblock %}

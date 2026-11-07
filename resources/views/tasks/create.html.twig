@@ -1,0 +1,14 @@
+{% extends 'layouts/app.html.twig' %}
+
+{% block title %}New task · Careminate{% endblock %}
+
+{% block content %}
+    <h1>New task</h1>
+
+    {% include 'tasks/_form.html.twig' with {
+        form: form,
+        action: '/tasks',
+        submitLabel: 'Create task',
+        editing: false
+    } only %}
+{% endblock %}
