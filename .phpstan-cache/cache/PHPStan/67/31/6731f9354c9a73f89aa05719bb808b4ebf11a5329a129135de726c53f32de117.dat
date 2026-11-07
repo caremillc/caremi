@@ -1,0 +1,1 @@
+O:23:"PHPStan\Cache\CacheItem":2:{s:11:"variableKey";s:74:"v2-3da3dfe8d76f8d79544ac5aa042fa578b595f5688fbd922971f61853d9f7a5cf-8.5.12";s:4:"data";a:3:{s:7:"classes";a:1:{s:39:"careminate\database\connectionexception";b:1;}s:9:"functions";a:0:{}s:9:"constants";a:0:{}}}

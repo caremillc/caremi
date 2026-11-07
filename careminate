@@ -9,16 +9,27 @@ use Careminate\Console\ConsoleResult;
 use Careminate\Console\RouteListCommand;
 use Careminate\Http\Routing\Router;
 
+
+/*
+ * Load the application Composer autoloader.
+ * It registers both App\ and Careminate\ namespaces.
+ */
 $autoload = __DIR__ . '/vendor/autoload.php';
 
 if (! is_file($autoload)) {
     fwrite(
         STDERR,
-        "Careminate: Composer autoload missing; run composer install.\n",
+        "Application dependencies are not installed.\n",
     );
 
     exit(78);
 }
+
+require_once $autoload;
+
+/*
+ * Existing application command dispatch follows here.
+ */
 
 /*
  * Day 27 — Application migration commands.

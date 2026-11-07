@@ -78,7 +78,11 @@
             "@php -l app/Console/MigrationCommand.php",
             "@php -l database/migrations/20261104_000001_create_users.php",
             "@php -l database/migrations/20261104_000002_create_tasks.php",
-            "@php -l tests/Integration/ReferenceSchemaIntegrationTest.php"
+            "@php -l tests/Integration/ReferenceSchemaIntegrationTest.php",
+            "@php -l app/Persistence/Task.php",
+            "@php -l app/Persistence/TaskRepository.php",
+            "@php -l tests/Unit/TaskRepositoryTest.php",
+            "@php -l tests/Integration/TaskRepositoryIntegrationTest.php"
         ],
         "check": [
             "composer validate --strict",

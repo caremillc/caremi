@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Console;
 
+use Careminate\Database\ConnectionException;
 use Careminate\Database\ConnectionManager;
 use Careminate\Database\Migrations\MigrationException;
 use Careminate\Database\Migrations\MySqlMigrationRunner;
@@ -21,6 +22,17 @@ final class MigrationCommand
         array $arguments,
     ): int {
         $command = array_shift($arguments);
+
+        if (
+            ! in_array(
+                $command,
+                ['migrate', 'migrate:status'],
+                true,
+            )
+        ) {
+            return self::usageError();
+        }
+
         $connectionName = null;
         $lockTimeout = 10;
         $seenConnection = false;
@@ -28,10 +40,7 @@ final class MigrationCommand
 
         foreach ($arguments as $argument) {
             if (
-                str_starts_with(
-                    $argument,
-                    '--connection=',
-                )
+                str_starts_with($argument, '--connection=')
                 && ! $seenConnection
             ) {
                 $connectionName = substr(
@@ -40,13 +49,14 @@ final class MigrationCommand
                 );
 
                 $seenConnection = true;
-            } elseif (
-                str_starts_with(
-                    $argument,
-                    '--lock-timeout=',
-                )
+
+                continue;
+            }
+
+            if (
+                $command === 'migrate'
+                && str_starts_with($argument, '--lock-timeout=')
                 && ! $seenTimeout
-                && $command === 'migrate'
             ) {
                 $value = substr(
                     $argument,
@@ -54,26 +64,24 @@ final class MigrationCommand
                 );
 
                 if (
-                    ! ctype_digit($value)
+                    $value === ''
                     || strlen($value) > 2
+                    || ! ctype_digit($value)
                 ) {
                     return self::usageError();
                 }
 
                 $lockTimeout = (int) $value;
                 $seenTimeout = true;
-            } else {
-                return self::usageError();
+
+                continue;
             }
+
+            return self::usageError();
         }
 
         if (
-            ! in_array(
-                $command,
-                ['migrate', 'migrate:status'],
-                true,
-            )
-            || (
+            (
                 $connectionName !== null
                 && preg_match(
                     '/\A[a-z][a-z0-9_]*\z/D',
@@ -136,11 +144,9 @@ final class MigrationCommand
                     );
                 }
             } else {
-                $count = $runner->migrate();
-
                 printf(
                     "Migrations applied: %d\n",
-                    $count,
+                    $runner->migrate(),
                 );
             }
         } catch (MigrationException $exception) {
@@ -148,14 +154,27 @@ final class MigrationCommand
                 STDERR,
                 $exception->getMessage() . "\n",
             );
+
             $exitCode = 70;
-        } catch (Throwable) {
-            fwrite(
-                STDERR,
-                "Migration command failed. Check trusted application logs.\n",
-            );
-            $exitCode = 70;
-        } finally {
+        } 
+        catch (ConnectionException) {
+    fwrite(
+        STDERR,
+        "Database connection failed. Check MySQL service and application database settings.\n",
+    );
+
+    $exitCode = 70;
+}
+        catch (Throwable) {
+    fwrite(
+        STDERR,
+        "Migration command failed. Check trusted application logs.\n",
+    );
+
+    $exitCode = 70;
+}
+
+ finally {
             if ($application instanceof Application) {
                 try {
                     $application->terminate();

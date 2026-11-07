@@ -1,1 +1,1 @@
-O:23:"PHPStan\Cache\CacheItem":2:{s:11:"variableKey";s:74:"v2-442083fa6b959d0c95061109f196b5a058bfbef282c623c3e2410dde721237d5-8.5.11";s:4:"data";a:3:{s:7:"classes";a:1:{s:41:"careminate\database\mysql\mysqlconnection";b:1;}s:9:"functions";a:0:{}s:9:"constants";a:0:{}}}
+O:23:"PHPStan\Cache\CacheItem":2:{s:11:"variableKey";s:74:"v2-4b8f3fecd59eedfb70e75a8862f1b49077e0f5baeb006c41e176b139fcfc3e3a-8.5.12";s:4:"data";a:3:{s:7:"classes";a:1:{s:41:"careminate\database\mysql\mysqlconnection";b:1;}s:9:"functions";a:0:{}s:9:"constants";a:0:{}}}
