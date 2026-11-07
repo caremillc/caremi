@@ -193,20 +193,20 @@ final class ReferenceSchemaIntegrationTest extends TestCase
             ['name' => 'tasks'],
         )->rows();
 
-       $names = array_map(
-    static function (array $row): string {
-        $name = $row['index_name'] ?? null;
+        $names = array_map(
+            static function (array $row): string {
+                $name = $row['index_name'] ?? null;
 
-        if (! is_string($name)) {
-            throw new \UnexpectedValueException(
-                'Invalid database index name.',
-            );
-        }
+                if (! is_string($name)) {
+                    throw new \UnexpectedValueException(
+                        'Invalid database index name.',
+                    );
+                }
 
-        return $name;
-    },
-    $rows,
-);
+                return $name;
+            },
+            $rows,
+        );
 
         self::assertContains(
             'idx_tasks_user_id_id',
