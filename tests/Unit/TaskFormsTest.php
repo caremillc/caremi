@@ -36,6 +36,11 @@ final class TaskFormsTest extends TestCase
             'no-store',
             $response->header('Cache-Control'),
         );
+
+        self::assertStringContainsString(
+            'name="_token" value="' . str_repeat('a', 64) . '"',
+            $response->body,
+        );
     }
 
     public function testInvalidCreatePreservesEscapedValuesAndDoesNotWrite(): void
@@ -199,6 +204,11 @@ final class TaskFormsTest extends TestCase
             '<script>',
             $response->body,
         );
+
+        self::assertStringContainsString(
+            'name="_token" value="' . str_repeat('a', 64) . '"',
+            $response->body,
+        );
     }
 
     public function testForeignOrMissingEditIsNotFound(): void
@@ -310,6 +320,7 @@ final class TaskFormsTest extends TestCase
                     'cache' => false,
                 ],
             ),
+            static fn(): string => str_repeat('a', 64),
         );
 
         return [
@@ -359,18 +370,14 @@ final class Day32SqlSpy implements SqlConnection
         return 'mysql';
     }
 
-    public function connect(): void
-    {
-    }
+    public function connect(): void {}
 
     public function isConnected(): bool
     {
         return false;
     }
 
-    public function disconnect(): void
-    {
-    }
+    public function disconnect(): void {}
 
     /** @param array<int|string, mixed> $parameters */
     public function execute(
@@ -386,17 +393,11 @@ final class Day32SqlSpy implements SqlConnection
             ?? new SqlResult([], 0);
     }
 
-    public function beginTransaction(): void
-    {
-    }
+    public function beginTransaction(): void {}
 
-    public function commit(): void
-    {
-    }
+    public function commit(): void {}
 
-    public function rollBack(): void
-    {
-    }
+    public function rollBack(): void {}
 
     public function inTransaction(): bool
     {

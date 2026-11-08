@@ -9,6 +9,8 @@ use Careminate\Http\Request;
 use Careminate\Http\Response;
 use Careminate\Http\Runtime\HttpRunner;
 use Careminate\Http\ServerRequestFactory;
+use Careminate\Session\SessionCookieConfig;
+use Careminate\Session\SessionManager;
 
 $root = dirname(__DIR__, 2);
 
@@ -70,6 +72,127 @@ $kernel->router()->get(
     },
     name: 'diagnostics.session',
 );
+
+$probeSessions = new SessionManager(
+    new SessionCookieConfig(
+        secure: false,
+        httpOnly: true,
+        sameSite: 'Lax',
+    ),
+);
+
+// Create a diagnostic identity.
+$kernel->router()->add(
+    'POST',
+    '/__session_probe_login',
+    static function (Request $request) use (
+        $probeSessions
+    ): Response {
+        $probeSessions->rotateForAuthentication();
+
+        $probeSessions->set(
+            'probe_user',
+            'diagnostic-user'
+        );
+
+        return new Response(
+            200,
+            [
+                'Content-Type' => 'application/json',
+                'Cache-Control' => 'no-store',
+            ],
+            '{"authenticated":true}'
+        );
+    },
+    name: 'diagnostics.session.login',
+);
+
+// Check whether the diagnostic identity exists.
+$kernel->router()->get(
+    '/__session_probe_identity',
+    static function (Request $request) use (
+        $probeSessions
+    ): Response {
+        $authenticated = $probeSessions->get(
+            'probe_user'
+        ) === 'diagnostic-user';
+
+        return new Response(
+            200,
+            [
+                'Content-Type' => 'application/json',
+                'Cache-Control' => 'no-store',
+            ],
+            json_encode(
+                ['authenticated' => $authenticated],
+                JSON_THROW_ON_ERROR
+            )
+        );
+    },
+    name: 'diagnostics.session.identity',
+);
+
+// Log out using the actual SessionManager.
+$kernel->router()->add(
+    'POST',
+    '/__session_probe_logout',
+    static function (Request $request) use (
+        $probeSessions
+    ): Response {
+        $probeSessions->logout();
+
+        return new Response(
+            200,
+            [
+                'Content-Type' => 'application/json',
+                'Cache-Control' => 'no-store',
+            ],
+            '{"logged_out":true}'
+        );
+    },
+    name: 'diagnostics.session.logout',
+);
+
+$kernel->router()->get(
+    '/__session_probe_failure',
+    static function (Request $request): Response {
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            throw new RuntimeException(
+                'Session was not started before handler execution.'
+            );
+        }
+
+        $_SESSION['probe_before_failure'] = 'persisted';
+
+        throw new RuntimeException(
+            'Intentional session diagnostic failure.'
+        );
+    },
+    name: 'diagnostics.session.failure',
+);
+
+$kernel->router()->get(
+    '/__session_probe_recovery',
+    static function (Request $request): Response {
+        $recovered = (
+            $_SESSION['probe_before_failure'] ?? null
+        ) === 'persisted';
+
+        return new Response(
+            200,
+            [
+                'Content-Type' => 'application/json',
+                'Cache-Control' => 'no-store',
+            ],
+            json_encode(
+                ['recovered' => $recovered],
+                JSON_THROW_ON_ERROR
+            )
+        );
+    },
+    name: 'diagnostics.session.recovery',
+);
+
 
 $runner = new HttpRunner(
     new ServerRequestFactory(),

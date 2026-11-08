@@ -5,8 +5,11 @@ declare(strict_types=1);
 use Careminate\Config\Configuration;
 use Careminate\Foundation\Application;
 use Careminate\Http\Kernel;
+use Careminate\Http\Middleware\CsrfMiddleware;
 use Careminate\Http\Middleware\SessionMiddleware;
+use Careminate\Http\Request;
 use Careminate\Http\Routing\Router;
+use Careminate\Security\CsrfTokenManager;
 use Careminate\Session\SessionCookieConfig;
 use Careminate\Session\SessionManager;
 
@@ -69,6 +72,20 @@ $sessionManager = new SessionManager(
 
 $kernel->middleware(
     new SessionMiddleware($sessionManager)
+);
+
+$csrfTokens = new CsrfTokenManager(
+    $sessionManager
+);
+
+$kernel->middleware(
+    new CsrfMiddleware(
+        $csrfTokens,
+        isExempt: static function (Request $request): bool {
+            return $request->method === 'POST'
+                && $request->path() === '/api/echo';
+        },
+    )
 );
 
 return $kernel;

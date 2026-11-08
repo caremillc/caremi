@@ -9,6 +9,7 @@
         form: form,
         action: '/tasks/' ~ (task.id|url_encode),
         submitLabel: 'Save changes',
-        editing: true
+        editing: true,
+        csrf_token: csrf_token
     } only %}
 {% endblock %}

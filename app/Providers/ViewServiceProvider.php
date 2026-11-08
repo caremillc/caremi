@@ -7,6 +7,7 @@ namespace App\Providers;
 use App\View\TaskViews;
 use Careminate\Container\Container;
 use Careminate\Foundation\ServiceProvider;
+use Careminate\Security\CsrfTokenManager;
 use LogicException;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
@@ -19,7 +20,7 @@ final class ViewServiceProvider implements ServiceProvider
 
         $container->singleton(
             Environment::class,
-            static fn (Container $container): Environment => new Environment(
+            static fn(Container $container): Environment => new Environment(
                 new FilesystemLoader($directory),
                 [
                     'autoescape' => 'html',
@@ -40,7 +41,20 @@ final class ViewServiceProvider implements ServiceProvider
                     );
                 }
 
-                return new TaskViews($renderer);
+                return new TaskViews(
+                    $renderer,
+                    static function () use ($container): string {
+                        $csrf = $container->get(CsrfTokenManager::class);
+
+                        if (! $csrf instanceof CsrfTokenManager) {
+                            throw new LogicException(
+                                'CSRF token manager unavailable.'
+                            );
+                        }
+
+                        return $csrf->token();
+                    },
+                );
             },
         );
     }

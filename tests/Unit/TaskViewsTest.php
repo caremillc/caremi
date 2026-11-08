@@ -12,7 +12,6 @@ use Careminate\Container\Container;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use Twig\Environment;
-use Twig\Loader\FilesystemLoader;
 
 final class TaskViewsTest extends TestCase
 {
@@ -196,16 +195,8 @@ final class TaskViewsTest extends TestCase
     private static function views(): TaskViews
     {
         return new TaskViews(
-            new Environment(
-                new FilesystemLoader(
-                    dirname(__DIR__, 2) . '/resources/views',
-                ),
-                [
-                    'autoescape' => 'html',
-                    'strict_variables' => true,
-                    'cache' => false,
-                ],
-            ),
+            $twig,
+            static fn (): string => str_repeat('a', 64),
         );
     }
 

@@ -7,15 +7,21 @@ namespace App\View;
 use App\Persistence\Task;
 use App\Persistence\TaskPage;
 use Careminate\Http\Response;
+use Closure;
 use InvalidArgumentException;
 use Twig\Environment;
 
 final readonly class TaskViews
 {
+
+    /**
+     * @param Closure(): string $csrfTokenProvider
+     */
     public function __construct(
         private Environment $twig,
-    ) {
-    }
+        private Closure $csrfTokenProvider,
+    ) {}
+
 
     public function list(
         TaskPage $page,
@@ -76,17 +82,23 @@ final readonly class TaskViews
         );
     }
 
+
+
     public function createForm(
         TaskFormData $form,
     ): Response {
         return $this->formHtml(
             $this->twig->render(
                 'tasks/create.html.twig',
-                ['form' => $form],
+                [
+                    'form' => $form,
+                    'csrf_token' => ($this->csrfTokenProvider)(),
+                ],
             ),
             $form,
         );
     }
+
 
     public function editForm(
         Task $task,
@@ -98,6 +110,7 @@ final readonly class TaskViews
                 [
                     'task' => $task,
                     'form' => $form,
+                    'csrf_token' => ($this->csrfTokenProvider)(),
                 ],
             ),
             $form,

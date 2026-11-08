@@ -1,0 +1,1 @@
+O:23:"PHPStan\Cache\CacheItem":2:{s:11:"variableKey";s:74:"v2-ace98377258317340e1dcd58b48e49c454ae6ad395e7ffe8bb929be9fc92b445-8.5.12";s:4:"data";a:3:{s:7:"classes";a:1:{s:41:"careminate\http\middleware\csrfmiddleware";b:1;}s:9:"functions";a:0:{}s:9:"constants";a:0:{}}}
