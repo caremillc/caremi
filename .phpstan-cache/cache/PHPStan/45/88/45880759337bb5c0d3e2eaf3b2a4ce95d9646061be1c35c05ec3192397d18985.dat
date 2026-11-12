@@ -1,0 +1,1 @@
+O:23:"PHPStan\Cache\CacheItem":2:{s:11:"variableKey";s:74:"v2-ce9fe3227e7f1f5df1ef00b0bcd6446707fbdd7095bbc0a2af4941659261d626-8.5.12";s:4:"data";a:3:{s:7:"classes";a:1:{s:34:"careminate\security\passwordhasher";b:1;}s:9:"functions";a:0:{}s:9:"constants";a:0:{}}}

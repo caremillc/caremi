@@ -61,31 +61,74 @@ $kernel = new Kernel(
     $router
 );
 
-// Register session middleware before application boot.
+
+
 $sessionManager = new SessionManager(
     new SessionCookieConfig(
         secure: $secureCookies,
         httpOnly: true,
-        sameSite: 'Lax'
-    )
-);
-
-$kernel->middleware(
-    new SessionMiddleware($sessionManager)
+        sameSite: 'Lax',
+    ),
 );
 
 $csrfTokens = new CsrfTokenManager(
-    $sessionManager
+    $sessionManager,
 );
 
+// Register shared instances in the application container.
+$application->container()->instance(
+    SessionManager::class,
+    $sessionManager,
+);
+
+$application->container()->instance(
+    CsrfTokenManager::class,
+    $csrfTokens,
+);
+
+// Session middleware must execute first.
+$kernel->middleware(
+    new SessionMiddleware($sessionManager),
+);
+
+// CSRF middleware runs inside the active session.
 $kernel->middleware(
     new CsrfMiddleware(
         $csrfTokens,
-        isExempt: static function (Request $request): bool {
-            return $request->method === 'POST'
-                && $request->path() === '/api/echo';
-        },
-    )
+        isExempt: static fn (Request $request): bool =>
+            $request->method === 'POST'
+            && $request->path() === '/api/echo',
+    ),
 );
 
 return $kernel;
+
+
+// // Register session middleware before application boot.
+// $sessionManager = new SessionManager(
+//     new SessionCookieConfig(
+//         secure: $secureCookies,
+//         httpOnly: true,
+//         sameSite: 'Lax'
+//     )
+// );
+
+// $kernel->middleware(
+//     new SessionMiddleware($sessionManager)
+// );
+
+// $csrfTokens = new CsrfTokenManager(
+//     $sessionManager
+// );
+
+// $kernel->middleware(
+//     new CsrfMiddleware(
+//         $csrfTokens,
+//         isExempt: static function (Request $request): bool {
+//             return $request->method === 'POST'
+//                 && $request->path() === '/api/echo';
+//         },
+//     )
+// );
+
+// return $kernel;
